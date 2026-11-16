@@ -1,164 +1,119 @@
-# B2B Product Requirement Document (PRD) — Subcontractor Operations Platform
-## Eliminating the £50M Field Operations Blind Spot for National Fiber Broadband Rollouts
+# Subcontractor Operations Platform — The ELI5 Plain-English Guide
+## How to Fix a £50,000,000 Field Operations Problem in Plain English
 
-> **Document Type:** Executive Product Requirement Document (Google Doc / PRD Format)  
+> **Document Type:** ELI5 Product Requirement Document (PRD)  
 > **Author:** Komal Agarwal  
-> **Status:** Final / Approved  
-> **Date:** November 2026  
-> **Operational Scope:** ~6,000 jobs/week | ~200 independent subcontractor firms | £50M+ annual outsourced field spend  
-> **Interactive Links:** [Live Prototype (`wireframes.html`)](./wireframes.html) | [Slide Deck (`presentation_deck.html`)](./presentation_deck.html) | [PowerPoint (`presentation_deck.pptx`)](./presentation_deck.pptx)
+> **Audience:** Anyone who wants a clear, 3-minute, jargon-free understanding of the product  
+> **Scale:** 6,000 home installs/week | 200 partner companies | £50M+ annual outsourced spend  
+> **Interactive Demo:** [Live Wireframes Prototype (`wireframes.html`)](./wireframes.html) | [Slide Deck (`presentation_deck.html`)](./presentation_deck.html)
 
 ---
 
-## Executive Summary & Key Metrics
+## 💡 1. The Story: What is Broken?
 
-A national fiber broadband operator delivers **~6,000 jobs per week**, relying on **~200 independent subcontractor firms** for 70% of field capacity (residential FTTH installs, customer premise drops, and fault repairs). 
+Imagine you run a giant broadband company. Every week, customers order fiber internet for their homes. That is **6,000 installs and repairs every single week!**
 
-Today, this £50M+ annual operation runs through an operational black box: requests travel over ad-hoc WhatsApp chats and unmonitored inboxes. Variations appear on invoices 45 days later, triggering commercial disputes, delayed payments, and technician defection to rival telecom networks.
+You don't hire all the van drivers yourself. Instead, you hire **200 outside contractor companies** to do 70% of the physical work.
 
-| Key Metric | Baseline Reality Today | Platform Target | Strategic Impact |
-|---|---|---|---|
-| **Field Volume** | 6,000 jobs / week | 6,000 jobs / week | 70% delivered by 200 partner firms |
-| **Payment Velocity** | 45–60 days | 7–14 days | -70% payment lag; stops vendor defection |
-| **Dispute Resolution** | 45+ days post-invoice | < 1.4 days (Same-day) | 4-hour decision SLA on field requests |
-| **Field Interaction** | 8–10 mins (App crashes) | < 120 seconds | 4 taps, 0 typing, 100% offline-ready |
-| **Net Operator ROI** | £1.8M dispute leakage | £1,071,200 net savings | **2.86x ROI** (Payback in < 5 months) |
-
-> **The Core Shift:** Replace unverified end-of-month commercial warfare with a **real-time, offline-first shared source of truth** linking the technician's van directly to the operator's console and self-billing payment milestones.
+### The Daily Mess Today:
+1. **The Surprise:** A technician arrives at a house. An underground pipe is crushed by tree roots. It will take 2 extra hours of digging.
+2. **The WhatsApp Chat:** The worker takes a blurry photo on WhatsApp and tells his boss, but nobody alerts the big broadband company.
+3. **The Clock Keeps Ticking:** The system thinks the worker is late and automatically fines them!
+4. **The 45-Day Fight:** 6 weeks later, a surprise bill arrives for £95 extra. The broadband company says *"We didn't approve this, so we won't pay."*
+5. **The Anger:** The contractor company gets furious. They pull their best workers and send them to your competitor instead!
 
 ---
 
-## 1. Stakeholder Personas & The Incentive Compact
+## 👥 2. Who is Fighting and Why?
 
-```
-+-------------------------------------------------------+-------------------------------------------------------+
-| OPERATOR PERSPECTIVE (Priya Sharma & David Vance)     | SUBCONTRACTOR PERSPECTIVE (Imran, Meera & Ravi)       |
-+-------------------------------------------------------+-------------------------------------------------------+
-| • Priya Sharma (Regional Ops Manager - 1,500 jobs/wk) | • Imran Khan (Firm Owner - 25 vans, £150k monthly payroll)
-| • David Vance (Vendor Commercial Manager - 200 firms) | • Meera (Dispatcher - 70 daily jobs via WhatsApp/Excel)
-|                                                       | • Ravi Patel (Field Technician - 6 yrs piece-rate tech)
-+-------------------------------------------------------+-------------------------------------------------------+
-| Core Motivation:                                      | Core Motivation:                                      |
-| High throughput, first-time fix rate, cost control    | Cash flow predictability, weekly payroll stability,   |
-| against rate cards, defensible audit trails.          | protection against arbitrary deductions, zero app pain.|
-+-------------------------------------------------------+-------------------------------------------------------+
-| Current Pain Today:                                   | Current Pain Today:                                   |
-| • Rate variations arrive as £95 surprises 4 wks late. | • Subcontractor net margin is 6%; arbitrary invoice   |
-| • Unclear if 'access failure' was real or late tech.  |   clawbacks wipe out monthly profit.                  |
-| • 2 full days monthly spent stitching CSV scorecards. | • Mobile app crashes in basements and loses photos.   |
-+-------------------------------------------------------+-------------------------------------------------------+
-| ❌ REJECTION TRIGGER:                                 | ❌ REJECTION TRIGGER:                                 |
-| "If it requires manual data re-entry or doesn't tie   | "If you charge our 6% margin a SaaS fee, or if the    |
-| directly to our dispatch pipeline, supervisors will   | app adds >2 minutes per job, we will shift our vans   |
-| ignore it completely."                                | to your competitor's network."                       |
-+-------------------------------------------------------+-------------------------------------------------------+
-```
-
-### The Three-Part Incentive Compact
-1. **Rate Variations:** Operator gets geotagged photo proof on-site  ←→  Subcontractor gets a binding 4-hour decision turnaround.
-2. **SLA Clock Pauses:** Operator prevents false access claims  ←→  Subcontractor auto-attaches GPS & timestamps to prove presence.
-3. **Platform Monetization:** Operator funds platform via leakage savings (£1.20/job)  ←→  Core platform is **100% FREE** to subcontractors.
-
----
-
-## 2. Product Solution & UX Specifications
-
-### Surface 1: Field Tech Mobile App (Android 11+, Offline-First)
-- **6-Step Fast Onboarding (<3 Minutes):** SMS invite deep link → Auto-reads OTP (binds phone to firm) → Transparent camera & location permissions → 12MB offline pack download → 45s skippable micro-tour → Ready for Job 1.
-- **Offline as Default State:** Built on local encrypted SQLite store. Every tap commits in 0ms without network spinners. Monotonic sequence IDs and GPS UTC stamps prevent duplicate actions.
-- **<120-Second Field Budget:** 4-tap complete closeout workflow, 48px+ touch targets for gloved fingers, zero mandatory free-text entry, and a live SLA countdown clock.
-- **Guided 3-Photo Closeout:**
-  1. *Optical Power Meter (OPM):* On-device OCR reads and verifies numeric reading (-18.2 dBm) within safe optical attenuation limits.
-  2. *Fusion Splice Tray:* Visual check for neat fiber routing and heat shrink protection.
-  3. *Premise Entry CSP Box:* Verifies weatherproof grommet and exterior demarcation.
-- **1-Tap Scope Mismatch Drawer:** Submits rate variation or SLA pause with automatically bound 10-minute stationary GPS and UTC timestamp.
-
-### Surface 2: Operator Web Console (Next.js / Tailwind)
-- **Firm Performance Scorecard:** Benchmarks 200 firms in real-time on SLA Hit Rate (%), First-Time Fix (% 30-day rework-free), and Dispute Rate (%). Eliminates 2 days/month of manual analyst work.
-- **Strict 4-Hour Decision SLA:** Visual countdown on paused jobs. Changes from slate to amber (2h) to red (3.5h). *Default Rule:* If the operator stalls past 4 hours, the claim automatically credits in the subcontractor's favor.
-- **Side-by-Side Adjudication Queue:** Dispatched contract scope, claimed variation diff (+£45), and raw high-res geotagged photos displayed adjacent to each other.
-- **1-Click Action Bar:** Approve (£45), Counter-Offer / Modify, Request More Info, or Reject with mandatory audit reason codes (`EVID-INSUFFICIENT`, `OUT-OF-SCOPE-PERMIT`).
-
----
-
-## 3. System Architecture & AI Governance
-
-### Degraded Modes Fallback Matrix
-| System Endpoint | Mechanism | Data Payload | Degraded Mode (System Unavailable) |
-|---|---|---|---|
-| **Operator WFM** (Siebel / Netcracker) | PULL / Webhook | Work orders, SLA clock, scope code. | **Circuit Breaker:** Serve cached jobs from Redis/Postgres; buffer updates in Kafka. |
-| **Operator GIS** (ESRI / Smallworld) | PULL / REST | DP locations, duct availability, fiber pairs. | **Static Snapshot:** Pre-cached dispatch snapshot used; flags pending check. |
-| **Operator Billing** (SAP S/4HANA) | PUSH / Webhook | Completion tokens, self-billing remittance. | **PostgreSQL Outbox:** Resilient transactional outbox retries with idempotency keys. |
-| **Weather Feed** (Tomorrow.io) | PULL / Hourly | Winds >35mph, thunderstorm alerts. | **Permissive Fallback:** Auto-allows manual tech pause; flags for spot review. |
-
-> **Enterprise Reality Check:** On Day 1, we ingest via scheduled **SFTP flat-file CSV batch drops** and export self-billing CSVs. Zero dependency on real-time synchronous SOAP/REST APIs for pilot go-live.
-
-### AI Workflow Boundaries: Scope Triage
-- **What AI Decides (Model):** OCR reads -18.2 dBm on OPM display; validates trench depth >300mm; detects duplicate/reused photos via perceptual hashing; maps condition to contract rate code (`RC-CIV-04`); generates confidence score (0–100%).
-- **What Human Decides (Vendor Manager):** Reviews pre-populated diff card in <30s; executes 100% of binding financial approval clicks; handles ambiguous edge cases; signs audit-trail event for ERP ledger.
-- **Where AI is Strictly Forbidden:**
-  1. *NO Automated Clawbacks:* Machine financial deductions destroy supplier trust and trigger lawsuits.
-  2. *NO Algorithmic De-ranking:* Banning vendors via black-box scoring breaches labor norms.
-  3. *NO Auto-Rejection:* Low confidence routes to human queue, never auto-rejected.
-
----
-
-## 4. Business Model, Unit Economics & 2.86x ROI
-
-### The Subcontractor Margin Law
-Subcontractor firms operate on paper-thin **5% to 8% net profit margins**. A 2% SaaS fee charged to them wipes out 25% to 40% of their net profit, inducing immediate defection. **The platform is 100% FREE to subcontractors.**
-
-### Commercial Structure
-- **Operator Enterprise SaaS:** £1.20 per completed job (funded by Operator) = **£374,400 ARR** across 312,000 jobs/year.
-- **Optional FinTech Fast-Pay:** Standard Net-45 settlement is always free. Optional 48-hour settlement at 1.5% dynamic discount factoring funded by banking partner.
-
-### Operator Year-1 Net ROI Waterfall
-```
-1. Dispute & Rate Leakage Savings:     +£450,000 / Yr   (Disputes drop from 8% to 2% across 312k jobs)
-2. First-Time Fix (FTF) Recovery:      +£795,600 / Yr   (FTF lifts 84% -> 87%; 9,360 avoided truck rolls @ £85)
-3. Vendor Management Admin Overhead:   +£200,000 / Yr   (4 FTEs redeployed from spreadsheet audits)
-------------------------------------------------------
-GROSS ANNUAL VALUE CREATED:            +£1,445,600 / Yr
-LESS PLATFORM COST (£1.20/job):         (£374,400) / Yr
-------------------------------------------------------
-NET ANNUAL OPERATOR SAVINGS:           +£1,071,200 / Yr  (2.86x ROI | Payback in < 5 Months)
-```
-
----
-
-## 5. Go-To-Market Rollout & 18-Month Roadmap
-
-### 4-Phase GTM Rollout (Scaling to 200 Firms in 26 Weeks)
-1. **Phase 1: Pilot (Weeks 1–6):** 3 friendly Tier-1 firms (~150 techs, 1,000 jobs/wk) in Northern region. Validates offline sync and <2 min budget. *Carrot: Guaranteed Net-7 payment.*
-2. **Phase 2: Top 25 (Weeks 7–16):** Onboard top 25 firms delivering 60% of volume. Dedicated train-the-dispatcher workshops; dispatcher portal live.
-3. **Phase 3: Long-Tail (Weeks 17–26):** Remaining 175 small outfits (3–15 techs). Self-serve onboarding via SMS deep link and 3-min video guides.
-4. **Phase 4: Mandate (Week 27+):** Billing policy update: unverified paper invoices face 60-day audit queues; platform-verified invoices bypass manual audit to pay in 7 days.
-
-### 18-Month Strategic Horizons
-- **Horizon 1 (M1–3) — Core Loop:** Offline mobile app, 4-hour operator console, rate card engine, SFTP flat-file batch drops.
-- **Horizon 2 (M4–9) — Smart Field Operations:** AI evidence OCR, predictive van stock replenishment via distributor APIs (Rexel, Graybar), automated radar weather delay shield (>35mph wind mass SLA pause).
-- **Horizon 3 (M10–18) — Network Ecosystem:** Peer-to-peer van parts exchange between non-competing crews via QR scan, predictive rework prevention, and collective purchasing consortium for van leasing, fuel cards, and fusion splicers.
-
----
-
-## 6. Live Roleplays: COO Pitch & Scathing Self-Critique
-
-### 3-Minute COO Executive Pitch Script
-> *"Good morning. You run 6,000 fiber jobs every week, with 70% delivered by 200 external partner firms. Right now, that £50 million field operation is managed through a complete blind spot between 8:00 AM dispatch and a disputed invoice arriving 45 days later.*  
-> 
-> *When a technician finds a collapsed duct or a customer no-show, requests travel over WhatsApp and email. The SLA clock keeps running, deductions feel arbitrary, and subcontractors reassign their top certified crews to your direct competitors who pay faster.*  
-> 
-> *We sit cleanly between your enterprise systems and the van without ripping and replacing your IT. Technicians get an offline-first app that captures geotagged optical power proof in under 90 seconds. Variations become same-day decisions under a strict 4-hour SLA. In return, you guarantee verified payment in 7 to 14 days, securing your labor supply.*  
-> 
-> *The Economics: £1.20 per completed job equals £374k annual platform cost. In return, you recover £1.07 million in net savings by cutting dispute leakage and avoiding 9,360 second-truck rolls. That is a 2.86x ROI in year one. Let's launch the 6-week pilot in the Northern region."*
-
-### Scathing Self-Critique & Defensive Countermeasures
-| Brutal Failure Mode (Critique) | Defensive Countermeasure |
+| The Operator (Big Broadband Boss) | The Subcontractors (The Van Crews) |
 |---|---|
-| **1. Evidence Fraud:** Techs snap random closed gates from vans to pause SLA clocks. | **Triple-Vector Telemetry Binding:** Hardware camera EXIF (blocks gallery uploads) + 10-minute continuous stationary GPS within 30m boundary + OPM OCR validation. Statistical outlier clustering flags abuse patterns. |
-| **2. Telco IT Integration Graveyard:** Waiting 18 months for legacy SOAP/WFM APIs will kill the pilot. | **Decoupled Asynchronous SFTP Architecture:** Day 1 runs on scheduled flat-file CSV batch drops of jobs and self-billing remittance outputs. Zero synchronous API dependency for launch. |
-| **3. Surveillance Backlash:** Techs strike over an 'electronic ankle monitor' tracking their movement. | **Privacy-by-Design:** Zero continuous background GPS tracking; location polled strictly at arrival and closeout taps. Bi-directional transparency: techs track the operator's decision and payment SLA clocks. |
-| **4. Vendor Manager Queue Overload:** 200 daily variation requests will break the 4-hour decision SLA. | **Tiered Algorithmic Auto-Clearance:** Micro-variations (<£25 with >95% AI confidence) auto-approve with a 10% spot audit. Active human queue drops from 200/day to fewer than 35 critical decisions per day. |
+| **What they want:** Fast installs, happy customers, no surprise charges. | **What they want:** Fast, fair pay so they can pay workers every Friday. |
+| **What annoys them:** £95 surprise bills 45 days late with blurry photos of dirt. | **What annoys them:** Making only 6% profit and losing it to unfair fines. |
+| **Rejection Trigger:** Will reject any tool that makes them re-type data by hand. | **Rejection Trigger:** Will reject any tool that charges a fee or takes >2 mins! |
+
+> **🤝 The Golden Deal:**
+> - The broadband company pays for the software because it saves them £1M+ in fake bills.
+> - **The app is 100% FREE for all subcontractors and technicians.**
+> - If workers snap clear photos on site, they get paid in **7 days instead of 45 days**.
 
 ---
-*Authored by Komal Agarwal | B2B PM Case Study Deliverable | November 2026*
+
+## 🛠️ 3. The Solution: Two Simple Tools
+
+### Tool 1: The Field Tech Mobile App (For the Van)
+- **Under 2 Minutes:** 4 simple taps on big buttons that work with thick safety gloves. Zero typing required.
+- **Works with ZERO Cell Signal:** When working in a basement with no 4G, the app saves everything safely on the phone without spinning or crashing.
+- **3 Quick Photos:**
+  1. The light meter (app reads the number automatically: `-18.2 dBm`).
+  2. The neat wire splice tray.
+  3. The outside customer wall box.
+- **1-Tap "Blocked" Button:** If a gate is locked or pipe broken, tap one button. The timer stops immediately so the worker doesn't get in trouble.
+
+### Tool 2: The Operator Web Console (For the Office)
+- **Live Company Scoreboard:** Ranks all 200 partner companies. Good performers automatically get more work!
+- **Strict 4-Hour Decision Rule:** When a worker asks for an extra payment, the manager has 4 hours to decide. If the manager ignores it, *the worker wins automatically!*
+- **Side-by-Side Photo Check:** Dispatched order on the left, extra work in the middle, verified photos on the right. 1-click to approve.
+
+---
+
+## 🤖 4. What AI Does (And What It is NEVER Allowed to Do)
+
+| ✅ What the AI Assistant Does | ❌ What AI is NEVER Allowed to Do |
+|---|---|
+| • Reads the meter numbers from photos automatically. | • **NO Automated Fines:** Robot can never take money from a worker. |
+| • Checks if trench photos are at least 30cm deep. | • **NO Automated Banning:** Robot can never fire a contractor company. |
+| • Catches duplicate photos if someone reuses an old picture. | • **100% Human Approval:** A real human manager must always click "Approve". |
+| • Matches the extra work to the correct contract pricing rule. | • **NO Auto-Rejections:** Questionable claims route to humans, never rejected. |
+
+---
+
+## 💰 5. The Simple Money Math
+
+How a £374k software investment turns into **£1,071,200 of net savings** every year:
+
+| Where the Savings Come From | What Happens Today | What Changes With the App | Net Cash Saved |
+|---|---|---|---|
+| **1. Stop Fake Surprise Bills** | Paying £24 extra on unverified claims. | Every extra charge has geotagged photo proof. | **+£450,000 / Yr** |
+| **2. Fix It Right the First Time** | 16% of jobs need a second truck visit (£85 each). | Quality checks drop second visits by 3 points. | **+£795,600 / Yr** |
+| **3. Less Office Arguing** | 6 staff members spend all day fighting emails. | 4 staff redeployed to higher value tasks. | **+£200,000 / Yr** |
+| **Gross Value Created** | — | — | **+£1,445,600 / Yr** |
+| **Software Cost (£1.20 / job)** | — | 312,000 jobs @ £1.20 | **(£374,400) / Yr** |
+| **🎉 NET ANNUAL PROFIT SAVINGS** | — | **2.86x ROI (Payback < 5 months)** | **+£1,071,200 / Yr** |
+
+> **Bottom Line:** For every **£1.00** spent on this platform, the operator gets **£2.86 back in cash savings!**
+
+---
+
+## 🚀 6. The 4-Step Rollout (No Chaos)
+
+1. **Weeks 1–6 (The Friendly Test):** Start with 3 friendly companies (150 workers) in one city. Guarantee them 7-day payment. Fix all bugs.
+2. **Weeks 7–16 (The Big Players):** Bring on the 25 biggest companies (60% of all jobs). Train their dispatchers in half-day sessions.
+3. **Weeks 17–26 (The Small Outfits):** Onboard the remaining 175 smaller companies using a 3-minute video guide and an SMS link.
+4. **Week 27+ (The Simple Rule):** Send verified photos on the app = **Get paid in 7 days**. Send paper bills = Wait in a 60-day manual audit queue.
+
+---
+
+## 🛡️ 7. The 4 Big Worries & Why We Won't Fail
+
+1. **"What if technicians snap fake photos from their van window?"**  
+   *The Fix:* The app verifies the van was parked outside the house for at least 10 minutes, checks GPS coordinates, and blocks saved photos from the phone's gallery.
+2. **"What if enterprise IT takes 2 years to connect?"**  
+   *The Fix:* We don't wait for IT! On Day 1, we import and export simple scheduled spreadsheet files (CSV via SFTP). It works immediately.
+3. **"What if workers think it's a spy tracker?"**  
+   *The Fix:* Zero background tracking! The app only checks GPS for 1 second when the tech taps "Arrived" and "Done". It respects their privacy.
+4. **"What if the office gets flooded with 200 requests every day?"**  
+   *The Fix:* Small claims under £25 with high confidence get auto-approved with a 10% random audit. Humans only review the ~30 big ones each day.
+
+---
+
+## 🎙️ 8. The 30-Second Pitch to the Big Boss
+
+> *"Right now, we spend £50 million on outside contractors, but we manage them through WhatsApp and 45-day delayed bills.*  
+> 
+> *We are giving them an offline phone app that takes 90 seconds to use, and giving our team a live console with a 4-hour answer guarantee.*  
+> 
+> *It costs £1.20 per job, stops £1.07 million in waste, and gets our partners paid in 7 days so they stop defecting to our rivals. It pays for itself in under 5 months. Let's start the 6-week test."*
+
+---
+*Authored by Komal Agarwal | ELI5 Product Requirement Document | November 2026*

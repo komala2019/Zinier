@@ -6,151 +6,147 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>B2B PM Case Study — Subcontractor Operations Platform</title>
+  <title>ELI5 Guide — Subcontractor Operations Platform</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Google Docs Typography & Page Layout */
+    /* Google Docs Style */
     body {
-      background-color: #f8f9fa;
-      font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif;
-      color: #202124;
+      background-color: #f0f4f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #1f1f1f;
       margin: 0;
       padding: 0;
     }
     .doc-page {
       background: #ffffff;
       width: 100%;
-      max-width: 850px;
+      max-width: 820px;
       margin: 24px auto;
-      padding: 56px 64px;
-      box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
-      border-radius: 2px;
-      line-height: 1.6;
-      font-size: 13.5px;
+      padding: 48px 56px;
+      box-shadow: 0 1px 3px rgba(60,64,67,0.15), 0 4px 8px rgba(60,64,67,0.1);
+      border-radius: 4px;
+      line-height: 1.65;
+      font-size: 14.5px;
     }
-    .doc-page h1 {
+    h1 {
       font-size: 24px;
-      font-weight: 700;
+      font-weight: 800;
       color: #1a73e8;
       margin-top: 28px;
       margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid #edf2f7;
       padding-bottom: 6px;
-      border-bottom: 2px solid #e8eaed;
-      letter-spacing: -0.01em;
     }
-    .doc-page h2 {
-      font-size: 17px;
+    h2 {
+      font-size: 18px;
       font-weight: 700;
       color: #202124;
       margin-top: 22px;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-    .doc-page h3 {
-      font-size: 14.5px;
-      font-weight: 700;
-      color: #3c4043;
-      margin-top: 16px;
-      margin-bottom: 6px;
-    }
-    .doc-page p {
       margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 12px;
       color: #3c4043;
     }
-    .doc-page ul, .doc-page ol {
-      margin-left: 20px;
-      margin-bottom: 10px;
-      color: #3c4043;
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0;
     }
-    .doc-page li {
-      margin-bottom: 4px;
+    .card-blue {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0;
+      color: #1e40af;
     }
-    .doc-table {
+    .card-green {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0;
+      color: #166534;
+    }
+    .card-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0;
+      color: #92400e;
+    }
+    .card-rose {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0;
+      color: #9f1239;
+    }
+    .eli5-table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       margin: 14px 0;
-      font-size: 12.5px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 13.5px;
     }
-    .doc-table th {
-      background-color: #f1f3f4;
-      color: #202124;
+    .eli5-table th {
+      background-color: #f1f5f9;
+      color: #0f172a;
       text-align: left;
-      padding: 8px 12px;
-      border: 1px solid #dadce0;
+      padding: 10px 14px;
       font-weight: 700;
+      border-bottom: 1px solid #e2e8f0;
     }
-    .doc-table td {
-      padding: 7px 12px;
-      border: 1px solid #dadce0;
-      color: #3c4043;
+    .eli5-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #334155;
     }
-    .doc-table tr:nth-child(even) {
-      background-color: #f8f9fa;
+    .eli5-table tr:last-child td {
+      border-bottom: none;
     }
-    .callout {
-      border-left: 4px solid #1a73e8;
-      background-color: #e8f0fe;
-      padding: 12px 16px;
-      border-radius: 0 8px 8px 0;
-      margin: 14px 0;
-      font-size: 12.5px;
-      color: #174ea6;
-    }
-    .callout-amber {
-      border-left: 4px solid #f9ab00;
-      background-color: #fef7e0;
-      padding: 12px 16px;
-      border-radius: 0 8px 8px 0;
-      margin: 14px 0;
-      font-size: 12.5px;
-      color: #b06000;
-    }
-    .callout-green {
-      border-left: 4px solid #1e8e3e;
-      background-color: #e6f4ea;
-      padding: 12px 16px;
-      border-radius: 0 8px 8px 0;
-      margin: 14px 0;
-      font-size: 12.5px;
-      color: #137333;
-    }
-    .page-divider {
-      border-top: 1px dashed #dadce0;
-      margin: 36px 0;
-      position: relative;
-    }
-    .page-divider::after {
-      content: "Page Break";
-      position: absolute;
-      top: -10px;
-      right: 0;
-      background: #f8f9fa;
-      padding: 0 8px;
-      font-size: 10px;
-      color: #80868b;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1a73e8;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 13px;
+      margin-right: 8px;
+      flex-shrink: 0;
     }
     @media print {
       body { background: white; }
       .no-print { display: none !important; }
       .doc-page { box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
-      .page-divider { page-break-after: always; border: none; }
-      .page-divider::after { display: none; }
     }
   </style>
 </head>
 <body>
 
   <!-- ========================================================================= -->
-  <!-- GOOGLE DOCS HEADER / MENU BAR                                             -->
+  <!-- GOOGLE DOCS TOP BAR                                                       -->
   <!-- ========================================================================= -->
   <header class="bg-white border-b border-[#dadce0] sticky top-0 z-50 no-print">
-    <!-- Top Doc Title Bar -->
-    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <!-- Docs Blue Icon -->
-        <a href="index.html" title="Go to Project Hub" class="flex-shrink-0">
+        <!-- Google Docs Blue Icon -->
+        <a href="index.html" class="flex-shrink-0" title="Project Portal">
           <svg class="w-9 h-9" viewBox="0 0 36 36" fill="none">
             <path d="M22 2H9C7.9 2 7 2.9 7 4V32C7 33.1 7.9 34 9 34H27C28.1 34 29 33.1 29 32V9L22 2Z" fill="#4285F4"/>
             <path d="M22 2V9H29L22 2Z" fill="#A1C2FA"/>
@@ -162,470 +158,361 @@
 
         <div>
           <div class="flex items-center gap-2">
-            <span class="font-bold text-[15px] text-[#202124] hover:bg-gray-100 px-1.5 py-0.5 rounded cursor-pointer">
-              B2B PM Case Study — Subcontractor Operations Platform
+            <span class="font-bold text-base text-[#202124]">
+              Subcontractor Operations Platform (ELI5 Plain-English Guide)
             </span>
-            <span class="text-xs text-gray-500 hidden sm:inline flex items-center gap-1">
-              <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Saved to GitHub
-            </span>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Easy to Read</span>
           </div>
-
-          <!-- Menu Bar Simulation -->
-          <div class="flex items-center gap-3 text-xs text-[#444746] pt-0.5 select-none hidden md:flex">
-            <span class="hover:bg-gray-100 px-1.5 py-0.5 rounded cursor-pointer">File</span>
-            <span class="hover:bg-gray-100 px-1.5 py-0.5 rounded cursor-pointer">Edit</span>
-            <span class="hover:bg-gray-100 px-1.5 py-0.5 rounded cursor-pointer">View</span>
-            <span class="hover:bg-gray-100 px-1.5 py-0.5 rounded cursor-pointer">Tools</span>
-            <a href="wireframes.html" class="text-blue-600 font-semibold hover:underline px-1.5 py-0.5">Wireframes Prototype</a>
-            <a href="presentation_deck.html" class="text-blue-600 font-semibold hover:underline px-1.5 py-0.5">Slide Deck</a>
-            <a href="presentation_deck.pptx" download class="text-blue-600 font-semibold hover:underline px-1.5 py-0.5">Download PPTX</a>
+          <div class="flex items-center gap-3 text-xs text-[#5f6368] pt-0.5">
+            <span>Author: Komal Agarwal</span>
+            <span>•</span>
+            <a href="wireframes.html" class="text-blue-600 font-semibold hover:underline">Interactive Wireframes</a>
+            <span>•</span>
+            <a href="presentation_deck.html" class="text-blue-600 font-semibold hover:underline">Slide Deck</a>
+            <span>•</span>
+            <a href="presentation_deck.pptx" download class="text-blue-600 font-semibold hover:underline">Download PPTX</a>
           </div>
         </div>
       </div>
 
-      <!-- Action Buttons -->
       <div class="flex items-center gap-2">
-        <button onclick="window.print()" class="p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors" title="Print / Save as PDF">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        <button onclick="window.print()" class="px-3 py-1.5 border border-gray-300 rounded-md text-xs font-semibold hover:bg-gray-50 flex items-center gap-1.5 text-gray-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Print / PDF
         </button>
-
-        <a href="https://github.com/komala2019/Zinier" target="_blank" class="px-4 py-1.5 bg-[#1a73e8] hover:bg-[#1557b0] text-white text-xs font-semibold rounded-full shadow-sm flex items-center gap-1.5 transition-all">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+        <a href="https://github.com/komala2019/Zinier" target="_blank" class="px-3.5 py-1.5 bg-[#1a73e8] text-white rounded-md text-xs font-bold hover:bg-[#1557b0] shadow-sm">
           GitHub Repo
         </a>
-      </div>
-    </div>
-
-    <!-- Docs Secondary Formatting Bar -->
-    <div class="bg-[#edf2fa] border-t border-[#dadce0] px-4 py-1.5 flex items-center gap-3 text-xs text-[#444746] overflow-x-auto">
-      <span class="font-medium bg-white px-2 py-0.5 rounded border border-[#dadce0]">Arial</span>
-      <span class="font-medium bg-white px-2 py-0.5 rounded border border-[#dadce0]">11 pt</span>
-      <div class="h-4 w-px bg-gray-300"></div>
-      <button class="font-bold hover:bg-gray-200 px-1.5 py-0.5 rounded">B</button>
-      <button class="italic hover:bg-gray-200 px-1.5 py-0.5 rounded">I</button>
-      <button class="underline hover:bg-gray-200 px-1.5 py-0.5 rounded">U</button>
-      <div class="h-4 w-px bg-gray-300"></div>
-      <span class="text-xs text-gray-500">Executive Summary Mode · Clean PRD View</span>
-      <div class="ml-auto flex items-center gap-2">
-        <a href="wireframes.html" class="text-blue-700 bg-blue-100 hover:bg-blue-200 px-2 py-0.5 rounded font-medium">⚡ Open Wireframes</a>
-        <a href="presentation_deck.html" class="text-amber-800 bg-amber-100 hover:bg-amber-200 px-2 py-0.5 rounded font-medium">📊 View Slide Deck</a>
       </div>
     </div>
   </header>
 
   <!-- ========================================================================= -->
-  <!-- GOOGLE DOC SHEET CONTAINER (850px standard page)                          -->
+  <!-- GOOGLE DOC PAGE CONTAINER                                                 -->
   <!-- ========================================================================= -->
   <main class="doc-page">
 
-    <!-- Document Header & Meta -->
-    <div class="border-b-2 border-gray-100 pb-5 mb-6">
-      <div class="text-[11px] font-bold text-[#1a73e8] uppercase tracking-wider mb-1">Product Requirement Document (PRD) · B2B Assignment</div>
-      <h1 style="border:none; margin:0; padding:0; font-size:26px; color:#202124;">
-        Subcontractor Operations Platform
+    <!-- Header Block -->
+    <div class="border-b border-gray-200 pb-4 mb-6">
+      <span class="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-2.5 py-1 rounded-md">ELI5 Product Breakdown</span>
+      <h1 style="border:none; margin: 8px 0 4px 0; font-size: 26px; color: #1e293b;">
+        How to Fix a £50,000,000 Internet Problem in Plain English
       </h1>
-      <p class="text-[13px] text-gray-500 mt-1 mb-3">
-        Eliminating the £50M Field Operations Blind Spot for National Fiber Broadband Rollouts
+      <p class="text-sm text-gray-600 mb-2">
+        A simple, jargon-free guide to fixing broken communications between a giant broadband operator and 200 partner companies.
       </p>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-[11.5px] text-gray-600 bg-gray-50 p-3 rounded border border-gray-200">
-        <div><strong class="text-gray-900">Author:</strong> Komal Agarwal</div>
-        <div><strong class="text-gray-900">Status:</strong> Final / Approved</div>
-        <div><strong class="text-gray-900">Weekly Jobs:</strong> ~6,000 / week</div>
-        <div><strong class="text-gray-900">Partners:</strong> ~200 Subcontractor Firms</div>
-      </div>
-    </div>
-
-    <!-- Quick Navigation Callout -->
-    <div class="callout no-print flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-      <div>
-        <strong>Interactive Deliverables:</strong> Test the live UI or download the executive slide deck.
-      </div>
-      <div class="flex items-center gap-2 flex-shrink-0">
-        <a href="wireframes.html" class="px-2.5 py-1 bg-[#1a73e8] text-white rounded font-bold text-xs hover:bg-[#1557b0]">Interactive Wireframes →</a>
-        <a href="presentation_deck.pptx" download class="px-2.5 py-1 bg-white border border-[#dadce0] text-gray-800 rounded font-semibold text-xs hover:bg-gray-100">Download .pptx</a>
+      <!-- 4 Quick Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-3">
+        <div class="p-2.5 bg-blue-50 rounded-lg text-center border border-blue-100">
+          <div class="text-lg font-black text-blue-600">6,000</div>
+          <div class="text-[11px] text-gray-600 font-medium">Home visits / week</div>
+        </div>
+        <div class="p-2.5 bg-rose-50 rounded-lg text-center border border-rose-100">
+          <div class="text-lg font-black text-rose-600">45 Days</div>
+          <div class="text-[11px] text-gray-600 font-medium">Old payment wait</div>
+        </div>
+        <div class="p-2.5 bg-emerald-50 rounded-lg text-center border border-emerald-100">
+          <div class="text-lg font-black text-emerald-600">&lt; 2 Mins</div>
+          <div class="text-[11px] text-gray-600 font-medium">App time per job</div>
+        </div>
+        <div class="p-2.5 bg-amber-50 rounded-lg text-center border border-amber-100">
+          <div class="text-lg font-black text-amber-600">£1.07M</div>
+          <div class="text-[11px] text-gray-600 font-medium">Net savings / year</div>
+        </div>
       </div>
     </div>
 
     <!-- ======================================================================= -->
-    <!-- SECTION 1: EXECUTIVE SUMMARY                                            -->
+    <!-- SECTION 1: THE STORY (WHAT IS BROKEN?)                                   -->
     <!-- ======================================================================= -->
-    <h1>1. Executive Summary & The £50M Blind Spot</h1>
+    <h1>💡 1. The Story: What is Broken?</h1>
     <p>
-      A national fiber broadband operator delivers <strong>~6,000 jobs per week</strong>, relying on <strong>~200 independent subcontractor firms</strong> for 70% of field capacity (residential FTTH installs, customer premise drops, and fault repairs). 
+      Imagine you run a giant broadband company. Every week, people order high-speed internet for their homes. That is <strong>6,000 installs and repairs every week!</strong>
     </p>
     <p>
-      Today, the interface between operator and external partners is a complete black box: requests travel over ad-hoc WhatsApp chats and unmonitored inboxes. Variations appear on invoices 45 days later, triggering commercial disputes, delayed payments, and technician defection to rival telecom networks.
+      You don't employ all the van drivers yourself. Instead, you hire <strong>200 outside contractor companies</strong> to do 70% of the physical work.
     </p>
 
-    <!-- 4 Key Numbers Grid -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4">
-      <div class="p-3 bg-blue-50 border border-blue-200 rounded text-center">
-        <div class="text-xl font-bold text-blue-700">6,000 / Wk</div>
-        <div class="text-[11px] font-semibold text-gray-700 mt-0.5">Field Scale</div>
-        <div class="text-[10px] text-gray-500">70% outsourced to 200 firms</div>
-      </div>
-
-      <div class="p-3 bg-rose-50 border border-rose-200 rounded text-center">
-        <div class="text-xl font-bold text-rose-700">45–60 Days</div>
-        <div class="text-[11px] font-semibold text-gray-700 mt-0.5">Payment Lag Today</div>
-        <div class="text-[10px] text-gray-500">Accelerated to 7–14 days</div>
-      </div>
-
-      <div class="p-3 bg-amber-50 border border-amber-200 rounded text-center">
-        <div class="text-xl font-bold text-amber-700">&lt; 120s</div>
-        <div class="text-[11px] font-semibold text-gray-700 mt-0.5">Field Friction Budget</div>
-        <div class="text-[10px] text-gray-500">4 taps, zero mandatory typing</div>
-      </div>
-
-      <div class="p-3 bg-green-50 border border-green-200 rounded text-center">
-        <div class="text-xl font-bold text-green-700">£1.07M / Yr</div>
-        <div class="text-[11px] font-semibold text-gray-700 mt-0.5">Net Value (2.86x ROI)</div>
-        <div class="text-[10px] text-gray-500">Payback in &lt; 5 months</div>
-      </div>
-    </div>
-
-    <div class="callout-green">
-      <strong>The Core Shift:</strong> Replace unverified end-of-month commercial warfare with a <strong>real-time, offline-first shared source of truth</strong> linking the technician's van directly to the operator's console and self-billing payment milestones.
-    </div>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 2: PERSONAS & INCENTIVE COMPACT                                  -->
-    <!-- ======================================================================= -->
-    <h1>2. Personas & Incentive Alignment</h1>
-    <p>
-      Product success requires resolving the structural reasons each stakeholder would reject the platform:
-    </p>
-
-    <table class="doc-table">
-      <thead>
-        <tr>
-          <th style="width: 20%;">Persona</th>
-          <th style="width: 25%;">Primary Motivation</th>
-          <th style="width: 25%;">Current Pain</th>
-          <th style="width: 30%;">Rejection Trigger (Avoided)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Priya Sharma</strong><br><span class="text-[11px] text-gray-500">Operator Regional Mgr (1,500 jobs/wk)</span></td>
-          <td>Install velocity, first-time fix rate, territory capacity.</td>
-          <td>Only gets weekly CSV rollups; no proof if 'access failure' was legitimate.</td>
-          <td><span class="text-rose-700 font-semibold">Rejects if:</span> Adds manual duplicate data entry without cutting rework or dispute time.</td>
-        </tr>
-        <tr>
-          <td><strong>David Vance</strong><br><span class="text-[11px] text-gray-500">Operator Vendor Mgr (200 partner firms)</span></td>
-          <td>Cost governance against contract rate cards, SLA auditability.</td>
-          <td>£95 variation claims arrive 4 wks late with blurry photos; arbitrary deductions trigger disputes.</td>
-          <td><span class="text-rose-700 font-semibold">Rejects if:</span> Lacks contemporaneous evidence or forces unilateral MSA changes.</td>
-        </tr>
-        <tr>
-          <td><strong>Imran Khan & Meera</strong><br><span class="text-[11px] text-gray-500">Subcontractor Owner & Dispatcher</span></td>
-          <td>Weekly technician payroll, cash flow, van stock utilization.</td>
-          <td>Operates on <strong>6% net profit</strong>; £15k arbitrary penalty clawbacks wipe out monthly profit.</td>
-          <td><span class="text-rose-700 font-semibold">Rejects if:</span> Charged a SaaS fee that eats their margin, or exposes rival telco work.</td>
-        </tr>
-        <tr>
-          <td><strong>Ravi Patel</strong><br><span class="text-[11px] text-gray-500">Field Technician (Piece-Rate Worker)</span></td>
-          <td>Rapid job completion, piece-rate earnings, clock protection.</td>
-          <td>App crashes in basements; typing with cold, dirty gloves; blamed for access blocks.</td>
-          <td><span class="text-rose-700 font-semibold">Rejects if:</span> Adds >2 minutes per job, or fails to work without 4G signal.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="callout-amber">
-      <strong>The Incentive Compact:</strong>
-      <ol class="mt-1 mb-0 space-y-1">
-        <li><strong>Rate Variations:</strong> Operator gets geotagged photo proof on-site  ←→  Subcontractor gets a binding 4-hour decision turnaround.</li>
-        <li><strong>SLA Clock Pauses:</strong> Operator prevents false access claims  ←→  Subcontractor auto-attaches GPS & timestamps to prove presence.</li>
-        <li><strong>Platform Monetization:</strong> Operator funds platform via leakage savings (£1.20/job)  ←→  Core platform is <strong>100% FREE</strong> to subcontractors.</li>
+    <div class="card-rose">
+      <h3 class="font-bold text-rose-900 text-sm mb-1">🛑 The Daily Mess Today:</h3>
+      <ol class="list-decimal pl-5 space-y-1 text-sm text-rose-950">
+        <li><strong>The Surprise:</strong> A technician arrives at a house. The underground pipe is crushed by tree roots. It will take 2 extra hours of digging.</li>
+        <li><strong>The WhatsApp Chat:</strong> The worker takes a blurry photo on WhatsApp and tells his boss, but nobody alerts the big broadband company.</li>
+        <li><strong>The Clock Keeps Ticking:</strong> The system thinks the worker is late and automatically fines them!</li>
+        <li><strong>The 45-Day Fight:</strong> 6 weeks later, a surprise bill arrives for £95 extra. The broadband company says <em>"We didn't approve this, so we won't pay."</em></li>
+        <li><strong>The Anger:</strong> The contractor company gets furious. They pull their best workers and send them to your competitor instead!</li>
       </ol>
     </div>
 
-    <div class="page-divider"></div>
-
     <!-- ======================================================================= -->
-    <!-- SECTION 3: PRODUCT SOLUTION & WIREFRAME SPECIFICATIONS                  -->
+    <!-- SECTION 2: WHO IS FIGHTING?                                             -->
     <!-- ======================================================================= -->
-    <h1>3. Product Solution & UX Architecture</h1>
+    <h1>👥 2. Who is Fighting and Why?</h1>
     <p>
-      The platform consists of two specialized surfaces connected to a synchronized state machine:
+      Both sides are actually good people who just want to do their jobs, but the current tools make them fight:
     </p>
 
-    <h2>Surface 1: Field Tech Mobile App (Android 11+, Offline-First)</h2>
-    <ul class="space-y-1">
-      <li><strong>6-Step Fast Onboarding (&lt;3 Minutes):</strong> SMS deep link → Auto-reads OTP (binds phone to firm) → Transparent camera & location permissions → 12MB offline pack download → 45s skippable tour → Ready for Job 1.</li>
-      <li><strong>Offline as Default State:</strong> Built on local encrypted SQLite store. Every tap commits in 0ms without network spinners. Monotonic sequence IDs and GPS UTC stamps prevent duplicate actions.</li>
-      <li><strong>&lt;120-Second Field Budget:</strong> 4-tap workflow, 48px+ touch targets for gloved fingers, zero mandatory free-text entry, and a live SLA countdown clock.</li>
-      <li><strong>Guided 3-Photo Closeout:</strong>
-        <ol class="mt-1 mb-0">
-          <li><em>Optical Power Meter (OPM):</em> On-device OCR verifies numeric reading (-18.2 dBm) within safe optical attenuation limits.</li>
-          <li><em>Fusion Splice Tray:</em> Visual check for neat fiber routing and heat shrink protection.</li>
-          <li><em>Premise Entry CSP Box:</em> Verifies weatherproof grommet and exterior demarcation.</li>
-        </ol>
-      </li>
-      <li><strong>1-Tap Scope Mismatch Drawer:</strong> Submits rate variation or SLA pause with automatically bound 10-minute stationary GPS and UTC timestamp.</li>
-    </ul>
-
-    <h2>Surface 2: Operator Web Console (Next.js / Tailwind)</h2>
-    <ul class="space-y-1">
-      <li><strong>Firm Performance Scorecard:</strong> Benchmarks 200 firms in real-time on SLA Hit Rate (%), First-Time Fix (% 30-day rework-free), and Dispute Rate (%). Eliminates 2 days/month of manual analyst work.</li>
-      <li><strong>Strict 4-Hour Decision SLA:</strong> Visual countdown on paused jobs. Changes from slate to amber (2h) to red (3.5h). <em>Default Rule:</em> If the operator stalls past 4 hours, the claim automatically credits in the subcontractor's favor.</li>
-      <li><strong>Side-by-Side Adjudication Queue:</strong> Dispatched contract scope, claimed variation diff (+£45), and raw high-res geotagged photos displayed adjacent to each other.</li>
-      <li><strong>1-Click Action Bar:</strong> Approve (£45), Counter-Offer / Modify, Request More Info, or Reject with mandatory audit reason codes (<code>EVID-INSUFFICIENT</code>, <code>OUT-OF-SCOPE-PERMIT</code>).</li>
-    </ul>
-
-    <div class="my-4 p-3 bg-gray-50 border border-gray-300 rounded text-xs font-mono text-gray-700 leading-snug">
-      <strong>Wireframe Screen Architecture (Test live in wireframes.html):</strong><br>
-      • Screen 1: Daily Job Queue + Offline SQLite Outbox Pill<br>
-      • Screen 2: Guided Photo Capture (OPM OCR dBm check + Splice Tray)<br>
-      • Screen 3: 1-Tap Request Drawer (Rate variation / SLA clock pause)<br>
-      • Console: Scorecard + 4-Hour Adjudication Split Workspace
-    </div>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 4: SYSTEM ARCHITECTURE & AI TRIAGE                              -->
-    <!-- ======================================================================= -->
-    <h1>4. System Architecture & AI Governance</h1>
-
-    <h2>Decoupled Resilience & Degraded Modes</h2>
-    <p>
-      National telco IT is notoriously slow to integrate. The platform decouples launch from legacy enterprise IT schedules:
-    </p>
-
-    <table class="doc-table">
-      <thead>
-        <tr>
-          <th>System Endpoint</th>
-          <th>Integration</th>
-          <th>Data Payload</th>
-          <th>Degraded Mode Behavior (Downtime Fallback)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Operator WFM</strong> (Siebel / Netcracker)</td>
-          <td>PULL / Webhook</td>
-          <td>Daily work orders, target SLA, scope code.</td>
-          <td><strong>Circuit Breaker:</strong> Serve cached jobs from Redis/Postgres; buffer updates in Kafka.</td>
-        </tr>
-        <tr>
-          <td><strong>Operator GIS</strong> (ESRI / Smallworld)</td>
-          <td>PULL / REST</td>
-          <td>DP location, duct availability, fiber pair.</td>
-          <td><strong>Static Snapshot:</strong> Uses pre-cached dispatch snapshot; flags pending check.</td>
-        </tr>
-        <tr>
-          <td><strong>Operator Billing</strong> (SAP S/4HANA)</td>
-          <td>PUSH / Webhook</td>
-          <td>Approved completion tokens, self-billing advice.</td>
-          <td><strong>PostgreSQL Outbox:</strong> Resilient outbox retries with idempotency keys.</td>
-        </tr>
-        <tr>
-          <td><strong>Weather Feed</strong> (Tomorrow.io)</td>
-          <td>PULL / Hourly</td>
-          <td>Winds >35mph, lightning alerts.</td>
-          <td><strong>Permissive Fallback:</strong> Auto-allows manual tech pause; flags for spot review.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p class="text-xs text-gray-600 italic">
-      *Day 1 Pragmatic Ingestion: On Day 1, we ingest via scheduled <strong>SFTP flat-file CSV batch drops</strong>, avoiding 12-month telco IT API development delays.
-    </p>
-
-    <h2>AI Workflow: Scope Triage & Rate Variations</h2>
-    <p>
-      Computer vision and LLMs synthesize evidence—while keeping financial liability 100% in human hands.
-    </p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 my-3 text-xs">
-      <div class="p-3 bg-blue-50 border border-blue-200 rounded">
-        <strong class="text-blue-900 block mb-1">What AI Decides (Model)</strong>
-        <ul class="text-gray-700 pl-4 space-y-1 mb-0">
-          <li>• OCR reads -18.2 dBm on OPM display.</li>
-          <li>• Validates trench depth >300mm.</li>
-          <li>• Perceptual hash detects duplicate/reused photos.</li>
-          <li>• Maps condition to contract code (RC-CIV-04).</li>
-          <li>• Generates confidence score (0–100%).</li>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-3">
+      <!-- Side 1: Operator -->
+      <div class="card-blue">
+        <h3 class="font-bold text-blue-900 text-sm mb-1">🏢 The Operator (The Big Broadband Boss)</h3>
+        <ul class="text-xs space-y-1.5 text-blue-950">
+          <li>• <strong>What they want:</strong> Internet installed fast, zero customer complaints, and no fake surprise charges.</li>
+          <li>• <strong>What annoys them:</strong> Getting mystery bills 45 days late with blurry photos of dirt.</li>
+          <li>• <strong>What makes them say NO:</strong> If a tool forces them to re-type data by hand into slow spreadsheets.</li>
         </ul>
       </div>
 
-      <div class="p-3 bg-green-50 border border-green-200 rounded">
-        <strong class="text-green-900 block mb-1">What Human Decides (Approver)</strong>
-        <ul class="text-gray-700 pl-4 space-y-1 mb-0">
-          <li>• Reviews pre-populated diff in &lt;30s.</li>
-          <li>• Executes 100% of binding financial approval clicks.</li>
-          <li>• Adjudicates ambiguous edge cases.</li>
-          <li>• Modifies rate uplifts or issues counter-offers.</li>
-          <li>• Signs audit-trail event for ERP ledger.</li>
-        </ul>
-      </div>
-
-      <div class="p-3 bg-rose-50 border border-rose-200 rounded">
-        <strong class="text-rose-900 block mb-1">Where AI is Forbidden</strong>
-        <ul class="text-gray-700 pl-4 space-y-1 mb-0">
-          <li>• <strong>NO Automated Clawbacks:</strong> Machine deductions destroy trust and trigger litigation.</li>
-          <li>• <strong>NO Algorithmic De-ranking:</strong> Banning vendors via black-box scoring breaches labor norms.</li>
-          <li>• <strong>NO Auto-Rejection:</strong> Low confidence routes to human queue, never rejected.</li>
+      <!-- Side 2: Subcontractor -->
+      <div class="card-green">
+        <h3 class="font-bold text-green-900 text-sm mb-1">🚐 The Subcontractor (The Van Crews)</h3>
+        <ul class="text-xs space-y-1.5 text-green-950">
+          <li>• <strong>What they want:</strong> Fast, fair payment every week so they can pay their workers on Friday.</li>
+          <li>• <strong>What annoys them:</strong> Losing money because an app crashes in a basement or fines them for things they didn't cause.</li>
+          <li>• <strong>What makes them say NO:</strong> If you charge them a fee to use the app, or if it takes &gt;2 minutes per job!</li>
         </ul>
       </div>
     </div>
 
-    <div class="page-divider"></div>
+    <div class="card-amber text-xs">
+      <strong>🤝 The Golden Deal:</strong>
+      <br>
+      • The broadband company funds the platform (because it saves them £1M+ in fake bills).
+      <br>
+      • <strong>The app is 100% FREE for all subcontractors and technicians.</strong>
+      <br>
+      • If workers take clear photos on site, they are guaranteed payment in <strong>7 days instead of 45 days</strong>.
+    </div>
 
     <!-- ======================================================================= -->
-    <!-- SECTION 5: UNIT ECONOMICS & ROI WATERFALL                               -->
+    <!-- SECTION 3: THE TWO SIMPLE TOOLS                                         -->
     <!-- ======================================================================= -->
-    <h1>5. Business Model, Unit Economics & 2.86x ROI</h1>
-
-    <h2>The Subcontractor Margin Law</h2>
+    <h1>🛠️ 3. The Solution: Two Simple Tools</h1>
     <p>
-      Subcontractors operate on paper-thin <strong>5% to 8% net profit margins</strong>. Charging them a 2% software fee wipes out 25% to 40% of their net profit, triggering workforce defection. 
-      <strong>The core platform is 100% FREE to subcontractors and technicians.</strong>
+      We built two simple tools that talk to each other in real-time:
     </p>
 
-    <h2>Monetization Structure</h2>
-    <ul class="space-y-1">
-      <li><strong>Operator Enterprise SaaS:</strong> £1.20 per completed job (funded by Operator) = <strong>£374,400 ARR</strong> across 312,000 jobs/year.</li>
-      <li><strong>Optional FinTech Fast-Pay:</strong> Standard Net-45 settlement is always free. Optional 48-hour settlement at 1.5% dynamic discount factoring funded by banking partner.</li>
-    </ul>
+    <h2>Tool 1: The Field Tech Mobile App (For the Van)</h2>
+    <div class="card">
+      <ul class="text-xs space-y-2 text-gray-700">
+        <li class="flex items-start gap-2">
+          <span class="text-blue-600 font-bold">✓</span>
+          <span><strong>Under 2 Minutes:</strong> 4 simple taps on big buttons that work even with thick work gloves. Zero typing required.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-600 font-bold">✓</span>
+          <span><strong>Works with ZERO Cell Signal:</strong> When a worker is in a basement or rural lane with no 4G, the app saves everything safely on the phone without spinning or crashing.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-600 font-bold">✓</span>
+          <span><strong>3 Quick Guided Photos:</strong>
+            <br>1. The light meter (the app reads the number automatically: <code>-18.2 dBm</code>).
+            <br>2. The neat wire splice tray.
+            <br>3. The outside customer wall box.
+          </span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-600 font-bold">✓</span>
+          <span><strong>1-Tap "Blocked" Button:</strong> If a gate is locked or a pipe is broken, tap one button. The timer stops immediately so the worker doesn't get in trouble!</span>
+        </li>
+      </ul>
+    </div>
 
-    <h2>Operator Year-1 ROI Waterfall</h2>
-    <table class="doc-table">
+    <h2>Tool 2: The Operator Web Console (For the Office)</h2>
+    <div class="card">
+      <ul class="text-xs space-y-2 text-gray-700">
+        <li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Live Company Scoreboard:</strong> Ranks all 200 partner companies. Good performers automatically get more work!</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Strict 4-Hour Decision Rule:</strong> When a worker asks for an extra payment, the manager has 4 hours to decide. If the manager ignores it, <em>the worker wins automatically!</em></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Side-by-Side Photo Check:</strong> See what was ordered on the left, what extra work was done in the middle, and the verified photos on the right. 1-click to approve.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 4: WHAT AI DOES (AND NEVER DOES)                                -->
+    <!-- ======================================================================= -->
+    <h1>🤖 4. What AI Does (And What It is NEVER Allowed to Do)</h1>
+    <p>
+      We use smart computer vision like a helpful assistant, but <strong>never</strong> as an angry boss:
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-2 text-xs">
+      <div class="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+        <h4 class="font-bold text-blue-900 mb-1.5">✅ What the AI Assistant Does:</h4>
+        <ul class="space-y-1 text-blue-950">
+          <li>• Reads the meter numbers from photos automatically.</li>
+          <li>• Checks if trench photos are at least 30cm deep.</li>
+          <li>• Catches duplicate photos if someone reuses a photo from last month.</li>
+          <li>• Matches the extra work to the correct pricing rule.</li>
+        </ul>
+      </div>
+
+      <div class="p-3 bg-rose-50 border border-rose-200 rounded-lg">
+        <h4 class="font-bold text-rose-900 mb-1.5">❌ What AI is NEVER Allowed to Do:</h4>
+        <ul class="space-y-1 text-rose-950">
+          <li>• <strong>NO AI Deductions:</strong> The robot can never take money away from a worker.</li>
+          <li>• <strong>NO AI Firing:</strong> The robot can never ban or punish a company.</li>
+          <li>• <strong>100% Human Approval:</strong> A real human manager must always click the final "Approve Payment" button.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 5: THE MONEY MATH                                               -->
+    <!-- ======================================================================= -->
+    <h1>💰 5. The Simple Money Math</h1>
+    <p>
+      How does a £374k software investment turn into <strong>£1,071,200 of net profit</strong> every year?
+    </p>
+
+    <table class="eli5-table">
       <thead>
         <tr>
-          <th>Financial Lever</th>
-          <th>Baseline Reality</th>
-          <th>Platform Target</th>
-          <th style="text-align:right;">Annual Net Savings</th>
+          <th>Where the Money Comes From</th>
+          <th>What Happens Today</th>
+          <th>What Changes With the App</th>
+          <th style="text-align:right;">Cash Saved</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Dispute Leakage & Overpayments</strong></td>
-          <td>8% of jobs disputed (£24 avg leakage across 312k jobs)</td>
-          <td>Disputes drop to 2%; same-day verification</td>
-          <td style="text-align:right; font-weight:bold; color:#1e8e3e;">+£450,000</td>
+          <td><strong>1. Eliminating Fake Surprise Bills</strong></td>
+          <td>Paying £24 extra on disputed claims because there is no photo proof.</td>
+          <td>Every extra charge has geotagged photo proof on site.</td>
+          <td style="text-align:right; font-weight:bold; color:#166534;">+£450,000</td>
         </tr>
         <tr>
-          <td><strong>First-Time Fix (FTF) Recovery</strong></td>
-          <td>84% baseline (16% rework = 49,920 second-truck rolls @ £85)</td>
-          <td>FTF lifts to 87% (+3 points = 9,360 avoided truck rolls)</td>
-          <td style="text-align:right; font-weight:bold; color:#1e8e3e;">+£795,600</td>
+          <td><strong>2. Doing It Right the First Time</strong></td>
+          <td>Workers rush; 16% of jobs need a second van visit (£85 each).</td>
+          <td>Quality photos catch mistakes before van leaves. Second visits drop by 3%.</td>
+          <td style="text-align:right; font-weight:bold; color:#166534;">+£795,600</td>
         </tr>
         <tr>
-          <td><strong>Vendor Management Admin Overhead</strong></td>
-          <td>6 FTEs reconciling spreadsheets and email disputes</td>
-          <td>2 FTEs handling exception-only review; 4 FTEs redeployed</td>
-          <td style="text-align:right; font-weight:bold; color:#1e8e3e;">+£200,000</td>
+          <td><strong>3. Less Office Paperwork</strong></td>
+          <td>6 full-time staff members spend all day arguing over emails.</td>
+          <td>Exception-only review. 4 staff redeployed to higher value work.</td>
+          <td style="text-align:right; font-weight:bold; color:#166534;">+£200,000</td>
         </tr>
-        <tr style="background:#f1f3f4; font-weight:bold;">
-          <td colspan="3">Gross Annual Value Created</td>
-          <td style="text-align:right; color:#202124;">+£1,445,600</td>
+        <tr style="background:#f8fafc; font-weight:bold;">
+          <td colspan="3">Total Money Created</td>
+          <td style="text-align:right; color:#0f172a;">+£1,445,600</td>
         </tr>
-        <tr style="background:#f1f3f4; color:#c5221f;">
-          <td colspan="3">Less: Platform SaaS Investment (£1.20 / job × 312k jobs)</td>
+        <tr style="background:#f8fafc; color:#9f1239;">
+          <td colspan="3">Minus: Software Cost (£1.20 per job × 312,000 jobs)</td>
           <td style="text-align:right;">(£374,400)</td>
         </tr>
-        <tr style="background:#e6f4ea; font-size:13.5px; font-weight:bold;">
-          <td colspan="3" style="color:#137333;">NET ANNUAL OPERATOR SAVINGS (2.86x ROI | Payback in &lt; 5 Months)</td>
-          <td style="text-align:right; color:#137333;">+£1,071,200</td>
+        <tr style="background:#ecfdf5; font-size:15px; font-weight:bold; color:#065f46;">
+          <td colspan="3">🎉 PURE NET SAVINGS EVERY YEAR:</td>
+          <td style="text-align:right;">+£1,071,200</td>
         </tr>
       </tbody>
     </table>
 
+    <p class="text-xs text-gray-500 text-center font-medium">
+      For every £1.00 spent on this software, the broadband company gets <strong>£2.86 back in pure cash savings!</strong>
+    </p>
+
     <!-- ======================================================================= -->
-    <!-- SECTION 6: GTM ROLLOUT & STRATEGIC ROADMAP                              -->
+    <!-- SECTION 6: HOW WE ROLL IT OUT                                           -->
     <!-- ======================================================================= -->
-    <h1>6. Go-To-Market Rollout & Strategic Roadmap</h1>
+    <h1>🚀 6. How We Roll It Out (No Chaos)</h1>
+    <p>
+      We don't force 200 companies to switch overnight. We do it in 4 safe steps:
+    </p>
 
-    <h2>4-Phase GTM Strategy (Scaling to 200 Firms in 26 Weeks)</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 my-3 text-xs">
-      <div class="p-2.5 bg-gray-50 border border-gray-300 rounded">
-        <strong class="text-blue-700 block">Phase 1: Pilot (W1–6)</strong>
-        <p class="text-gray-600 mt-1 mb-0">3 Tier-1 firms (~150 techs, 1,000 jobs/wk) in Northern region. Validates offline sync and &lt;2 min budget.<br><span class="text-green-700 font-bold">Carrot: Guaranteed Net-7 pay.</span></p>
+    <div class="space-y-2 text-xs">
+      <div class="flex items-center gap-3 p-2.5 bg-gray-50 border border-gray-200 rounded-lg">
+        <span class="step-number">1</span>
+        <div>
+          <strong class="text-gray-900">Weeks 1–6 (The Friendly Test):</strong>
+          <span class="text-gray-600">Start with 3 friendly companies (150 workers) in one city. Guarantee them 7-day payment. Fix all bugs.</span>
+        </div>
       </div>
 
-      <div class="p-2.5 bg-gray-50 border border-gray-300 rounded">
-        <strong class="text-blue-700 block">Phase 2: Top 25 (W7–16)</strong>
-        <p class="text-gray-600 mt-1 mb-0">Top 25 firms delivering 60% of total weekly volume. Dedicated train-the-dispatcher workshops; dispatcher portal live.</p>
+      <div class="flex items-center gap-3 p-2.5 bg-gray-50 border border-gray-200 rounded-lg">
+        <span class="step-number">2</span>
+        <div>
+          <strong class="text-gray-900">Weeks 7–16 (The Big Players):</strong>
+          <span class="text-gray-600">Bring on the 25 biggest companies (which do 60% of all jobs). Train their dispatchers in half-day sessions.</span>
+        </div>
       </div>
 
-      <div class="p-2.5 bg-gray-50 border border-gray-300 rounded">
-        <strong class="text-blue-700 block">Phase 3: Long-Tail (W17–26)</strong>
-        <p class="text-gray-600 mt-1 mb-0">Remaining 175 small outfits (3–15 techs). Self-serve onboarding via SMS deep link and 3-min video guides.</p>
+      <div class="flex items-center gap-3 p-2.5 bg-gray-50 border border-gray-200 rounded-lg">
+        <span class="step-number">3</span>
+        <div>
+          <strong class="text-gray-900">Weeks 17–26 (The Small Outfits):</strong>
+          <span class="text-gray-600">Onboard the remaining 175 smaller companies using a 3-minute video guide and an SMS link. No app store download needed.</span>
+        </div>
       </div>
 
-      <div class="p-2.5 bg-gray-50 border border-gray-300 rounded">
-        <strong class="text-green-700 block">Phase 4: Mandate (W27+)</strong>
-        <p class="text-gray-600 mt-1 mb-0">Billing policy update: unverified paper invoices face 60-day audit queues; app-verified pays in 7 days.</p>
+      <div class="flex items-center gap-3 p-2.5 bg-gray-50 border border-gray-200 rounded-lg">
+        <span class="step-number">4</span>
+        <div>
+          <strong class="text-gray-900">Week 27+ (The Simple Rule):</strong>
+          <span class="text-gray-600">Send verified photos on the app = <strong>Get paid in 7 days</strong>. Send paper bills = Wait in a 60-day manual audit queue.</span>
+        </div>
       </div>
     </div>
 
-    <h2>18-Month Strategic Horizons</h2>
-    <ul class="text-xs space-y-1">
-      <li><strong>Horizon 1 (M1–3) — Core Loop:</strong> Offline mobile app, 4-hour operator console, rate card engine, SFTP flat-file batch drops.</li>
-      <li><strong>Horizon 2 (M4–9) — Smart Field Operations:</strong> AI evidence OCR, predictive van stock replenishment via distributor APIs (Rexel, Graybar), automated radar weather delay shield (>35mph wind mass SLA pause).</li>
-      <li><strong>Horizon 3 (M10–18) — Network Ecosystem:</strong> Peer-to-peer van parts exchange between non-competing crews via QR scan, predictive rework prevention, and collective purchasing consortium for van leasing, fuel cards, and fusion splicers.</li>
-    </ul>
-
-    <div class="page-divider"></div>
-
     <!-- ======================================================================= -->
-    <!-- SECTION 7: ROLEPLAYS (PITCH & CRITIQUE)                                  -->
+    <!-- SECTION 7: THE 4 BIG WORRIES                                            -->
     <!-- ======================================================================= -->
-    <h1>7. Live Roleplays: COO Pitch & Scathing Self-Critique</h1>
+    <h1>🛡️ 7. The 4 Big Worries & Why We Won't Fail</h1>
 
-    <h2>7.1 3-Minute COO Executive Pitch Script</h2>
-    <div class="bg-gray-50 p-4 rounded border border-gray-300 text-xs italic text-gray-800 space-y-2 leading-relaxed">
-      <p>
-        "Good morning. You run 6,000 fiber jobs every week, with 70% delivered by 200 external partner firms. Right now, that £50 million field operation is managed through a complete blind spot between 8:00 AM dispatch and a disputed invoice arriving 45 days later.
-      </p>
-      <p>
-        When a technician finds a collapsed duct or a customer no-show, requests travel over WhatsApp and email. The SLA clock keeps running, deductions feel arbitrary, and subcontractors reassign their top certified crews to your direct competitors who pay faster.
-      </p>
-      <p>
-        We sit cleanly between your enterprise systems and the van without ripping and replacing your IT. Technicians get an offline-first app that captures geotagged optical power proof in under 90 seconds. Variations become same-day decisions under a strict 4-hour SLA. In return, you guarantee verified payment in 7 to 14 days, securing your labor supply.
-      </p>
-      <p>
-        <strong>The Economics:</strong> £1.20 per completed job equals £374k annual platform cost. In return, you recover <strong>£1.07 million in net savings</strong> by cutting dispute leakage and avoiding 9,360 second-truck rolls. That is a <strong>2.86x ROI</strong> in year one. Let's launch the 6-week pilot in the Northern region."
-      </p>
+    <div class="space-y-2.5 my-3 text-xs">
+      <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+        <strong class="text-gray-900 block mb-0.5">Worry 1: "What if technicians take fake photos from their van window?"</strong>
+        <p class="text-gray-600 mb-0">
+          <strong>The Fix:</strong> The phone checks that the van was parked outside the house for at least 10 minutes, checks GPS coordinates, and blocks photos picked from the phone's saved camera roll.
+        </p>
+      </div>
+
+      <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+        <strong class="text-gray-900 block mb-0.5">Worry 2: "What if our old enterprise IT takes 2 years to connect?"</strong>
+        <p class="text-gray-600 mb-0">
+          <strong>The Fix:</strong> We don't wait for IT! On Day 1, we import and export simple scheduled spreadsheet files (CSV via SFTP). It works immediately.
+        </p>
+      </div>
+
+      <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+        <strong class="text-gray-900 block mb-0.5">Worry 3: "What if workers strike because they think it's a spy tracker?"</strong>
+        <p class="text-gray-600 mb-0">
+          <strong>The Fix:</strong> Zero background GPS tracking! The app only looks at location for 1 second when the tech taps "Arrived" and "Done". It respects their privacy.
+        </p>
+      </div>
+
+      <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+        <strong class="text-gray-900 block mb-0.5">Worry 4: "What if the office gets flooded with 200 requests every day?"</strong>
+        <p class="text-gray-600 mb-0">
+          <strong>The Fix:</strong> Small claims under £25 with high confidence get auto-approved with a 10% random check. Humans only review the ~30 big ones each day.
+        </p>
+      </div>
     </div>
 
-    <h2>7.2 Scathing Self-Critique & Defensive Countermeasures</h2>
-    <table class="doc-table">
-      <thead>
-        <tr>
-          <th style="width: 40%;">Brutal Failure Mode (Critique)</th>
-          <th style="width: 60%;">Defensive Countermeasure</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>1. Evidence Fraud:</strong><br>Techs will snap random closed gates from vans to falsely pause SLA clocks.</td>
-          <td><strong>Triple-Vector Telemetry Binding:</strong> Hardware camera EXIF (blocks gallery uploads) + 10-minute continuous stationary GPS within 30m boundary + OPM OCR validation. Statistical outlier clustering flags abuse patterns.</td>
-        </tr>
-        <tr>
-          <td><strong>2. Telco IT Integration Graveyard:</strong><br>Waiting 18 months for legacy SOAP/WFM APIs will kill the pilot.</td>
-          <td><strong>Decoupled Asynchronous SFTP Architecture:</strong> Day 1 runs on scheduled flat-file CSV batch drops of jobs and self-billing remittance outputs. Zero synchronous API dependency for launch.</td>
-        </tr>
-        <tr>
-          <td><strong>3. Surveillance Backlash:</strong><br>Techs will strike over an 'electronic ankle monitor' tracking their movement.</td>
-          <td><strong>Privacy-by-Design:</strong> Zero continuous background GPS tracking; location polled strictly at arrival and closeout taps. Bi-directional transparency: techs track the operator's decision and payment SLA clocks.</td>
-        </tr>
-        <tr>
-          <td><strong>4. Vendor Manager Queue Overload:</strong><br>200 daily variation requests will break the 4-hour decision SLA.</td>
-          <td><strong>Tiered Algorithmic Auto-Clearance:</strong> Micro-variations (<£25 with >95% AI confidence) auto-approve with a 10% spot audit. Active human queue drops from 200/day to fewer than 35 critical decisions per day.</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- ======================================================================= -->
+    <!-- SECTION 8: 30-SECOND PITCH                                              -->
+    <!-- ======================================================================= -->
+    <h1>🎙️ 8. The 30-Second Pitch to the Big Boss</h1>
+    <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl text-xs italic text-blue-950 leading-relaxed">
+      "Right now, we spend £50 million on outside contractors, but we manage them through WhatsApp and 45-day delayed bills. 
+      <br><br>
+      We are giving them an offline phone app that takes 90 seconds to use, and giving our team a live console with a 4-hour answer guarantee. 
+      <br><br>
+      It costs £1.20 per job, stops £1.07 million in waste, and gets our partners paid in 7 days so they stop defecting to our rivals. It pays for itself in under 5 months. Let's start the 6-week test."
+    </div>
 
-    <!-- Document Footer -->
+    <!-- Bottom Footer -->
     <div class="mt-8 pt-4 border-t border-gray-200 text-center text-xs text-gray-500">
-      Subcontractor Operations Platform · B2B Product Management Case Study · Komal Agarwal · November 2026
+      Subcontractor Operations Platform · ELI5 Product Requirement Document · Komal Agarwal · November 2026
     </div>
 
   </main>
