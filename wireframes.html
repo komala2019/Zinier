@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subcontractor Operations Platform - Interactive Wireframes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: '#f8fafc',
+            foreground: '#0f172a'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar and animations */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--background, rgba(0,0,0,0.05)); }
+    ::-webkit-scrollbar-thumb { background: var(--border, #cbd5e1); border-radius: 3px; }
+  </style>
+</head>
+<body class="bg-[var(--background,#f8fafc)] text-[var(--foreground,#0f172a)] antialiased p-4 md:p-6 min-h-full">
+
+  <!-- Top Navigation & View Switcher -->
+  <header class="max-w-7xl mx-auto mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[var(--border,#e2e8f0)]">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300">FiberOps B2B</span>
+        <h1 class="text-xl md:text-2xl font-bold tracking-tight">Interactive Wireframe Prototype</h1>
+      </div>
+      <p class="text-xs md:text-sm text-[var(--muted-foreground,#64748b)] mt-0.5">
+        Subcontractor Operations Platform · National FTTH/FTTP Rollout (~6,000 jobs/wk across 200 firms)
+      </p>
+    </div>
+
+    <!-- Surface Switcher Tabs -->
+    <div class="flex items-center gap-2 bg-[var(--card,#ffffff)] p-1.5 rounded-xl border border-[var(--border,#e2e8f0)] shadow-sm">
+      <button id="btnViewMobile" onclick="switchMainView('mobile')" class="px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all bg-blue-600 text-white shadow-sm flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+        Field Tech Mobile App
+      </button>
+      <button id="btnViewConsole" onclick="switchMainView('console')" class="px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all text-[var(--muted-foreground,#64748b)] hover:text-[var(--foreground,#0f172a)] flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Operator Web Console
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- SURFACE 1: FIELD TECHNICIAN MOBILE APP                                    -->
+  <!-- ========================================================================= -->
+  <main id="surfaceMobile" class="max-w-6xl mx-auto block">
+    <div class="flex flex-col lg:flex-row items-start justify-center gap-8">
+      
+      <!-- Mobile Sub-Navigation & Design Rules Sidebar -->
+      <div class="w-full lg:w-80 space-y-4">
+        <div class="bg-[var(--card,#ffffff)] p-5 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm space-y-4">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-[var(--muted-foreground,#64748b)]">Mobile Screens</h2>
+          
+          <div class="space-y-1.5">
+            <button onclick="setMobileScreen('onboarding')" id="tabMobileOnboarding" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all text-[var(--muted-foreground,#64748b)] hover:bg-[var(--background,#f1f5f9)] flex items-center justify-between">
+              <span>1. Tech Onboarding Flow</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">6 steps</span>
+            </button>
+            <button onclick="setMobileScreen('jobs')" id="tabMobileJobs" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-200 dark:border-blue-800 flex items-center justify-between">
+              <span>2. Daily Job Queue (Offline)</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-blue-200 dark:bg-blue-800 text-blue-800 dark:text-blue-200">Main</span>
+            </button>
+            <button onclick="setMobileScreen('detail')" id="tabMobileDetail" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all text-[var(--muted-foreground,#64748b)] hover:bg-[var(--background,#f1f5f9)] flex items-center justify-between">
+              <span>3. Job Detail & Evidence</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300">Camera</span>
+            </button>
+            <button onclick="setMobileScreen('request')" id="tabMobileRequest" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all text-[var(--muted-foreground,#64748b)] hover:bg-[var(--background,#f1f5f9)] flex items-center justify-between">
+              <span>4. Raise Request / Scope Mismatch</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300">SLA Pause</span>
+            </button>
+          </div>
+
+          <!-- Offline Simulator Toggle -->
+          <div class="pt-4 border-t border-[var(--border,#e2e8f0)]">
+            <div class="flex items-center justify-between">
+              <label for="offlineToggle" class="text-xs font-semibold cursor-pointer">Simulate 0-Signal (Offline)</label>
+              <input type="checkbox" id="offlineToggle" onchange="toggleOfflineMode()" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 cursor-pointer">
+            </div>
+            <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1">
+              Enables local SQLite outbox queue. Actions queue immediately without network spinner.
+            </p>
+          </div>
+        </div>
+
+        <!-- Design Principles Card -->
+        <div class="bg-[var(--card,#ffffff)] p-5 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm space-y-3 text-xs">
+          <h3 class="font-bold text-[var(--foreground,#0f172a)] flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Field Usability Rules
+          </h3>
+          <ul class="space-y-2 text-[var(--muted-foreground,#64748b)]">
+            <li><strong class="text-[var(--foreground,#0f172a)]">&lt;2 Min Budget:</strong> 4 taps to complete, auto-geotagging, no mandatory typing.</li>
+            <li><strong class="text-[var(--foreground,#0f172a)]">Gloved Operability:</strong> 48px+ touch targets, bottom thumb-reach action buttons.</li>
+            <li><strong class="text-[var(--foreground,#0f172a)]">SLA Visibility:</strong> Always-present countdown timer protects tech from unfair blame.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Smartphone Frame Container -->
+      <div class="relative w-[375px] h-[760px] bg-slate-900 rounded-[48px] p-4 shadow-2xl ring-1 ring-slate-800 flex-shrink-0 flex flex-col justify-between">
+        
+        <!-- Phone Hardware Top Notch / Speaker -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-36 h-5 bg-slate-900 rounded-b-2xl z-50 flex items-center justify-center">
+          <div class="w-12 h-1 bg-slate-700 rounded-full"></div>
+        </div>
+
+        <!-- Phone Screen Inside Frame -->
+        <div class="w-full h-full bg-[var(--background,#f8fafc)] rounded-[36px] overflow-hidden flex flex-col relative text-xs">
+          
+          <!-- Status Bar -->
+          <div class="h-8 pt-1.5 px-6 bg-[var(--card,#ffffff)] border-b border-[var(--border,#e2e8f0)] flex items-center justify-between text-[11px] font-semibold select-none z-40">
+            <span>09:41</span>
+            <div class="flex items-center gap-1.5" id="phoneSignalIcons">
+              <span id="signalBadge" class="text-[10px] text-emerald-600 font-bold">4G LTE</span>
+              <svg class="w-3.5 h-3.5 text-slate-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            </div>
+          </div>
+
+          <!-- Dynamic Offline / Outbox Alert Banner -->
+          <div id="mobileOfflineBanner" class="hidden bg-amber-500 text-slate-950 px-3 py-1.5 text-[11px] font-bold flex items-center justify-between shadow-sm z-30 transition-all">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Offline Mode · Changes Queued Locally
+            </span>
+            <span class="bg-amber-600 px-1.5 py-0.5 rounded text-[10px]" id="queueCounterBadge">2 in outbox</span>
+          </div>
+
+          <!-- SCREEN A: ONBOARDING STEPPER -->
+          <div id="screenOnboarding" class="hidden flex-1 overflow-y-auto p-4 space-y-4">
+            <div class="text-center pt-2">
+              <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-2 font-bold text-lg">
+                FO
+              </div>
+              <h3 class="font-bold text-base text-[var(--foreground,#0f172a)]">Technician Setup</h3>
+              <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Get from SMS invite to your first job in 6 steps.</p>
+            </div>
+
+            <!-- 6 Steps Accordion / Stepper -->
+            <div class="space-y-2">
+              <div class="p-3 bg-[var(--card,#ffffff)] rounded-xl border border-blue-500 shadow-sm">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-[10px]">1</span>
+                  <span class="font-semibold text-blue-900 dark:text-blue-300">Invite Link Received</span>
+                </div>
+                <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1 pl-7">SMS from dispatcher: "Apex Fiber has assigned your van. Tap to setup."</p>
+              </div>
+
+              <div class="p-3 bg-[var(--card,#ffffff)] rounded-xl border border-[var(--border,#e2e8f0)]">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 flex items-center justify-center font-bold text-[10px]">2</span>
+                  <span class="font-semibold">Verify Phone (OTP)</span>
+                </div>
+                <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1 pl-7">Auto-reads 6-digit code. Binds phone to Ravi Patel @ Apex Fiber.</p>
+              </div>
+
+              <div class="p-3 bg-[var(--card,#ffffff)] rounded-xl border border-[var(--border,#e2e8f0)]">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 flex items-center justify-center font-bold text-[10px]">3</span>
+                  <span class="font-semibold">Transparent Permissions</span>
+                </div>
+                <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1 pl-7">Location (site arrival proof) + Camera (splice photos). Plain reasons given.</p>
+              </div>
+
+              <div class="p-3 bg-[var(--card,#ffffff)] rounded-xl border border-[var(--border,#e2e8f0)]">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 flex items-center justify-center font-bold text-[10px]">4</span>
+                  <span class="font-semibold">Download Offline Pack</span>
+                </div>
+                <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1 pl-7">Pre-downloads North region maps, daily work orders, and rate card terms (12MB).</p>
+              </div>
+
+              <div class="p-3 bg-[var(--card,#ffffff)] rounded-xl border border-[var(--border,#e2e8f0)]">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 flex items-center justify-center font-bold text-[10px]">5</span>
+                  <span class="font-semibold">45-Sec Interactive Tour</span>
+                </div>
+                <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1 pl-7">Shows photo capture, request button, and offline sync badge. Skippable.</p>
+              </div>
+
+              <div class="p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl border border-emerald-300 dark:border-emerald-800">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[10px]">6</span>
+                  <span class="font-semibold text-emerald-900 dark:text-emerald-300">Ready for First Job</span>
+                </div>
+                <p class="text-[11px] text-emerald-700 dark:text-emerald-400 mt-1 pl-7">Job queue populated and functional offline.</p>
+              </div>
+            </div>
+
+            <button onclick="setMobileScreen('jobs')" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition-all">
+              Go to Today's Jobs →
+            </button>
+          </div>
+
+          <!-- SCREEN B: JOB LIST (MAIN) -->
+          <div id="screenJobs" class="flex-1 overflow-y-auto p-4 space-y-3">
+            <div class="flex items-center justify-between pb-1">
+              <div>
+                <h3 class="font-extrabold text-base tracking-tight">Today's Jobs</h3>
+                <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">4 assigned · 1 in progress</p>
+              </div>
+              <div class="text-right">
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300">Van: 2 ONTs</span>
+              </div>
+            </div>
+
+            <!-- Job Card 1 (Active) -->
+            <div onclick="setMobileScreen('detail')" class="p-3.5 bg-[var(--card,#ffffff)] rounded-2xl border-2 border-blue-500 shadow-sm cursor-pointer hover:border-blue-600 transition-all space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white">JOB #8492 · ACTIVE</span>
+                <span class="flex items-center gap-1 font-bold text-amber-600 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded border border-amber-200">
+                  <svg class="w-3 h-3 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  SLA: 1h 42m
+                </span>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--foreground,#0f172a)]">FTTH New Install (Residential)</h4>
+                <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">142 Elmwood Ave, Springfield</p>
+              </div>
+              <div class="flex items-center justify-between pt-1 border-t border-[var(--border,#e2e8f0)] text-[11px]">
+                <span class="text-slate-500">Rate: £120.00 (Standard)</span>
+                <span class="text-blue-600 font-semibold flex items-center gap-1">Open Job →</span>
+              </div>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="p-3.5 bg-[var(--card,#ffffff)] rounded-2xl border border-[var(--border,#e2e8f0)] opacity-90 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">JOB #8495 · QUEUED</span>
+                <span class="text-[11px] text-slate-500 font-medium">11:30 - 13:30</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--foreground,#0f172a)]">Fiber Fault Repair (Red LOS)</h4>
+                <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">89 High Street, Flat 4B</p>
+              </div>
+              <div class="flex items-center justify-between pt-1 border-t border-[var(--border,#e2e8f0)] text-[11px]">
+                <span class="text-slate-500">Parts: Patch cord + ONT</span>
+                <span class="text-slate-400">Next up</span>
+              </div>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="p-3.5 bg-[var(--card,#ffffff)] rounded-2xl border border-[var(--border,#e2e8f0)] opacity-70 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600">JOB #8501 · SCHEDULED</span>
+                <span class="text-[11px] text-slate-400">14:30 - 16:30</span>
+              </div>
+              <h4 class="font-semibold text-xs text-[var(--foreground,#0f172a)]">FTTP Drop Cable Replacement</h4>
+              <p class="text-[10px] text-slate-400">12 Mill Lane</p>
+            </div>
+          </div>
+
+          <!-- SCREEN C: JOB DETAIL & EVIDENCE -->
+          <div id="screenDetail" class="hidden flex-1 overflow-y-auto p-4 space-y-3.5">
+            <div class="flex items-center justify-between">
+              <button onclick="setMobileScreen('jobs')" class="text-blue-600 font-semibold flex items-center gap-1 text-[11px]">
+                ← Back to List
+              </button>
+              <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300 font-bold text-[10px]">
+                Job #8492
+              </span>
+            </div>
+
+            <!-- Scope Header Box -->
+            <div class="p-3 bg-[var(--card,#ffffff)] rounded-xl border border-[var(--border,#e2e8f0)] space-y-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold text-sm">142 Elmwood Ave</h4>
+                  <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Dispatched Scope: Standard Drop &lt;30m</p>
+                </div>
+                <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">£120</span>
+              </div>
+              <p class="text-[10px] text-amber-600 font-medium pt-1">Notes: Lead-in conduit on north wall.</p>
+            </div>
+
+            <!-- Evidence Capture Checklist -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <h5 class="font-bold text-xs uppercase tracking-wider text-[var(--muted-foreground,#64748b)]">Evidence Checklist (3 Required)</h5>
+                <span class="text-[11px] font-semibold text-emerald-600" id="photoProgressText">2 of 3 Ready</span>
+              </div>
+
+              <!-- Item 1: Optical Power Meter -->
+              <div class="p-2.5 bg-[var(--card,#ffffff)] rounded-xl border border-emerald-300 dark:border-emerald-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">✓</div>
+                  <div>
+                    <p class="font-bold text-[11px]">Optical Power Meter (OPM)</p>
+                    <p class="text-[10px] text-slate-500">Auto-detected: -18.2 dBm</p>
+                  </div>
+                </div>
+                <span class="text-[10px] text-slate-400">09:22 BST</span>
+              </div>
+
+              <!-- Item 2: Splice Tray -->
+              <div class="p-2.5 bg-[var(--card,#ffffff)] rounded-xl border border-emerald-300 dark:border-emerald-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">✓</div>
+                  <div>
+                    <p class="font-bold text-[11px]">Completed Splice Tray</p>
+                    <p class="text-[10px] text-slate-500">Geotagged & verified</p>
+                  </div>
+                </div>
+                <span class="text-[10px] text-slate-400">09:34 BST</span>
+              </div>
+
+              <!-- Item 3: Customer Premise Entry (Actionable) -->
+              <div class="p-2.5 bg-blue-50/50 dark:bg-blue-950/20 rounded-xl border border-dashed border-blue-400 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">3</div>
+                  <div>
+                    <p class="font-bold text-[11px] text-blue-900 dark:text-blue-300">Premise Entry / External Box</p>
+                    <p class="text-[10px] text-blue-600">Tap to capture photo</p>
+                  </div>
+                </div>
+                <button onclick="simulatePhotoCapture()" class="px-2.5 py-1 bg-blue-600 text-white font-bold rounded-lg text-[10px] flex items-center gap-1">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  Snap
+                </button>
+              </div>
+            </div>
+
+            <!-- Primary CTAs (Bottom of screen) -->
+            <div class="pt-2 space-y-2">
+              <button onclick="triggerToast('Job #8492 marked Complete! Queued for instant settlement.')" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Complete Job (Signs & Syncs)
+              </button>
+              
+              <button onclick="setMobileScreen('request')" class="w-full py-2.5 bg-[var(--card,#ffffff)] border border-rose-300 hover:bg-rose-50 text-rose-700 dark:text-rose-300 font-bold rounded-xl transition-all flex items-center justify-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                Raise Request / Pause SLA Clock
+              </button>
+            </div>
+          </div>
+
+          <!-- SCREEN D: RAISE REQUEST (DRAWER) -->
+          <div id="screenRequest" class="hidden flex-1 overflow-y-auto p-4 space-y-3.5 bg-slate-50 dark:bg-slate-900/60">
+            <div class="flex items-center justify-between">
+              <button onclick="setMobileScreen('detail')" class="text-slate-600 font-semibold flex items-center gap-1 text-[11px]">
+                ✕ Cancel
+              </button>
+              <span class="font-bold text-rose-600 text-xs uppercase tracking-wide">Exception Flow</span>
+            </div>
+
+            <div>
+              <h3 class="font-extrabold text-base">Raise Field Request</h3>
+              <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Auto-attaches current GPS, arrival time, and SLA status.</p>
+            </div>
+
+            <!-- Reason Selector Options -->
+            <div class="space-y-2">
+              <label class="p-3 bg-[var(--card,#ffffff)] rounded-xl border-2 border-blue-600 flex items-center justify-between cursor-pointer shadow-sm">
+                <div>
+                  <p class="font-bold text-xs text-blue-900 dark:text-blue-300">Rate Variation (Mis-scoped)</p>
+                  <p class="text-[10px] text-slate-500">e.g., long soft dig, collapsed duct, &gt;30m cable</p>
+                </div>
+                <input type="radio" name="reqReason" checked class="text-blue-600">
+              </label>
+
+              <label class="p-3 bg-[var(--card,#ffffff)] rounded-xl border border-[var(--border,#e2e8f0)] flex items-center justify-between cursor-pointer">
+                <div>
+                  <p class="font-bold text-xs">SLA Pause: Site Inaccessible</p>
+                  <p class="text-[10px] text-slate-500">Locked gate, safety hazard, no parking</p>
+                </div>
+                <input type="radio" name="reqReason" class="text-blue-600">
+              </label>
+
+              <label class="p-3 bg-[var(--card,#ffffff)] rounded-xl border border-[var(--border,#e2e8f0)] flex items-center justify-between cursor-pointer">
+                <div>
+                  <p class="font-bold text-xs">Customer No-Show (15m Wait)</p>
+                  <p class="text-[10px] text-slate-500">GPS geofence confirms tech was stationary</p>
+                </div>
+                <input type="radio" name="reqReason" class="text-blue-600">
+              </label>
+            </div>
+
+            <!-- Auto Attached Telemetry Preview -->
+            <div class="p-2.5 bg-slate-200/60 dark:bg-slate-800/60 rounded-xl text-[10px] space-y-1 font-mono">
+              <div class="flex justify-between text-slate-600 dark:text-slate-400">
+                <span>GPS Location:</span>
+                <span class="font-semibold text-slate-900 dark:text-slate-200">51.5074° N, 0.1278° W</span>
+              </div>
+              <div class="flex justify-between text-slate-600 dark:text-slate-400">
+                <span>Site Geofence:</span>
+                <span class="text-emerald-600 font-bold">MATCH (8m from premise)</span>
+              </div>
+              <div class="flex justify-between text-slate-600 dark:text-slate-400">
+                <span>SLA Clock:</span>
+                <span class="text-amber-600 font-bold">Pauses on Submit</span>
+              </div>
+            </div>
+
+            <button onclick="submitFieldRequest()" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow transition-all">
+              Submit Request (Queues Offline)
+            </button>
+          </div>
+
+          <!-- Bottom Navigation Bar -->
+          <div class="h-14 bg-[var(--card,#ffffff)] border-t border-[var(--border,#e2e8f0)] px-6 flex items-center justify-around select-none">
+            <button onclick="setMobileScreen('jobs')" class="flex flex-col items-center gap-0.5 text-blue-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              <span class="text-[9px] font-bold">Jobs</span>
+            </button>
+            <button onclick="setMobileScreen('request')" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              <span class="text-[9px] font-medium">Requests</span>
+            </button>
+            <button class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              <span class="text-[9px] font-medium">Van Stock</span>
+            </button>
+            <button onclick="setMobileScreen('onboarding')" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              <span class="text-[9px] font-medium">Profile</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- ========================================================================= -->
+  <!-- SURFACE 2: OPERATOR WEB CONSOLE                                           -->
+  <!-- ========================================================================= -->
+  <main id="surfaceConsole" class="max-w-7xl mx-auto hidden space-y-6">
+    
+    <!-- Console Header / Sub-Nav -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[var(--card,#ffffff)] p-4 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-sm">
+          OP
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="text-base font-bold">Operator Operations & Vendor Console</h2>
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-100 text-emerald-800">Live Production</span>
+          </div>
+          <p class="text-xs text-[var(--muted-foreground,#64748b)]">Region: Northern UK · 18 Subcontractor Firms · 1,420 Active Weekly Jobs</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 text-xs">
+        <div class="bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg flex items-center gap-2 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Decision SLA: <strong>88% on-time (&lt;4h)</strong>
+        </div>
+        <div class="text-[var(--muted-foreground,#64748b)]">User: <strong>David Vance (Vendor Manager)</strong></div>
+      </div>
+    </div>
+
+    <!-- Executive KPI Bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-[var(--card,#ffffff)] p-4 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm">
+        <p class="text-xs font-semibold text-[var(--muted-foreground,#64748b)]">SLA Hit Rate (Weekly)</p>
+        <div class="flex items-baseline gap-2 mt-1">
+          <span class="text-2xl font-black text-emerald-600">91.4%</span>
+          <span class="text-xs text-emerald-700 font-semibold">+2.1% MoM</span>
+        </div>
+        <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1">Target: &gt;90% across all 200 firms</p>
+      </div>
+
+      <div class="bg-[var(--card,#ffffff)] p-4 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm">
+        <p class="text-xs font-semibold text-[var(--muted-foreground,#64748b)]">First-Time Fix Rate</p>
+        <div class="flex items-baseline gap-2 mt-1">
+          <span class="text-2xl font-black text-blue-600">87.2%</span>
+          <span class="text-xs text-blue-700 font-semibold">+3.4 pts</span>
+        </div>
+        <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1">Avoids 450+ 2nd-truck rolls/mo</p>
+      </div>
+
+      <div class="bg-[var(--card,#ffffff)] p-4 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm">
+        <p class="text-xs font-semibold text-[var(--muted-foreground,#64748b)]">Open Request Triage Queue</p>
+        <div class="flex items-baseline gap-2 mt-1">
+          <span class="text-2xl font-black text-amber-600" id="openRequestsCount">14</span>
+          <span class="text-xs text-amber-700 font-semibold">4 Due in &lt;1h</span>
+        </div>
+        <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1">4h Operator Decision SLA enforced</p>
+      </div>
+
+      <div class="bg-[var(--card,#ffffff)] p-4 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm">
+        <p class="text-xs font-semibold text-[var(--muted-foreground,#64748b)]">Days to Subcontractor Pay</p>
+        <div class="flex items-baseline gap-2 mt-1">
+          <span class="text-2xl font-black text-slate-800 dark:text-slate-100">12.4</span>
+          <span class="text-xs text-emerald-600 font-semibold">-31% vs baseline</span>
+        </div>
+        <p class="text-[11px] text-[var(--muted-foreground,#64748b)] mt-1">Down from 45 days (Net-7 pilot)</p>
+      </div>
+    </div>
+
+    <!-- Main Grid: Scorecard (Left) + Request Queue (Right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- Subcontractor Scorecard (5 cols) -->
+      <div class="lg:col-span-5 bg-[var(--card,#ffffff)] p-5 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-[var(--border,#e2e8f0)]">
+          <div>
+            <h3 class="font-bold text-sm">Firm Performance Scorecard</h3>
+            <p class="text-xs text-[var(--muted-foreground,#64748b)]">Ranked by SLA, Rework & Dispute Rate</p>
+          </div>
+          <button class="text-xs text-blue-600 font-semibold hover:underline">Export CSV</button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="text-[var(--muted-foreground,#64748b)] border-b border-[var(--border,#e2e8f0)]">
+                <th class="pb-2 font-semibold">Firm Name</th>
+                <th class="pb-2 font-semibold">SLA%</th>
+                <th class="pb-2 font-semibold">FTF%</th>
+                <th class="pb-2 font-semibold">Dispute</th>
+                <th class="pb-2 font-semibold">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border,#e2e8f0)]">
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer">
+                <td class="py-2.5 font-bold text-slate-900 dark:text-slate-100">Apex Fiber Ltd</td>
+                <td class="py-2.5 text-emerald-600 font-semibold">94.2%</td>
+                <td class="py-2.5">91.0%</td>
+                <td class="py-2.5 text-slate-500">2.1%</td>
+                <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Top Tier</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer">
+                <td class="py-2.5 font-bold text-slate-900 dark:text-slate-100">QuickSplice Co</td>
+                <td class="py-2.5 text-emerald-600 font-semibold">91.0%</td>
+                <td class="py-2.5">86.1%</td>
+                <td class="py-2.5 text-slate-500">4.0%</td>
+                <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Top Tier</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer">
+                <td class="py-2.5 font-bold text-slate-900 dark:text-slate-100">NorthConnect Ltd</td>
+                <td class="py-2.5 text-amber-600 font-semibold">88.5%</td>
+                <td class="py-2.5">82.4%</td>
+                <td class="py-2.5 text-amber-600 font-semibold">8.4%</td>
+                <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">Warning</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer">
+                <td class="py-2.5 font-bold text-slate-900 dark:text-slate-100">MetroTelcom Sub</td>
+                <td class="py-2.5 text-rose-600 font-semibold">79.2%</td>
+                <td class="py-2.5">74.0%</td>
+                <td class="py-2.5 text-rose-600 font-semibold">14.2%</td>
+                <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800">Audit Req</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Request Queue List (7 cols) -->
+      <div class="lg:col-span-7 bg-[var(--card,#ffffff)] p-5 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-[var(--border,#e2e8f0)]">
+          <div>
+            <h3 class="font-bold text-sm">Real-Time Request Triage Queue</h3>
+            <p class="text-xs text-[var(--muted-foreground,#64748b)]">Vendor Manager decision due within 4 hours</p>
+          </div>
+          <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded font-semibold text-slate-700 dark:text-slate-300">
+            Auto-sorted by SLA urgency
+          </span>
+        </div>
+
+        <!-- Request Queue Item 1 (Selected) -->
+        <div onclick="selectRequest(1)" id="queueItem1" class="p-3.5 rounded-xl border-2 border-blue-500 bg-blue-50/40 dark:bg-blue-950/20 cursor-pointer transition-all space-y-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white">#REQ-491</span>
+              <span class="font-bold text-xs">Rate Variation: +£45.00 (Soft Dig)</span>
+            </div>
+            <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">
+              Decision Due: 42m
+            </span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-[var(--muted-foreground,#64748b)]">
+            <span>Apex Fiber · Tech: Ravi Patel · Job #8492</span>
+            <span class="text-blue-700 font-semibold">AI Confidence: 94% (Valid Claim)</span>
+          </div>
+        </div>
+
+        <!-- Request Queue Item 2 -->
+        <div onclick="selectRequest(2)" id="queueItem2" class="p-3.5 rounded-xl border border-[var(--border,#e2e8f0)] bg-[var(--card,#ffffff)] hover:bg-slate-50 cursor-pointer transition-all space-y-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-700 text-white">#REQ-494</span>
+              <span class="font-bold text-xs">SLA Pause: Locked Gate Access</span>
+            </div>
+            <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">
+              Decision Due: 1h 15m
+            </span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-[var(--muted-foreground,#64748b)]">
+            <span>QuickSplice · Tech: Meera K. · Job #8498</span>
+            <span class="text-slate-500">GPS confirmed on-site &gt;12m</span>
+          </div>
+        </div>
+
+        <!-- Request Queue Item 3 -->
+        <div onclick="selectRequest(3)" id="queueItem3" class="p-3.5 rounded-xl border border-[var(--border,#e2e8f0)] bg-[var(--card,#ffffff)] hover:bg-slate-50 cursor-pointer transition-all space-y-2 opacity-80">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-700 text-white">#REQ-498</span>
+              <span class="font-bold text-xs">Rate Variation: +£85.00 (Civil Duct Block)</span>
+            </div>
+            <span class="text-xs font-semibold text-slate-500">
+              Decision Due: 2h 40m
+            </span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-[var(--muted-foreground,#64748b)]">
+            <span>NorthConnect · Tech: Sam W. · Job #8510</span>
+            <span class="text-amber-600 font-semibold">AI Flag: Photo clarity low</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Detailed Adjudication Pane (Side-by-Side Verification) -->
+    <div class="bg-[var(--card,#ffffff)] p-6 rounded-2xl border border-[var(--border,#e2e8f0)] shadow-sm space-y-6">
+      
+      <!-- Pane Title Bar -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[var(--border,#e2e8f0)]">
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="text-base font-bold">Request Adjudication: #REQ-491</h3>
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-800">Rate Variation Claim</span>
+          </div>
+          <p class="text-xs text-[var(--muted-foreground,#64748b)] mt-0.5">
+            Submitted by Ravi Patel (Apex Fiber Ltd) · Job #8492 (142 Elmwood Ave, Springfield)
+          </p>
+        </div>
+
+        <!-- AI Assistant Confidence Pill -->
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800 p-2.5 rounded-xl border border-blue-200 dark:border-blue-800 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-xs">AI</div>
+          <div>
+            <div class="text-xs font-bold text-blue-900 dark:text-blue-200">Triage Recommendation: Approve (+£45.00)</div>
+            <p class="text-[11px] text-blue-700 dark:text-blue-300">Confidence: 94% · GPS matched premise · Trench depth &gt;300mm detected</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side-by-Side Comparison -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Column 1: Dispatched Scope -->
+        <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-[var(--border,#e2e8f0)] space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">1. Dispatched Scope (WFM)</h4>
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between"><span class="text-slate-500">Base Task:</span> <span class="font-bold">Standard FTTH Drop</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Rate Card Line:</span> <span class="font-mono font-semibold">RC-FTTH-104</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Dispatched Fee:</span> <span class="font-bold">£120.00</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Target Duration:</span> <span>120 mins</span></div>
+          </div>
+          <p class="text-[11px] text-slate-500 pt-2 border-t border-slate-200 dark:border-slate-800">
+            Dispatched via Netcracker WFM at 08:00 BST. Standard overhead or soft lawn lead-in assumed.
+          </p>
+        </div>
+
+        <!-- Column 2: Claimed Variation -->
+        <div class="p-4 bg-blue-50/60 dark:bg-blue-950/20 rounded-xl border border-blue-200 dark:border-blue-900 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-blue-800 dark:text-blue-300">2. Field Variation Claim</h4>
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between"><span class="text-slate-500">Discovered Issue:</span> <span class="font-bold text-blue-900 dark:text-blue-200">Collapsed Lead-In Duct</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Proposed Code:</span> <span class="font-mono font-semibold">RC-CIV-08 (Soft Dig &gt;15m)</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Variation Uplift:</span> <span class="font-bold text-emerald-600">+£45.00</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Revised Total:</span> <span class="font-extrabold text-blue-700">£165.00</span></div>
+          </div>
+          <p class="text-[11px] text-slate-600 dark:text-slate-400 pt-2 border-t border-blue-200 dark:border-blue-900">
+            Tech note: "Lead-in duct collapsed under driveway verge. Required hand-digging 18m trench through turf."
+          </p>
+        </div>
+
+        <!-- Column 3: Photographic & Geolocation Proof -->
+        <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-[var(--border,#e2e8f0)] space-y-3">
+          <div class="flex justify-between items-center">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">3. Field Evidence (2 Photos)</h4>
+            <span class="text-[10px] font-bold text-emerald-600">GPS & EXIF Verified</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <!-- Simulated Photo 1 -->
+            <div class="h-24 bg-slate-800 rounded-lg overflow-hidden relative group cursor-pointer flex flex-col justify-end p-2">
+              <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: radial-gradient(#38bdf8 1px, transparent 1px); background-size: 8px 8px;"></div>
+              <div class="relative z-10 text-[9px] text-white">
+                <p class="font-bold">Trench Photo</p>
+                <p class="text-slate-300">Depth: ~350mm</p>
+              </div>
+            </div>
+
+            <!-- Simulated Photo 2 -->
+            <div class="h-24 bg-slate-800 rounded-lg overflow-hidden relative group cursor-pointer flex flex-col justify-end p-2">
+              <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: radial-gradient(#f59e0b 1px, transparent 1px); background-size: 8px 8px;"></div>
+              <div class="relative z-10 text-[9px] text-white">
+                <p class="font-bold">Collapsed Duct</p>
+                <p class="text-slate-300">Crushed PVC</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-[10px] text-slate-500">
+            Timestamp: 09:14:22 BST · Geotag: 51.5074° N, 0.1278° W (8m from address)
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons Bar (Human Decision Authority) -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[var(--border,#e2e8f0)]">
+        <div class="text-xs text-[var(--muted-foreground,#64748b)]">
+          <strong>Decision Policy:</strong> Approved variations push to the ERP self-billing batch. Vendor Manager holds final authority.
+        </div>
+
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button onclick="adjudicate('reject')" class="px-4 py-2.5 rounded-xl border border-rose-300 hover:bg-rose-50 text-rose-700 text-xs font-bold transition-all">
+            Reject Claim (Select Code)
+          </button>
+          <button onclick="adjudicate('info')" class="px-4 py-2.5 rounded-xl border border-[var(--border,#e2e8f0)] hover:bg-slate-50 text-slate-700 text-xs font-bold transition-all">
+            Request Additional Photo
+          </button>
+          <button onclick="adjudicate('approve')" class="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-md transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Approve Variation (+£45.00)
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Notification Toast Container -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 max-w-sm bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl text-xs flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 z-50">
+    <div class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-xs" id="toastIcon">✓</div>
+    <span id="toastMessage">Action completed successfully</span>
+  </div>
+
+  <script>
+    // Global State
+    let isOffline = false;
+    let outboxCount = 2;
+
+    // View Switcher (Mobile vs Console)
+    function switchMainView(view) {
+      const surfaceMobile = document.getElementById('surfaceMobile');
+      const surfaceConsole = document.getElementById('surfaceConsole');
+      const btnMobile = document.getElementById('btnViewMobile');
+      const btnConsole = document.getElementById('btnViewConsole');
+
+      if (view === 'mobile') {
+        surfaceMobile.classList.remove('hidden');
+        surfaceConsole.classList.add('hidden');
+        btnMobile.className = "px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all bg-blue-600 text-white shadow-sm flex items-center gap-2";
+        btnConsole.className = "px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all text-[var(--muted-foreground,#64748b)] hover:text-[var(--foreground,#0f172a)] flex items-center gap-2";
+      } else {
+        surfaceMobile.classList.add('hidden');
+        surfaceConsole.classList.remove('hidden');
+        btnConsole.className = "px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all bg-blue-600 text-white shadow-sm flex items-center gap-2";
+        btnMobile.className = "px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all text-[var(--muted-foreground,#64748b)] hover:text-[var(--foreground,#0f172a)] flex items-center gap-2";
+      }
+    }
+
+    // Mobile Screen Switcher
+    function setMobileScreen(screen) {
+      const screens = ['onboarding', 'jobs', 'detail', 'request'];
+      screens.forEach(s => {
+        const el = document.getElementById('screen' + s.charAt(0).toUpperCase() + s.slice(1));
+        const tab = document.getElementById('tabMobile' + s.charAt(0).toUpperCase() + s.slice(1));
+        if (el) el.classList.add('hidden');
+        if (tab) {
+          tab.className = "w-full text-left px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all text-[var(--muted-foreground,#64748b)] hover:bg-[var(--background,#f1f5f9)] flex items-center justify-between";
+        }
+      });
+
+      const activeEl = document.getElementById('screen' + screen.charAt(0).toUpperCase() + screen.slice(1));
+      const activeTab = document.getElementById('tabMobile' + screen.charAt(0).toUpperCase() + screen.slice(1));
+      if (activeEl) activeEl.classList.remove('hidden');
+      if (activeTab) {
+        activeTab.className = "w-full text-left px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-200 dark:border-blue-800 flex items-center justify-between";
+      }
+    }
+
+    // Toggle Offline Simulator
+    function toggleOfflineMode() {
+      isOffline = document.getElementById('offlineToggle').checked;
+      const banner = document.getElementById('mobileOfflineBanner');
+      const signalBadge = document.getElementById('signalBadge');
+
+      if (isOffline) {
+        banner.classList.remove('hidden');
+        signalBadge.textContent = 'NO SIGNAL';
+        signalBadge.className = 'text-[10px] text-rose-600 font-bold';
+        triggerToast('Offline mode active: All field actions now route to local SQLite outbox.');
+      } else {
+        banner.classList.add('hidden');
+        signalBadge.textContent = '4G LTE';
+        signalBadge.className = 'text-[10px] text-emerald-600 font-bold';
+        triggerToast('Signal restored: Background daemon synced 2 queued items to server.');
+      }
+    }
+
+    // Simulate Photo Capture
+    function simulatePhotoCapture() {
+      const progress = document.getElementById('photoProgressText');
+      progress.textContent = '3 of 3 Complete';
+      progress.className = 'text-[11px] font-bold text-emerald-600';
+      triggerToast('Photo captured! Geotagged at 51.5074° N, 0.1278° W. EXIF valid.');
+    }
+
+    // Submit Field Request
+    function submitFieldRequest() {
+      outboxCount++;
+      const counter = document.getElementById('queueCounterBadge');
+      if (counter) counter.textContent = outboxCount + ' in outbox';
+      setMobileScreen('jobs');
+      triggerToast('Request #REQ-499 submitted! SLA Clock paused pending Operator response.');
+    }
+
+    // Console Select Request
+    function selectRequest(id) {
+      document.querySelectorAll('[id^="queueItem"]').forEach(el => {
+        el.className = "p-3.5 rounded-xl border border-[var(--border,#e2e8f0)] bg-[var(--card,#ffffff)] hover:bg-slate-50 cursor-pointer transition-all space-y-2";
+      });
+      const selected = document.getElementById('queueItem' + id);
+      if (selected) {
+        selected.className = "p-3.5 rounded-xl border-2 border-blue-500 bg-blue-50/40 dark:bg-blue-950/20 cursor-pointer transition-all space-y-2";
+      }
+    }
+
+    // Adjudicate Request in Console
+    function adjudicate(action) {
+      const openCount = document.getElementById('openRequestsCount');
+      if (action === 'approve') {
+        triggerToast('Variation #REQ-491 Approved (+£45.00). Pushed to SAP ERP batch.');
+        if (openCount) openCount.textContent = '13';
+        document.getElementById('queueItem1').style.display = 'none';
+      } else if (action === 'reject') {
+        triggerToast('Variation #REQ-491 Rejected. Mandatory reason code logged to audit trail.');
+        if (openCount) openCount.textContent = '13';
+        document.getElementById('queueItem1').style.display = 'none';
+      } else {
+        triggerToast('Notification sent to Ravi Patel: Additional high-angle trench photo requested.');
+      }
+    }
+
+    // Toast Notification Utility
+    function triggerToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
