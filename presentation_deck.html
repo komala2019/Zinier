@@ -20,6 +20,10 @@
   <style>
     .slide { display: none; }
     .slide.active { display: block; animation: fadeIn 0.25s ease-in-out; }
+    .slide p.text-xs, .slide li.text-xs { font-size: .875rem; line-height: 1.55; }
+    .slide .text-xs.space-y-2, .slide .text-xs.space-y-1\.5 { font-size: .875rem; line-height: 1.55; }
+    .slide h3 { line-height: 1.3; }
+    @media (max-width: 640px) { .slide table { min-width: 680px; } }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
@@ -41,7 +45,7 @@
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
       </button>
 
-      <span id="slideIndicator" class="text-xs font-mono font-bold px-3 text-slate-300">Slide 1 / 11</span>
+      <span id="slideIndicator" class="text-xs font-mono font-bold px-3 text-slate-300">Slide 1 / 14</span>
 
       <button onclick="nextSlide()" class="p-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-sm">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -614,6 +618,102 @@
       </div>
     </div>
 
+
+    <!-- SLIDE 12: ASSUMPTIONS & PERSONA DISCOVERIES -->
+    <div class="slide space-y-5" id="slide12">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">Discovery & Validation</span>
+        <h2 class="text-2xl md:text-3xl font-black text-white">Core Assumptions to Validate</h2>
+        <p class="text-sm text-slate-400">Five high-impact assumptions. Validate these before committing to scale.</p>
+      </div>
+      <div class="overflow-x-auto rounded-xl border border-slate-700">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-slate-800 text-slate-200"><tr><th class="p-3">ID / Area</th><th class="p-3">Assumption</th><th class="p-3">Risk</th><th class="p-3">Validation</th></tr></thead>
+          <tbody class="divide-y divide-slate-700 text-slate-300">
+            <tr><td class="p-3 font-bold">A1 · Field tech</td><td class="p-3">&gt;85% use mid/low-tier Android devices and face intermittent signal.</td><td class="p-3 text-amber-300 font-bold">HIGH</td><td class="p-3">Fleet survey across 20 representative firms.</td></tr>
+            <tr class="bg-slate-900/60"><td class="p-3 font-bold">A2 · Operator IT</td><td class="p-3">Systems can support scheduled SFTP batches on Day 1, before REST APIs are ready.</td><td class="p-3 text-rose-300 font-bold">CRITICAL</td><td class="p-3">Enterprise IT architecture review.</td></tr>
+            <tr><td class="p-3 font-bold">A3 · Field behavior</td><td class="p-3">Technicians abandon apps that add &gt;2 minutes per job or require typing with gloves.</td><td class="p-3 text-amber-300 font-bold">HIGH</td><td class="p-3">Shadow 15 technician shifts; time-and-motion study.</td></tr>
+            <tr class="bg-slate-900/60"><td class="p-3 font-bold">A4 · Commercial</td><td class="p-3">Firms operate on 5–8% net margins; a software fee risks defection.</td><td class="p-3 text-rose-300 font-bold">CRITICAL</td><td class="p-3">P&amp;L interviews with five owners; rate analysis.</td></tr>
+            <tr><td class="p-3 font-bold">A5 · Policy</td><td class="p-3">Operator leadership will commit vendor managers to a 4-hour decision turnaround.</td><td class="p-3 text-rose-300 font-bold">CRITICAL</td><td class="p-3">Alignment workshop with VP Field Ops and COO.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-3 text-sm">
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-700"><strong class="text-blue-300">Operator personas</strong><p class="mt-2 text-slate-300"><strong>Priya Sharma, Regional Manager:</strong> Wants capacity predictability and first-time-fix visibility; rejects duplicate data entry.</p><p class="text-slate-300"><strong>David Vance, Vendor Manager:</strong> Needs contemporaneous photo proof and a 4-hour decision turnaround for variation claims.</p></div>
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-700"><strong class="text-emerald-300">Subcontractor personas</strong><p class="mt-2 text-slate-300"><strong>Imran Khan &amp; Meera, Owner/Dispatcher:</strong> Protect weekly payroll and a 6% margin; oppose subscription fees and arbitrary invoice holds.</p><p class="text-slate-300"><strong>Ravi Patel, Technician:</strong> Needs one-tap clock pauses, offline reliability and &lt;2 minutes of interaction in difficult field conditions.</p></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: AI EVIDENCE DECISION WORKFLOW -->
+    <div class="slide space-y-5" id="slide13">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">AI Architecture · Evidence Triage</span>
+        <h2 class="text-2xl md:text-3xl font-black text-white">From Field Evidence to a Human Decision</h2>
+        <p class="text-sm text-slate-400">A clear sequence: validate the capture, analyze evidence, route by confidence, then let a person decide.</p>
+      </div>
+      <div class="grid md:grid-cols-5 gap-2 text-center text-sm">
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-3"><div class="text-blue-300 font-bold text-lg">01</div><strong>Capture</strong><p class="text-slate-400 mt-1">Photos, EXIF, GPS and work-order ID</p></div>
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-3"><div class="text-blue-300 font-bold text-lg">02</div><strong>Device check</strong><p class="text-slate-400 mt-1">Blur and glare detection before upload</p></div>
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-3"><div class="text-blue-300 font-bold text-lg">03</div><strong>AI analysis</strong><p class="text-slate-400 mt-1">Vision/OCR, anti-fraud and rate-card match</p></div>
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-3"><div class="text-blue-300 font-bold text-lg">04</div><strong>Decision gate</strong><p class="text-slate-400 mt-1">Confidence ≥85% and delta &lt;£100?</p></div>
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-3"><div class="text-blue-300 font-bold text-lg">05</div><strong>Human decision</strong><p class="text-slate-400 mt-1">Vendor manager makes final call</p></div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-emerald-950/40 border border-emerald-800 rounded-xl p-4">
+          <span class="text-emerald-300 font-bold text-sm">YES · Meets threshold</span>
+          <h3 class="text-white text-lg font-bold mt-1">Pre-populate the difference card</h3>
+          <p class="text-slate-300 text-sm mt-2">Present the rate-card comparison and evidence for a quick manager review.</p>
+        </div>
+        <div class="bg-amber-950/40 border border-amber-800 rounded-xl p-4">
+          <span class="text-amber-300 font-bold text-sm">NO · Below threshold / mismatch</span>
+          <h3 class="text-white text-lg font-bold mt-1">Assisted review queue</h3>
+          <p class="text-slate-300 text-sm mt-2">Highlight missing evidence or mismatches for a more detailed human review.</p>
+        </div>
+      </div>
+      <div class="bg-blue-950/40 border border-blue-800 rounded-xl p-4 text-sm text-slate-200">
+        <strong>Final step:</strong> Vendor manager approves, modifies or rejects the request. The approved rate-card delta is then written to the job record with an audit trail.
+        <p class="text-xs text-slate-400 mt-2">The 85% confidence and £100 thresholds are proposed values from the workflow design and require validation before production.</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 14: FOUR-PHASE IMPLEMENTATION ROADMAP -->
+    <div class="slide space-y-5" id="slide14">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">Delivery & Change Management</span>
+        <h2 class="text-2xl md:text-3xl font-black text-white">Four Phases to Network-wide Adoption</h2>
+        <p class="text-sm text-slate-400">Start with a focused regional pilot, prove value, then scale by partner volume.</p>
+      </div>
+      <div class="grid md:grid-cols-4 gap-3">
+        <div class="bg-slate-900 border border-blue-800 rounded-xl p-4">
+          <div class="text-blue-300 text-xs font-bold uppercase">Weeks 1–6</div><h3 class="text-white text-lg font-bold mt-2">1. Anchor Pilot</h3>
+          <div class="text-3xl font-black text-blue-300 my-2">3 firms</div>
+          <p class="text-sm text-slate-300">~150 technicians · ~1,000 jobs/week · Northern region.</p>
+          <p class="text-sm text-emerald-300 mt-3 font-semibold">Incentive: guaranteed Net-7 payment</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-4">
+          <div class="text-blue-300 text-xs font-bold uppercase">Weeks 7–16</div><h3 class="text-white text-lg font-bold mt-2">2. Regional Rollout</h3>
+          <div class="text-3xl font-black text-blue-300 my-2">Top 25</div>
+          <p class="text-sm text-slate-300">Largest firms, covering ~60% of job volume.</p>
+          <p class="text-sm text-slate-300 mt-3">Train-the-dispatcher workshops and dispatcher portal launch.</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-4">
+          <div class="text-blue-300 text-xs font-bold uppercase">Weeks 17–26</div><h3 class="text-white text-lg font-bold mt-2">3. Broad Scale</h3>
+          <div class="text-3xl font-black text-blue-300 my-2">175 firms</div>
+          <p class="text-sm text-slate-300">Remaining small firms, typically 3–15 technicians.</p>
+          <p class="text-sm text-slate-300 mt-3">SMS deep links and three-minute video guides.</p>
+        </div>
+        <div class="bg-slate-900 border border-emerald-800 rounded-xl p-4">
+          <div class="text-emerald-300 text-xs font-bold uppercase">Week 27 onward</div><h3 class="text-white text-lg font-bold mt-2">4. Billing Mandate</h3>
+          <div class="text-3xl font-black text-emerald-300 my-2">100%</div>
+          <p class="text-sm text-slate-300">Move the network to a shared digital evidence process.</p>
+          <p class="text-sm text-slate-300 mt-3">Verified invoices target 7-day payment; unverified paper invoices enter a 60-day audit queue.</p>
+        </div>
+      </div>
+      <div class="bg-slate-900 border border-slate-700 rounded-xl p-4 text-sm text-slate-200">
+        <strong>Rollout principle:</strong> Earn adoption through faster, more predictable payment and low-friction onboarding before making digital evidence the standard billing process.
+      </div>
+    </div>
+
   </main>
 
   <!-- COLLAPSIBLE SPEAKER NOTES DRAWER -->
@@ -637,7 +737,7 @@
   </footer>
 
   <script>
-    const totalSlides = 11;
+    const totalSlides = 14;
     let currentSlide = 1;
 
     // Presenter Notes Database for Each Slide
@@ -652,7 +752,11 @@
       8: "<strong>Unit Economics:</strong> Walk through the math. £1.20 per completed job = £374k ARR. Net savings = £1.07M (2.86x ROI). Reiterate why charging the subcontractor a 2% fee is fatal for adoption.",
       9: "<strong>GTM Rollout:</strong> Show you know how enterprise change management works. Start with 3 anchor firms in one region, build proof points, expand to top 25 firms (60% volume), and only then mandate it nationally with the 7-day payment carrot.",
       10: "<strong>Strategic Horizons:</strong> Demonstrate product vision. Show that once the data pipeline is established, you can build predictive van stock replenishment and peer-to-peer parts trading between non-competing crews.",
-      11: "<strong>Roleplays:</strong> Transition smoothly into the live roleplays. In the COO pitch, be crisp, ROI-focused, and operational. In the scathing critique, show fearless self-awareness by ripping apart fraud risks and showing how your architecture stops them."
+      11: "<strong>Roleplays:</strong> Transition smoothly into the live roleplays. In the COO pitch, be crisp, ROI-focused, and operational. In the scathing critique, show fearless self-awareness by ripping apart fraud risks and showing how your architecture stops them.",
+      12: "<strong>Assumptions & Personas:</strong> Treat the five assumptions as hypotheses, not facts. Highlight that the biggest delivery risks are Day-1 SFTP readiness, technician friction and the four-hour decision commitment. Explain how each validation activity de-risks the plan.",
+      13: "<strong>AI Workflow:</strong> Walk left to right from evidence capture to human decision. Explain the parallel checks and the proposed 85% confidence / £100 delta gate. Emphasize that both branches end with a human vendor manager making the binding decision.",
+      14: "<strong>Rollout:</strong> Explain the four phases and the adoption logic: anchor pilot, top-volume firms, long-tail firms, then billing policy standardization. The Net-7 payment incentive is the initial adoption lever.";
+
     };
 
     function updateSlide() {
