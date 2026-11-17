@@ -6,516 +6,242 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>ELI5 Guide — Subcontractor Operations Platform</title>
+  <meta name="description" content="Subcontractor Operations Platform: business context, product solution, AI governance, financial case, rollout plan and risks.">
+  <title>Subcontractor Operations Platform | Product Overview</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Google Docs Style */
-    body {
-      background-color: #f0f4f9;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color: #1f1f1f;
-      margin: 0;
-      padding: 0;
-    }
-    .doc-page {
-      background: #ffffff;
-      width: 100%;
-      max-width: 820px;
-      margin: 24px auto;
-      padding: 48px 56px;
-      box-shadow: 0 1px 3px rgba(60,64,67,0.15), 0 4px 8px rgba(60,64,67,0.1);
-      border-radius: 4px;
-      line-height: 1.65;
-      font-size: 14.5px;
-    }
-    h1 {
-      font-size: 24px;
-      font-weight: 800;
-      color: #1a73e8;
-      margin-top: 28px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 2px solid #edf2f7;
-      padding-bottom: 6px;
-    }
-    h2 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #202124;
-      margin-top: 22px;
-      margin-bottom: 10px;
-    }
-    p {
-      margin-bottom: 12px;
-      color: #3c4043;
-    }
-    .card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
-    }
-    .card-blue {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
-      color: #1e40af;
-    }
-    .card-green {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
-      color: #166534;
-    }
-    .card-amber {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
-      color: #92400e;
-    }
-    .card-rose {
-      background: #fff1f2;
-      border: 1px solid #fecdd3;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
-      color: #9f1239;
-    }
-    .eli5-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      margin: 14px 0;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      overflow: hidden;
-      font-size: 13.5px;
-    }
-    .eli5-table th {
-      background-color: #f1f5f9;
-      color: #0f172a;
-      text-align: left;
-      padding: 10px 14px;
-      font-weight: 700;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .eli5-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid #e2e8f0;
-      color: #334155;
-    }
-    .eli5-table tr:last-child td {
-      border-bottom: none;
-    }
-    .step-number {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #1a73e8;
-      color: white;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 13px;
-      margin-right: 8px;
-      flex-shrink: 0;
-    }
-    @media print {
-      body { background: white; }
-      .no-print { display: none !important; }
-      .doc-page { box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
-    }
+    body { background:#f3f5f8; color:#263244; font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; margin:0; line-height:1.65; }
+    .doc-page { background:#fff; width:min(100% - 32px,900px); margin:32px auto; padding:clamp(24px,5vw,56px); box-shadow:0 2px 12px rgba(15,23,42,.07); border:1px solid #e7ebf0; border-radius:12px; }
+    h1 { color:#172b4d; font-size:clamp(21px,3vw,26px); font-weight:750; margin:38px 0 14px; padding-bottom:9px; border-bottom:1px solid #e5eaf0; letter-spacing:-.02em; }
+    h2 { color:#243b5a; font-size:18px; font-weight:700; margin:24px 0 10px; }
+    h3 { font-weight:700; }
+    p { color:#475569; margin:0 0 14px; }
+    .lead { font-size:16px; color:#475569; max-width:760px; }
+    .card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:18px; margin:14px 0; }
+    .card-blue { background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:18px; margin:14px 0; color:#1e3a8a; }
+    .card-green { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:18px; margin:14px 0; color:#14532d; }
+    .card-amber { background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:18px; margin:14px 0; color:#78350f; }
+    .card-rose { background:#fff1f2; border:1px solid #fecdd3; border-radius:10px; padding:18px; margin:14px 0; color:#881337; }
+    .data-table { width:100%; border-collapse:collapse; margin:18px 0; font-size:14px; }
+    .data-table th { background:#f1f5f9; color:#1e293b; text-align:left; padding:12px; font-weight:700; border:1px solid #e2e8f0; }
+    .data-table td { padding:12px; border:1px solid #e2e8f0; color:#334155; vertical-align:top; }
+    .step-number { width:30px; height:30px; border-radius:50%; background:#1d4ed8; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0; }
+    .stat { padding:14px 8px; border-radius:9px; text-align:center; border:1px solid #e2e8f0; background:#f8fafc; }
+    .stat strong { display:block; font-size:23px; line-height:1.3; color:#1d4ed8; }
+    .stat span { display:block; font-size:12px; color:#64748b; margin-top:4px; }
+    .toc a { color:#1d4ed8; text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    @media(max-width:640px) { .doc-page { width:auto; margin:0; padding:22px 18px; border-radius:0; } .data-table { font-size:12px; } .data-table th,.data-table td { padding:8px; } }
+    @media print { body { background:#fff; } .no-print { display:none!important; } .doc-page { box-shadow:none; border:0; margin:0; padding:0; width:100%; max-width:none; } h1 { break-after:avoid; } }
   </style>
 </head>
 <body>
-
-  <!-- ========================================================================= -->
-  <!-- GOOGLE DOCS TOP BAR                                                       -->
-  <!-- ========================================================================= -->
-  <header class="bg-white border-b border-[#dadce0] sticky top-0 z-50 no-print">
-    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 no-print">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-3">
-        <!-- Google Docs Blue Icon -->
-        <a href="index.html" class="flex-shrink-0" title="Project Portal">
-          <svg class="w-9 h-9" viewBox="0 0 36 36" fill="none">
-            <path d="M22 2H9C7.9 2 7 2.9 7 4V32C7 33.1 7.9 34 9 34H27C28.1 34 29 33.1 29 32V9L22 2Z" fill="#4285F4"/>
-            <path d="M22 2V9H29L22 2Z" fill="#A1C2FA"/>
-            <rect x="11" y="14" width="14" height="2" rx="1" fill="white"/>
-            <rect x="11" y="19" width="14" height="2" rx="1" fill="white"/>
-            <rect x="11" y="24" width="9" height="2" rx="1" fill="white"/>
-          </svg>
+        <a href="index.html" class="flex-shrink-0" title="Project Portal" aria-label="Project Portal">
+          <svg class="w-9 h-9" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M22 2H9C7.9 2 7 2.9 7 4V32C7 33.1 7.9 34 9 34H27C28.1 34 29 33.1 29 32V9L22 2Z" fill="#4285F4"/><path d="M22 2V9H29L22 2Z" fill="#A1C2FA"/><rect x="11" y="14" width="14" height="2" rx="1" fill="white"/><rect x="11" y="19" width="14" height="2" rx="1" fill="white"/><rect x="11" y="24" width="9" height="2" rx="1" fill="white"/></svg>
         </a>
-
         <div>
-          <div class="flex items-center gap-2">
-            <span class="font-bold text-base text-[#202124]">
-              Subcontractor Operations Platform (ELI5 Plain-English Guide)
-            </span>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Easy to Read</span>
-          </div>
-          <div class="flex items-center gap-3 text-xs text-[#5f6368] pt-0.5">
-            <span>Author: Komal Agarwal</span>
-            <span>•</span>
+          <div class="font-bold text-base text-slate-800">Subcontractor Operations Platform</div>
+          <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 pt-1">
+            <span>Product overview</span><span>Author: Komal Agarwal</span>
             <a href="wireframes.html" class="text-blue-600 font-semibold hover:underline">Interactive Wireframes</a>
-            <span>•</span>
             <a href="presentation_deck.html" class="text-blue-600 font-semibold hover:underline">Slide Deck</a>
-            <span>•</span>
             <a href="presentation_deck.pptx" download class="text-blue-600 font-semibold hover:underline">Download PPTX</a>
           </div>
         </div>
       </div>
-
       <div class="flex items-center gap-2">
-        <button onclick="window.print()" class="px-3 py-1.5 border border-gray-300 rounded-md text-xs font-semibold hover:bg-gray-50 flex items-center gap-1.5 text-gray-700">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-          Print / PDF
-        </button>
-        <a href="https://github.com/komala2019/Zinier" target="_blank" class="px-3.5 py-1.5 bg-[#1a73e8] text-white rounded-md text-xs font-bold hover:bg-[#1557b0] shadow-sm">
-          GitHub Repo
-        </a>
+        <button onclick="window.print()" class="px-3 py-2 border border-slate-300 rounded-md text-xs font-semibold hover:bg-slate-50 text-slate-700">Print / Save as PDF</button>
+        <a href="https://github.com/komala2019/Zinier" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 bg-blue-600 text-white rounded-md text-xs font-bold hover:bg-blue-700">GitHub Repository</a>
       </div>
     </div>
   </header>
 
-  <!-- ========================================================================= -->
-  <!-- GOOGLE DOC PAGE CONTAINER                                                 -->
-  <!-- ========================================================================= -->
   <main class="doc-page">
-
-    <!-- Header Block -->
-    <div class="border-b border-gray-200 pb-4 mb-6">
-      <span class="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-2.5 py-1 rounded-md">ELI5 Product Breakdown</span>
-      <h1 style="border:none; margin: 8px 0 4px 0; font-size: 26px; color: #1e293b;">
-        How to Fix a £50,000,000 Internet Problem in Plain English
-      </h1>
-      <p class="text-sm text-gray-600 mb-2">
-        A simple, jargon-free guide to fixing broken communications between a giant broadband operator and 200 partner companies.
-      </p>
-
-      <!-- 4 Quick Stats -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-3">
-        <div class="p-2.5 bg-blue-50 rounded-lg text-center border border-blue-100">
-          <div class="text-lg font-black text-blue-600">6,000</div>
-          <div class="text-[11px] text-gray-600 font-medium">Home visits / week</div>
-        </div>
-        <div class="p-2.5 bg-rose-50 rounded-lg text-center border border-rose-100">
-          <div class="text-lg font-black text-rose-600">45 Days</div>
-          <div class="text-[11px] text-gray-600 font-medium">Old payment wait</div>
-        </div>
-        <div class="p-2.5 bg-emerald-50 rounded-lg text-center border border-emerald-100">
-          <div class="text-lg font-black text-emerald-600">&lt; 2 Mins</div>
-          <div class="text-[11px] text-gray-600 font-medium">App time per job</div>
-        </div>
-        <div class="p-2.5 bg-amber-50 rounded-lg text-center border border-amber-100">
-          <div class="text-lg font-black text-amber-600">£1.07M</div>
-          <div class="text-[11px] text-gray-600 font-medium">Net savings / year</div>
-        </div>
+    <div class="border-b border-slate-200 pb-6 mb-7">
+      <div class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Product and business overview</div>
+      <h1 style="border:0;margin:0 0 10px;padding:0;font-size:clamp(27px,4vw,34px);">Improving Broadband Contractor Operations</h1>
+      <p class="lead">A digital platform to improve coordination between a broadband operator and its subcontractor network, strengthen job evidence, accelerate payment decisions and reduce operational waste.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5">
+        <div class="stat"><strong>6,000</strong><span>Home visits per week</span></div>
+        <div class="stat"><strong>45 days</strong><span>Current payment / dispute cycle</span></div>
+        <div class="stat"><strong>&lt;2 min</strong><span>Target app time per job</span></div>
+        <div class="stat"><strong>£1.07M</strong><span>Projected annual net savings</span></div>
       </div>
     </div>
 
-    <!-- ======================================================================= -->
-    <!-- SECTION 1: THE STORY (WHAT IS BROKEN?)                                   -->
-    <!-- ======================================================================= -->
-    <h1>💡 1. The Story: What is Broken?</h1>
-    <p>
-      Imagine you run a giant broadband company. Every week, people order high-speed internet for their homes. That is <strong>6,000 installs and repairs every week!</strong>
-    </p>
-    <p>
-      You don't employ all the van drivers yourself. Instead, you hire <strong>200 outside contractor companies</strong> to do 70% of the physical work.
-    </p>
+    <nav class="toc card text-sm" aria-label="Contents">
+      <h2 class="mt-0">On this page</h2>
+      <div class="grid sm:grid-cols-2 gap-x-5 gap-y-1">
+        <a href="#context">1. Business context and problem</a>
+        <a href="#stakeholders">2. Stakeholders and incentives</a>
+        <a href="#solution">3. Product solution</a>
+        <a href="#ai">4. AI capabilities and governance</a>
+        <a href="#business-case">5. Financial business case</a>
+        <a href="#rollout">6. Implementation roadmap</a>
+        <a href="#risks">7. Key risks and mitigations</a>
+        <a href="#pitch">8. Executive summary</a>
+      </div>
+    </nav>
 
-    <div class="card-rose">
-      <h3 class="font-bold text-rose-900 text-sm mb-1">🛑 The Daily Mess Today:</h3>
-      <ol class="list-decimal pl-5 space-y-1 text-sm text-rose-950">
-        <li><strong>The Surprise:</strong> A technician arrives at a house. The underground pipe is crushed by tree roots. It will take 2 extra hours of digging.</li>
-        <li><strong>The WhatsApp Chat:</strong> The worker takes a blurry photo on WhatsApp and tells his boss, but nobody alerts the big broadband company.</li>
-        <li><strong>The Clock Keeps Ticking:</strong> The system thinks the worker is late and automatically fines them!</li>
-        <li><strong>The 45-Day Fight:</strong> 6 weeks later, a surprise bill arrives for £95 extra. The broadband company says <em>"We didn't approve this, so we won't pay."</em></li>
-        <li><strong>The Anger:</strong> The contractor company gets furious. They pull their best workers and send them to your competitor instead!</li>
-      </ol>
-    </div>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 2: WHO IS FIGHTING?                                             -->
-    <!-- ======================================================================= -->
-    <h1>👥 2. Who is Fighting and Why?</h1>
-    <p>
-      Both sides are actually good people who just want to do their jobs, but the current tools make them fight:
-    </p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-3">
-      <!-- Side 1: Operator -->
+    <section id="context">
+      <h1>1. Business Context and Problem</h1>
+      <p>The broadband operator manages approximately 6,000 installation and repair visits each week. Around 70% of the field work is delivered through a network of 200 subcontractor companies.</p>
+      <p>Today, operational exceptions and supporting evidence are often shared through informal channels such as WhatsApp, while payment disputes may not surface until weeks after the work is completed. This creates avoidable delays, manual effort and friction between the operator and its partners.</p>
+      <div class="card-rose">
+        <h3 class="text-rose-900 text-sm mb-2">Current process: where it breaks down</h3>
+        <ol class="list-decimal pl-5 space-y-2 text-sm text-rose-950">
+          <li><strong>Unexpected work:</strong> A technician encounters an issue at a property, such as a damaged underground duct, requiring additional time and materials.</li>
+          <li><strong>Evidence is fragmented:</strong> The technician sends photos and an update to their supervisor through an informal channel. The operator may not receive the information promptly.</li>
+          <li><strong>Job status becomes inaccurate:</strong> The operator's system may continue to treat the job as delayed, even when the delay is caused by a site issue outside the technician's control.</li>
+          <li><strong>Disputes arrive late:</strong> Additional charges may be submitted weeks later, without consistent evidence or prior approval.</li>
+          <li><strong>Partner relationships suffer:</strong> Delayed decisions and disputed payments reduce subcontractor confidence and may lead experienced teams to prioritize other clients.</li>
+        </ol>
+      </div>
       <div class="card-blue">
-        <h3 class="font-bold text-blue-900 text-sm mb-1">🏢 The Operator (The Big Broadband Boss)</h3>
-        <ul class="text-xs space-y-1.5 text-blue-950">
-          <li>• <strong>What they want:</strong> Internet installed fast, zero customer complaints, and no fake surprise charges.</li>
-          <li>• <strong>What annoys them:</strong> Getting mystery bills 45 days late with blurry photos of dirt.</li>
-          <li>• <strong>What makes them say NO:</strong> If a tool forces them to re-type data by hand into slow spreadsheets.</li>
-        </ul>
+        <strong>Core problem to solve</strong>
+        <p class="mb-0 mt-1 text-sm">Create a shared, timely and auditable process for recording job progress, raising exceptions, validating evidence and making payment decisions.</p>
       </div>
+    </section>
 
-      <!-- Side 2: Subcontractor -->
-      <div class="card-green">
-        <h3 class="font-bold text-green-900 text-sm mb-1">🚐 The Subcontractor (The Van Crews)</h3>
-        <ul class="text-xs space-y-1.5 text-green-950">
-          <li>• <strong>What they want:</strong> Fast, fair payment every week so they can pay their workers on Friday.</li>
-          <li>• <strong>What annoys them:</strong> Losing money because an app crashes in a basement or fines them for things they didn't cause.</li>
-          <li>• <strong>What makes them say NO:</strong> If you charge them a fee to use the app, or if it takes &gt;2 minutes per job!</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card-amber text-xs">
-      <strong>🤝 The Golden Deal:</strong>
-      <br>
-      • The broadband company funds the platform (because it saves them £1M+ in fake bills).
-      <br>
-      • <strong>The app is 100% FREE for all subcontractors and technicians.</strong>
-      <br>
-      • If workers take clear photos on site, they are guaranteed payment in <strong>7 days instead of 45 days</strong>.
-    </div>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 3: THE TWO SIMPLE TOOLS                                         -->
-    <!-- ======================================================================= -->
-    <h1>🛠️ 3. The Solution: Two Simple Tools</h1>
-    <p>
-      We built two simple tools that talk to each other in real-time:
-    </p>
-
-    <h2>Tool 1: The Field Tech Mobile App (For the Van)</h2>
-    <div class="card">
-      <ul class="text-xs space-y-2 text-gray-700">
-        <li class="flex items-start gap-2">
-          <span class="text-blue-600 font-bold">✓</span>
-          <span><strong>Under 2 Minutes:</strong> 4 simple taps on big buttons that work even with thick work gloves. Zero typing required.</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-blue-600 font-bold">✓</span>
-          <span><strong>Works with ZERO Cell Signal:</strong> When a worker is in a basement or rural lane with no 4G, the app saves everything safely on the phone without spinning or crashing.</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-blue-600 font-bold">✓</span>
-          <span><strong>3 Quick Guided Photos:</strong>
-            <br>1. The light meter (the app reads the number automatically: <code>-18.2 dBm</code>).
-            <br>2. The neat wire splice tray.
-            <br>3. The outside customer wall box.
-          </span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-blue-600 font-bold">✓</span>
-          <span><strong>1-Tap "Blocked" Button:</strong> If a gate is locked or a pipe is broken, tap one button. The timer stops immediately so the worker doesn't get in trouble!</span>
-        </li>
-      </ul>
-    </div>
-
-    <h2>Tool 2: The Operator Web Console (For the Office)</h2>
-    <div class="card">
-      <ul class="text-xs space-y-2 text-gray-700">
-        <li class="flex items-start gap-2">
-          <span class="text-emerald-600 font-bold">✓</span>
-          <span><strong>Live Company Scoreboard:</strong> Ranks all 200 partner companies. Good performers automatically get more work!</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-emerald-600 font-bold">✓</span>
-          <span><strong>Strict 4-Hour Decision Rule:</strong> When a worker asks for an extra payment, the manager has 4 hours to decide. If the manager ignores it, <em>the worker wins automatically!</em></span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-emerald-600 font-bold">✓</span>
-          <span><strong>Side-by-Side Photo Check:</strong> See what was ordered on the left, what extra work was done in the middle, and the verified photos on the right. 1-click to approve.</span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 4: WHAT AI DOES (AND NEVER DOES)                                -->
-    <!-- ======================================================================= -->
-    <h1>🤖 4. What AI Does (And What It is NEVER Allowed to Do)</h1>
-    <p>
-      We use smart computer vision like a helpful assistant, but <strong>never</strong> as an angry boss:
-    </p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-2 text-xs">
-      <div class="p-3 bg-blue-50 border border-blue-200 rounded-lg">
-        <h4 class="font-bold text-blue-900 mb-1.5">✅ What the AI Assistant Does:</h4>
-        <ul class="space-y-1 text-blue-950">
-          <li>• Reads the meter numbers from photos automatically.</li>
-          <li>• Checks if trench photos are at least 30cm deep.</li>
-          <li>• Catches duplicate photos if someone reuses a photo from last month.</li>
-          <li>• Matches the extra work to the correct pricing rule.</li>
-        </ul>
-      </div>
-
-      <div class="p-3 bg-rose-50 border border-rose-200 rounded-lg">
-        <h4 class="font-bold text-rose-900 mb-1.5">❌ What AI is NEVER Allowed to Do:</h4>
-        <ul class="space-y-1 text-rose-950">
-          <li>• <strong>NO AI Deductions:</strong> The robot can never take money away from a worker.</li>
-          <li>• <strong>NO AI Firing:</strong> The robot can never ban or punish a company.</li>
-          <li>• <strong>100% Human Approval:</strong> A real human manager must always click the final "Approve Payment" button.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 5: THE MONEY MATH                                               -->
-    <!-- ======================================================================= -->
-    <h1>💰 5. The Simple Money Math</h1>
-    <p>
-      How does a £374k software investment turn into <strong>£1,071,200 of net profit</strong> every year?
-    </p>
-
-    <table class="eli5-table">
-      <thead>
-        <tr>
-          <th>Where the Money Comes From</th>
-          <th>What Happens Today</th>
-          <th>What Changes With the App</th>
-          <th style="text-align:right;">Cash Saved</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>1. Eliminating Fake Surprise Bills</strong></td>
-          <td>Paying £24 extra on disputed claims because there is no photo proof.</td>
-          <td>Every extra charge has geotagged photo proof on site.</td>
-          <td style="text-align:right; font-weight:bold; color:#166534;">+£450,000</td>
-        </tr>
-        <tr>
-          <td><strong>2. Doing It Right the First Time</strong></td>
-          <td>Workers rush; 16% of jobs need a second van visit (£85 each).</td>
-          <td>Quality photos catch mistakes before van leaves. Second visits drop by 3%.</td>
-          <td style="text-align:right; font-weight:bold; color:#166534;">+£795,600</td>
-        </tr>
-        <tr>
-          <td><strong>3. Less Office Paperwork</strong></td>
-          <td>6 full-time staff members spend all day arguing over emails.</td>
-          <td>Exception-only review. 4 staff redeployed to higher value work.</td>
-          <td style="text-align:right; font-weight:bold; color:#166534;">+£200,000</td>
-        </tr>
-        <tr style="background:#f8fafc; font-weight:bold;">
-          <td colspan="3">Total Money Created</td>
-          <td style="text-align:right; color:#0f172a;">+£1,445,600</td>
-        </tr>
-        <tr style="background:#f8fafc; color:#9f1239;">
-          <td colspan="3">Minus: Software Cost (£1.20 per job × 312,000 jobs)</td>
-          <td style="text-align:right;">(£374,400)</td>
-        </tr>
-        <tr style="background:#ecfdf5; font-size:15px; font-weight:bold; color:#065f46;">
-          <td colspan="3">🎉 PURE NET SAVINGS EVERY YEAR:</td>
-          <td style="text-align:right;">+£1,071,200</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p class="text-xs text-gray-500 text-center font-medium">
-      For every £1.00 spent on this software, the broadband company gets <strong>£2.86 back in pure cash savings!</strong>
-    </p>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 6: HOW WE ROLL IT OUT                                           -->
-    <!-- ======================================================================= -->
-    <h1>🚀 6. How We Roll It Out (No Chaos)</h1>
-    <p>
-      We don't force 200 companies to switch overnight. We do it in 4 safe steps:
-    </p>
-
-    <div class="space-y-2 text-xs">
-      <div class="flex items-center gap-3 p-2.5 bg-gray-50 border border-gray-200 rounded-lg">
-        <span class="step-number">1</span>
-        <div>
-          <strong class="text-gray-900">Weeks 1–6 (The Friendly Test):</strong>
-          <span class="text-gray-600">Start with 3 friendly companies (150 workers) in one city. Guarantee them 7-day payment. Fix all bugs.</span>
+    <section id="stakeholders">
+      <h1>2. Stakeholders and Incentives</h1>
+      <p>The platform must create value for both sides. Adoption depends on making the process efficient for field teams while giving the operator the controls and visibility it needs.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-3">
+        <div class="card-blue">
+          <h3 class="text-blue-900 text-sm mb-2">Broadband operator</h3>
+          <ul class="text-sm space-y-2 text-blue-950">
+            <li><strong>Priorities:</strong> Reliable installations, fewer customer complaints, cost control and clear operational visibility.</li>
+            <li><strong>Current pain points:</strong> Late claims, inconsistent evidence, manual reconciliation and limited insight into subcontractor performance.</li>
+            <li><strong>Adoption requirement:</strong> Integration with existing systems and minimal duplicate data entry.</li>
+          </ul>
+        </div>
+        <div class="card-green">
+          <h3 class="text-green-900 text-sm mb-2">Subcontractors and technicians</h3>
+          <ul class="text-sm space-y-2 text-green-950">
+            <li><strong>Priorities:</strong> A simple field workflow, fair treatment, predictable work and timely payment.</li>
+            <li><strong>Current pain points:</strong> Connectivity issues, repeated administration, disputed claims and penalties for delays outside their control.</li>
+            <li><strong>Adoption requirement:</strong> A free, reliable app that takes less than two minutes per job and works offline.</li>
+          </ul>
         </div>
       </div>
+      <div class="card-amber text-sm">
+        <strong>Proposed value exchange</strong>
+        <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li>The broadband operator funds the platform in return for improved control, reduced waste and better evidence.</li>
+          <li>The app is free for subcontractor companies and technicians.</li>
+          <li>Complete and verified job submissions are eligible for a seven-day payment target, compared with the current cycle of up to 45 days.</li>
+        </ul>
+      </div>
+    </section>
 
-      <div class="flex items-center gap-3 p-2.5 bg-gray-50 border border-gray-200 rounded-lg">
-        <span class="step-number">2</span>
-        <div>
-          <strong class="text-gray-900">Weeks 7–16 (The Big Players):</strong>
-          <span class="text-gray-600">Bring on the 25 biggest companies (which do 60% of all jobs). Train their dispatchers in half-day sessions.</span>
+    <section id="solution">
+      <h1>3. Product Solution</h1>
+      <p>The solution has two connected experiences: a mobile app for technicians in the field and a web console for the operator's operations team.</p>
+      <h2>3.1 Field Technician Mobile App</h2>
+      <div class="card">
+        <ul class="text-sm space-y-3 text-slate-700">
+          <li><strong>Fast job updates:</strong> A guided workflow with four primary actions, large touch targets and minimal typing. Target completion time is under two minutes per job.</li>
+          <li><strong>Offline capability:</strong> Job updates and evidence are stored securely on the device when connectivity is unavailable, then synchronized when a connection returns.</li>
+          <li><strong>Guided photo capture:</strong> The app requests three evidence photos: the optical light meter reading (for example, -18.2 dBm), the wire splice tray and the external customer wall box.</li>
+          <li><strong>Exception reporting:</strong> A technician can flag a blocked job, such as a locked gate or damaged duct. The event is time-stamped and routed to the operator so the job status can be reviewed.</li>
+        </ul>
+      </div>
+      <h2>3.2 Operator Web Console</h2>
+      <div class="card">
+        <ul class="text-sm space-y-3 text-slate-700">
+          <li><strong>Subcontractor performance view:</strong> A consolidated view of performance across all 200 partner companies, supporting evidence-based work allocation and operational reviews.</li>
+          <li><strong>Time-bound decisions:</strong> Additional-work requests enter a managed approval queue with a proposed four-hour decision target and clear escalation when no decision is made.</li>
+          <li><strong>Evidence review:</strong> Review the original job scope, the additional work requested and the supporting photos together, with a clear approval or rejection action.</li>
+        </ul>
+      </div>
+      <div class="card-amber text-sm">
+        <strong>Important policy decision:</strong> The original proposal includes an automatic approval outcome when a request is not reviewed within four hours. This should be treated as a business rule requiring explicit agreement from Finance, Operations and Legal before implementation.
+      </div>
+    </section>
+
+    <section id="ai">
+      <h1>4. AI Capabilities and Governance</h1>
+      <p>AI is used to assist evidence review and reduce repetitive manual checks. It should provide recommendations and signals, not make punitive decisions about workers or subcontractors.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-3 text-sm">
+        <div class="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <h3 class="text-blue-900 mb-2">AI-assisted capabilities</h3>
+          <ul class="space-y-2 text-blue-950">
+            <li>Extract meter readings from submitted photos.</li>
+            <li>Assess whether submitted trench evidence appears to meet the required depth, such as 30 cm, subject to image quality and human verification.</li>
+            <li>Flag possible duplicate or reused photos.</li>
+            <li>Compare additional-work requests with the relevant pricing rules.</li>
+          </ul>
+        </div>
+        <div class="p-4 bg-rose-50 border border-rose-200 rounded-lg">
+          <h3 class="text-rose-900 mb-2">Controls and human oversight</h3>
+          <ul class="space-y-2 text-rose-950">
+            <li>AI does not deduct money from a worker or subcontractor.</li>
+            <li>AI does not suspend, ban or penalize a company.</li>
+            <li>Payment decisions remain subject to an authorized human approval process.</li>
+            <li>AI flags should be explainable, reviewable and auditable, with a way to challenge incorrect results.</li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <div class="flex items-center gap-3 p-2.5 bg-gray-50 border border-gray-200 rounded-lg">
-        <span class="step-number">3</span>
-        <div>
-          <strong class="text-gray-900">Weeks 17–26 (The Small Outfits):</strong>
-          <span class="text-gray-600">Onboard the remaining 175 smaller companies using a 3-minute video guide and an SMS link. No app store download needed.</span>
-        </div>
+    <section id="business-case">
+      <h1>5. Financial Business Case</h1>
+      <p>The model estimates how a software investment of £374,400 per year could generate £1,445,600 in annual gross savings, resulting in £1,071,200 in projected net savings.</p>
+      <div class="overflow-x-auto">
+        <table class="data-table">
+          <thead><tr><th>Value driver</th><th>Current situation</th><th>Expected change</th><th class="text-right">Estimated annual benefit</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Reduced disputed additional-work claims</strong></td><td>Claims are disputed because evidence is incomplete or arrives late.</td><td>Capture time-stamped, location-linked evidence when the work takes place.</td><td class="text-right font-bold text-green-700">£450,000</td></tr>
+            <tr><td><strong>Fewer repeat visits</strong></td><td>16% of jobs require a second visit, at an estimated £85 per visit.</td><td>Use guided evidence and quality checks to identify issues before the technician leaves. The model assumes repeat visits reduce by 3%.</td><td class="text-right font-bold text-green-700">£795,600</td></tr>
+            <tr><td><strong>Reduced administrative effort</strong></td><td>Six full-time staff spend significant time resolving disputes and reconciling information.</td><td>Move to exception-based review and redeploy four staff to higher-value work.</td><td class="text-right font-bold text-green-700">£200,000</td></tr>
+            <tr class="bg-slate-50 font-bold"><td colspan="3">Total estimated gross benefit</td><td class="text-right">£1,445,600</td></tr>
+            <tr class="bg-slate-50"><td colspan="3">Less: platform cost (£1.20 × 312,000 jobs)</td><td class="text-right text-rose-700">(£374,400)</td></tr>
+            <tr class="bg-emerald-50 font-bold text-emerald-900"><td colspan="3">Projected annual net savings</td><td class="text-right">£1,071,200</td></tr>
+          </tbody>
+        </table>
       </div>
+      <p class="text-sm text-slate-500">Based on the assumptions in the proposal. Benefits should be validated against a baseline during the pilot, including the repeat-visit reduction, disputed-claim value, staffing impact and platform cost.</p>
+      <div class="card-green text-sm"><strong>Indicative return:</strong> The model estimates £2.86 in gross benefit for every £1.00 of platform cost. This is a forecast, not a guaranteed outcome.</div>
+    </section>
 
-      <div class="flex items-center gap-3 p-2.5 bg-gray-50 border border-gray-200 rounded-lg">
-        <span class="step-number">4</span>
-        <div>
-          <strong class="text-gray-900">Week 27+ (The Simple Rule):</strong>
-          <span class="text-gray-600">Send verified photos on the app = <strong>Get paid in 7 days</strong>. Send paper bills = Wait in a 60-day manual audit queue.</span>
-        </div>
+    <section id="rollout">
+      <h1>6. Implementation Roadmap</h1>
+      <p>Use a phased rollout to validate the workflow, prove operational value and reduce disruption before onboarding the full subcontractor network.</p>
+      <div class="space-y-3 text-sm">
+        <div class="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-lg"><span class="step-number">1</span><div><strong>Weeks 1–6: Pilot</strong><p class="mb-0 mt-1">Start with three willing subcontractors and approximately 150 technicians in one city. Validate the mobile workflow, offline behavior, evidence quality and seven-day payment process. Resolve critical usability and integration issues.</p></div></div>
+        <div class="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-lg"><span class="step-number">2</span><div><strong>Weeks 7–16: High-volume partners</strong><p class="mb-0 mt-1">Onboard the 25 largest subcontractors, representing approximately 60% of job volume. Provide focused training for dispatchers and operational leads.</p></div></div>
+        <div class="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-lg"><span class="step-number">3</span><div><strong>Weeks 17–26: Network expansion</strong><p class="mb-0 mt-1">Onboard the remaining 175 subcontractors using short training videos, direct onboarding links and support materials. Track adoption and support needs by partner.</p></div></div>
+        <div class="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-lg"><span class="step-number">4</span><div><strong>Week 27 onward: Standard operating model</strong><p class="mb-0 mt-1">Make digital evidence submission the standard route for faster payment processing. Define a fair, communicated process for exceptions and manual submissions rather than relying on an unreviewed penalty queue.</p></div></div>
       </div>
-    </div>
+    </section>
 
-    <!-- ======================================================================= -->
-    <!-- SECTION 7: THE 4 BIG WORRIES                                            -->
-    <!-- ======================================================================= -->
-    <h1>🛡️ 7. The 4 Big Worries & Why We Won't Fail</h1>
-
-    <div class="space-y-2.5 my-3 text-xs">
-      <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-        <strong class="text-gray-900 block mb-0.5">Worry 1: "What if technicians take fake photos from their van window?"</strong>
-        <p class="text-gray-600 mb-0">
-          <strong>The Fix:</strong> The phone checks that the van was parked outside the house for at least 10 minutes, checks GPS coordinates, and blocks photos picked from the phone's saved camera roll.
-        </p>
+    <section id="risks">
+      <h1>7. Key Risks and Mitigations</h1>
+      <div class="space-y-3 my-3 text-sm">
+        <div class="card"><strong class="text-slate-900">Risk 1: Evidence could be captured away from the job site.</strong><p class="mb-0 mt-1">Mitigation: Validate capture-time location, timestamps and job context; detect suspicious patterns and provide a review path. Avoid relying on a single GPS signal as definitive proof.</p></div>
+        <div class="card"><strong class="text-slate-900">Risk 2: Integration with legacy enterprise systems takes longer than planned.</strong><p class="mb-0 mt-1">Mitigation: Start with scheduled CSV exchange over SFTP where appropriate, while defining secure access, reconciliation, monitoring and a phased path to API integration.</p></div>
+        <div class="card"><strong class="text-slate-900">Risk 3: Technicians perceive the app as employee surveillance.</strong><p class="mb-0 mt-1">Mitigation: Do not use continuous background location tracking. Collect location only when needed for a job event, explain the purpose clearly and define retention and access policies.</p></div>
+        <div class="card"><strong class="text-slate-900">Risk 4: The operations team receives too many approval requests.</strong><p class="mb-0 mt-1">Mitigation: Use configurable thresholds and risk-based prioritization. Low-value, high-confidence requests may be eligible for controlled auto-approval only after policy approval, with sampling, audit trails and an appeal process.</p></div>
       </div>
+    </section>
 
-      <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-        <strong class="text-gray-900 block mb-0.5">Worry 2: "What if our old enterprise IT takes 2 years to connect?"</strong>
-        <p class="text-gray-600 mb-0">
-          <strong>The Fix:</strong> We don't wait for IT! On Day 1, we import and export simple scheduled spreadsheet files (CSV via SFTP). It works immediately.
-        </p>
+    <section id="pitch">
+      <h1>8. Executive Summary</h1>
+      <div class="p-5 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-950 leading-relaxed">
+        The current subcontractor operating model relies on fragmented communication and delayed evidence, creating avoidable disputes, repeat visits and administrative effort. The proposed platform connects a field technician app with an operator web console so job updates, exceptions and supporting evidence are captured at the point of work and reviewed through a consistent process.
+        <br><br>
+        The mobile experience is designed to work offline and take less than two minutes per job. The operator console provides performance visibility, structured exception handling and faster evidence review. AI can assist with image and pricing checks, while payment and performance decisions remain governed by clear human oversight.
+        <br><br>
+        The financial model forecasts £1.07 million in annual net savings against an estimated annual platform cost of £374,400. A six-week pilot with three subcontractors is the proposed first step to validate adoption, operational impact and the assumptions behind the business case.
       </div>
+    </section>
 
-      <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-        <strong class="text-gray-900 block mb-0.5">Worry 3: "What if workers strike because they think it's a spy tracker?"</strong>
-        <p class="text-gray-600 mb-0">
-          <strong>The Fix:</strong> Zero background GPS tracking! The app only looks at location for 1 second when the tech taps "Arrived" and "Done". It respects their privacy.
-        </p>
-      </div>
-
-      <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-        <strong class="text-gray-900 block mb-0.5">Worry 4: "What if the office gets flooded with 200 requests every day?"</strong>
-        <p class="text-gray-600 mb-0">
-          <strong>The Fix:</strong> Small claims under £25 with high confidence get auto-approved with a 10% random check. Humans only review the ~30 big ones each day.
-        </p>
-      </div>
-    </div>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 8: 30-SECOND PITCH                                              -->
-    <!-- ======================================================================= -->
-    <h1>🎙️ 8. The 30-Second Pitch to the Big Boss</h1>
-    <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl text-xs italic text-blue-950 leading-relaxed">
-      "Right now, we spend £50 million on outside contractors, but we manage them through WhatsApp and 45-day delayed bills. 
-      <br><br>
-      We are giving them an offline phone app that takes 90 seconds to use, and giving our team a live console with a 4-hour answer guarantee. 
-      <br><br>
-      It costs £1.20 per job, stops £1.07 million in waste, and gets our partners paid in 7 days so they stop defecting to our rivals. It pays for itself in under 5 months. Let's start the 6-week test."
-    </div>
-
-    <!-- Bottom Footer -->
-    <div class="mt-8 pt-4 border-t border-gray-200 text-center text-xs text-gray-500">
-      Subcontractor Operations Platform · ELI5 Product Requirement Document · Komal Agarwal · November 2026
-    </div>
-
+    <footer class="mt-10 pt-5 border-t border-slate-200 text-center text-xs text-slate-500">
+      Subcontractor Operations Platform · Product Overview · Komal Agarwal · November 2026
+    </footer>
   </main>
-
 </body>
 </html>
