@@ -239,6 +239,73 @@
       </div>
     </section>
 
+
+    <section id="assumptions">
+      <h1>9. Core Assumptions and Validation Plan</h1>
+      <p>The solution depends on five assumptions. Each should be tested early because failure could materially affect adoption, delivery cost or operating policy.</p>
+      <div class="overflow-x-auto">
+        <table class="data-table">
+          <thead><tr><th>ID</th><th>Category</th><th>Assumption</th><th>Risk</th><th>Validation method</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A1</strong></td><td>Technical<br>(Field)</td><td>More than 85% of field technicians use mid- to low-tier Android devices with intermittent cellular coverage in basements and rural lanes.</td><td class="font-bold text-amber-600">High</td><td>Fleet survey across 20 representative firms.</td></tr>
+            <tr><td><strong>A2</strong></td><td>Operational<br>(Operator)</td><td>Operator systems of record can support scheduled SFTP batch interfaces on Day 1, before full REST APIs are available.</td><td class="font-bold text-rose-700">Critical</td><td>Technical architecture review with Enterprise IT.</td></tr>
+            <tr><td><strong>A3</strong></td><td>Behavioral<br>(Field)</td><td>Technicians will abandon an app that adds more than two minutes per job or requires typing while wearing work gloves.</td><td class="font-bold text-amber-600">High</td><td>On-site shadowing of 15 technician shifts and a time-and-motion study.</td></tr>
+            <tr><td><strong>A4</strong></td><td>Commercial<br>(Firms)</td><td>Subcontractor net profit margins are approximately 5–8%; charging a software fee could trigger immediate defection to rival operators.</td><td class="font-bold text-rose-700">Critical</td><td>P&amp;L interviews with five firm owners and contract-rate analysis.</td></tr>
+            <tr><td><strong>A5</strong></td><td>Policy<br>(Operator)</td><td>Operator leadership will commit vendor managers to a four-hour decision turnaround on paused jobs.</td><td class="font-bold text-rose-700">Critical</td><td>Alignment workshop with the VP of Field Operations and COO.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h2>Persona Discovery Summary</h2>
+      <div class="card text-sm">
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Priya Sharma — Operator Regional Manager (1,500 jobs/week):</strong> Needs aggregate capacity predictability and first-time-fix tracking; rejects tools that require manual double entry.</li>
+          <li><strong>David Vance — Operator Vendor Manager (200 firms):</strong> Is overwhelmed by unverified £95 variation claims arriving 45 days late; commits to a four-hour turnaround when photographic proof is captured at the time of work.</li>
+          <li><strong>Imran Khan and Meera — Subcontractor Owner and Dispatcher:</strong> Operate on a 6% net profit margin; arbitrary invoice withholdings put weekly technician payroll at risk. They strongly oppose software subscription fees.</li>
+          <li><strong>Ravi Patel — Field Technician, Piece-Rate:</strong> Works in rain, with dirty gloves and unreliable connectivity; needs one-tap clock pauses, offline reliability and less than two minutes of total interaction per job.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="ai-workflow">
+      <h1>10. AI-Assisted Evidence and Approval Workflow</h1>
+      <p>The workflow combines device-side quality checks, parallel AI analysis and a human decision. AI prepares evidence and highlights exceptions; the vendor manager retains final authority.</p>
+      <div class="space-y-2 text-sm">
+        <div class="card-blue"><strong>1. Technician submits evidence</strong><p class="mb-0 mt-1">Photos, EXIF metadata, GPS coordinates and the work-order ID are captured with the job submission.</p></div>
+        <div class="text-center text-blue-600 font-bold">↓</div>
+        <div class="card"><strong>2. On-device pre-check</strong><p class="mb-0 mt-1">Check image blur and glare before upload, prompting the technician to retake unusable evidence.</p></div>
+        <div class="text-center text-blue-600 font-bold">↓</div>
+        <div class="card"><strong>3. Cloud AI analysis runs in parallel</strong>
+          <div class="grid sm:grid-cols-3 gap-2 mt-3">
+            <div class="p-3 bg-slate-50 rounded-lg"><strong>Computer vision</strong><p class="mb-0 mt-1">Trench depth, duct blockage and optical power meter (OPM) OCR.</p></div>
+            <div class="p-3 bg-slate-50 rounded-lg"><strong>Anti-fraud checks</strong><p class="mb-0 mt-1">Geotag validation and a 10-minute stationary GPS check.</p></div>
+            <div class="p-3 bg-slate-50 rounded-lg"><strong>Contract matching</strong><p class="mb-0 mt-1">Map the requested work to the relevant rate-card code.</p></div>
+          </div>
+        </div>
+        <div class="text-center text-blue-600 font-bold">↓</div>
+        <div class="card-amber"><strong>4. Confidence and value-delta decision gate</strong><p class="mb-0 mt-1">The supplied workflow uses a confidence threshold of at least 85% and a rate-card delta below £100 to determine whether the request can be pre-populated for a quick review or should be routed to assisted review.</p></div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="card-green"><strong>Meets threshold</strong><p class="mb-0 mt-1">Pre-populate the rate-card difference card for a one-click manager review.</p></div>
+          <div class="card-rose"><strong>Does not meet threshold</strong><p class="mb-0 mt-1">Route to the assisted review queue and highlight mismatches or missing evidence.</p></div>
+        </div>
+        <div class="text-center text-blue-600 font-bold">↓</div>
+        <div class="card-blue"><strong>5. Human vendor manager makes the final decision</strong><p class="mb-0 mt-1">The manager reviews the evidence and approves, modifies or rejects the request under the agreed policy.</p></div>
+        <div class="text-center text-blue-600 font-bold">↓</div>
+        <div class="card"><strong>6. Update the job record</strong><p class="mb-0 mt-1">The approved rate-card delta is written back to the job record with an auditable decision trail.</p></div>
+      </div>
+      <p class="text-xs text-slate-500 mt-3">The 85% confidence and £100 delta values are proposed workflow thresholds from the supplied design and should be validated before production use.</p>
+    </section>
+
+    <section id="rollout-detail">
+      <h1>11. Detailed Rollout Plan</h1>
+      <p>The rollout is structured around four phases, moving from a controlled regional pilot to a consistent digital billing process across the network.</p>
+      <div class="grid sm:grid-cols-2 gap-3">
+        <div class="card"><strong class="text-blue-700">Phase 1 · Weeks 1–6: Anchor pilot</strong><p class="mt-1 mb-0">Three friendly Tier-1 firms, approximately 150 technicians and around 1,000 jobs per week in the Northern region. The proposed adoption incentive is guaranteed Net-7 payment.</p></div>
+        <div class="card"><strong class="text-blue-700">Phase 2 · Weeks 7–16: Regional rollout</strong><p class="mt-1 mb-0">Onboard the top 25 firms, representing approximately 60% of job volume. Run train-the-dispatcher workshops and launch the dispatcher web portal.</p></div>
+        <div class="card"><strong class="text-blue-700">Phase 3 · Weeks 17–26: Broad scale</strong><p class="mt-1 mb-0">Onboard the remaining 175 small firms, typically with 3–15 technicians, using SMS deep links and three-minute video guides.</p></div>
+        <div class="card"><strong class="text-emerald-700">Phase 4 · Week 27 onward: Billing mandate</strong><p class="mt-1 mb-0">Update the operator billing policy. Unverified paper invoices enter a 60-day audit queue, while platform-verified invoices follow the seven-day payment path.</p></div>
+      </div>
+    </section>
+
     <footer class="mt-10 pt-5 border-t border-slate-200 text-center text-xs text-slate-500">
       Subcontractor Operations Platform · Product Overview · Komal Agarwal · November 2026
     </footer>
