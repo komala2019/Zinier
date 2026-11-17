@@ -61,9 +61,9 @@
 
   <main class="doc-page">
     <div class="border-b border-slate-200 pb-6 mb-7">
-      <div class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Product Manager · B2B Home Assignment</div>
+      <div class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Product Requirements Document · B2B</div>
       <h1 style="border:0;margin:0 0 10px;padding:0;font-size:clamp(27px,4vw,34px);">Subcontractor Operations Platform</h1>
-      <p class="lead">A structured response to the B2B product assignment. The sections below follow the assignment questions in order, with each question followed directly by its answer.</p>
+      <p class="lead">A shared platform that helps broadband operators and subcontractors manage field jobs, resolve exceptions and settle payments with less friction.</p>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5">
         <div class="stat"><strong>6,000</strong><span>Jobs per week</span></div>
         <div class="stat"><strong>200</strong><span>Subcontractor firms</span></div>
@@ -73,252 +73,177 @@
     </div>
 
     <nav class="toc card text-sm" aria-label="Contents">
-      <h2 class="mt-0">Assignment questions</h2>
-      <ol class="list-decimal pl-5 grid sm:grid-cols-2 gap-x-6 gap-y-1">
-        <li><a href="#business-context">Business context</a></li>
-        <li><a href="#discovery">1. Product discovery</a></li>
-        <li><a href="#mobile-app">2.1 Field app and onboarding</a></li>
-        <li><a href="#operator-console">2.2 Operator console</a></li>
-        <li><a href="#apis">2.3 APIs and integrations</a></li>
-        <li><a href="#ai-workflow">2.4 AI workflow</a></li>
-        <li><a href="#challenges">2.5 Implementation challenges</a></li>
-        <li><a href="#business-model">2.6 Business model</a></li>
-        <li><a href="#gtm">2.7 Go-to-market strategy</a></li>
-        <li><a href="#expansion">2.8 Future opportunities</a></li>
-        <li><a href="#coo-pitch">3. COO pitch</a></li>
-        <li><a href="#critique">4. Product critique</a></li>
-      </ol>
+      <h2 class="mt-0">Contents</h2>
+      <div class="grid sm:grid-cols-2 gap-x-5 gap-y-1">
+        <a href="#overview">1. Overview</a><a href="#users">2. Users and needs</a>
+        <a href="#experience">3. Product experience</a><a href="#requirements">4. Functional requirements</a>
+        <a href="#integrations">5. Integrations</a><a href="#ai">6. AI-assisted review</a>
+        <a href="#metrics">7. Success metrics</a><a href="#business">8. Business model</a>
+        <a href="#rollout">9. Rollout plan</a><a href="#risks">10. Assumptions and risks</a>
+      </div>
     </nav>
 
-    <section id="business-context">
-      <h1>Business Context</h1>
-      <p>The platform serves a national fiber broadband operator that delivers most installation and repair work through third-party subcontractors.</p>
+    <section id="overview">
+      <h1>1. Overview</h1>
+      <p>The broadband operator manages approximately 6,000 installation, repair and maintenance jobs each week. Around 70% are completed by a network of 200 subcontractor firms, ranging from small teams to companies with hundreds of technicians.</p>
+      <p>Job updates, site exceptions and supporting evidence are often shared through fragmented channels. Variation claims can arrive weeks after the work, creating disputes, manual reconciliation and delayed payments.</p>
+      <div class="card-blue text-sm"><strong>Product goal</strong><p class="mb-0 mt-1">Create one reliable workflow for job updates, evidence capture, exception handling and payment decisions—improving operational visibility for the operator and making work and payment more predictable for subcontractors.</p></div>
+      <h2>Scope</h2>
       <div class="grid sm:grid-cols-2 gap-3">
-        <div class="card"><strong>Operating scale</strong><ul class="list-disc pl-5 mt-2 text-sm space-y-1"><li>Approximately 6,000 jobs each week: installations, fault repairs and scheduled maintenance.</li><li>Approximately 70% of work is delivered by 200 independent subcontractor firms.</li><li>Firms range from three-person outfits to businesses with 400 technicians.</li></ul></div>
-        <div class="card"><strong>Commercial model</strong><ul class="list-disc pl-5 mt-2 text-sm space-y-1"><li>The operator pays per completed job against a contract rate card.</li><li>SLA penalties apply when agreed service levels are missed.</li><li>Subcontractors operate on thin margins, own their vans and tools, and may also work for competing operators.</li></ul></div>
+        <div class="card"><strong>In scope</strong><ul class="list-disc pl-5 mt-2 text-sm space-y-1"><li>Technician mobile app with offline support.</li><li>Operator web console and subcontractor performance view.</li><li>Job evidence and variation requests.</li><li>Approval workflow and audit history.</li><li>Integration with operator systems and selected third parties.</li><li>AI-assisted evidence checks.</li></ul></div>
+        <div class="card"><strong>Later opportunities</strong><ul class="list-disc pl-5 mt-2 text-sm space-y-1"><li>Predictive van-stock replenishment.</li><li>Advanced capacity and job allocation.</li><li>Parts exchange between nearby crews.</li><li>Partner purchasing and financing services.</li></ul></div>
       </div>
-      <h2>Product surfaces and data</h2>
-      <ul class="list-disc pl-5 text-sm space-y-2">
-        <li><strong>Operator web console:</strong> For regional managers and vendor managers.</li>
-        <li><strong>Subcontractor mobile app:</strong> For dispatchers and field technicians, including in poor-signal environments.</li>
-        <li><strong>Operator systems:</strong> Work orders, network inventory, service addresses, SLA terms, rate cards and technician certifications.</li>
-        <li><strong>Field-generated data:</strong> Job notes, completion photos, failure reasons, access problems and customer no-shows.</li>
-        <li><strong>Third-party and real-time data:</strong> Weather, routing, parts, certification, technician location, job status, van stock and same-day cancellations.</li>
-      </ul>
-      <div class="card-blue text-sm"><strong>The two-sided problem:</strong> Subcontractors need sufficient work, fast payment and fewer disputes. The operator needs throughput, quality and cost control. The product must make these goals work together.</div>
     </section>
 
-    <section id="discovery">
-      <h1>1. Product Discovery</h1>
-      <p><strong>Assignment question:</strong> Ask and answer discovery questions as each key persona—operator regional manager, subcontractor owner or dispatcher, and field technician. Document every assumption.</p>
-      <h2>1.1 Persona questions and answers</h2>
-      <div class="card">
-        <h3 class="text-blue-800">Priya Sharma · Operator Regional Manager · 1,500 jobs/week</h3>
-        <p><strong>Q: What does success look like across your region?</strong><br><strong>A:</strong> Predictable job capacity, improved first-time-fix performance and fewer avoidable repeat visits.</p>
-        <p><strong>Q: What information is difficult to get today?</strong><br><strong>A:</strong> A consolidated view of subcontractor capacity and performance. Information is fragmented across tools and manual updates.</p>
-        <p class="mb-0"><strong>Q: What would make you reject a new tool?</strong><br><strong>A:</strong> Duplicate manual data entry or a workflow that adds work without improving operational visibility.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-blue-800">David Vance · Operator Vendor Manager · 200 firms</h3>
-        <p><strong>Q: What creates the most avoidable work?</strong><br><strong>A:</strong> Unverified variation claims—often around £95—arriving weeks after the job, with little contemporaneous evidence.</p>
-        <p><strong>Q: What would help you make decisions faster?</strong><br><strong>A:</strong> Photos and job context captured at the time of work, shown alongside the original scope and rate card.</p>
-        <p class="mb-0"><strong>Q: What service commitment would improve the relationship?</strong><br><strong>A:</strong> A four-hour decision turnaround for properly evidenced requests, subject to operator leadership agreeing to resource it.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-green-800">Imran Khan and Meera · Subcontractor Owner and Dispatcher</h3>
-        <p><strong>Q: What makes payment disputes particularly painful?</strong><br><strong>A:</strong> The business operates on roughly 6% net margin. Arbitrary invoice withholdings can put weekly technician payroll at risk.</p>
-        <p><strong>Q: Would you pay for another software subscription?</strong><br><strong>A:</strong> No. A subscription fee could make the economics unattractive. The operator should fund the core platform.</p>
-        <p class="mb-0"><strong>Q: What would make you adopt it?</strong><br><strong>A:</strong> A simple workflow, fewer disputed claims and a tangible payment benefit.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-green-800">Ravi Patel · Field Technician · Piece-rate</h3>
-        <p><strong>Q: What makes field apps difficult to use?</strong><br><strong>A:</strong> Poor signal, rain, dirty gloves, small controls and repeated typing.</p>
-        <p><strong>Q: What is the acceptable time commitment?</strong><br><strong>A:</strong> Less than two minutes per job, with large touch targets and as few steps as possible.</p>
-        <p class="mb-0"><strong>Q: What would help when a job is blocked?</strong><br><strong>A:</strong> A one-tap way to record a site issue and pause the relevant SLA clock, with the evidence saved even when offline.</p>
-      </div>
-      <h2>1.2 Core assumptions and validation</h2>
-      <p>These are hypotheses to test, not established facts. Each has a validation activity before scale-up.</p>
+    <section id="users">
+      <h1>2. Users and Needs</h1>
       <div class="overflow-x-auto"><table class="data-table">
-        <thead><tr><th>ID</th><th>Category</th><th>Assumption</th><th>Risk</th><th>Validation method</th></tr></thead>
+        <thead><tr><th>User</th><th>Primary need</th><th>Product response</th></tr></thead>
         <tbody>
-          <tr><td><strong>A1</strong></td><td>Technical (Field)</td><td>More than 85% of field technicians use mid- to low-tier Android devices with intermittent signal in basements and rural lanes.</td><td class="font-bold text-amber-600">High</td><td>Fleet survey across 20 representative firms.</td></tr>
-          <tr><td><strong>A2</strong></td><td>Operational (Operator)</td><td>Operator systems can support scheduled SFTP batch interfaces on Day 1, before full REST APIs are available.</td><td class="font-bold text-rose-700">Critical</td><td>Technical architecture review with Enterprise IT.</td></tr>
-          <tr><td><strong>A3</strong></td><td>Behavioral (Field)</td><td>Technicians will abandon an app that adds more than two minutes per job or requires typing with work gloves.</td><td class="font-bold text-amber-600">High</td><td>On-site shadowing of 15 technician shifts and time-and-motion study.</td></tr>
-          <tr><td><strong>A4</strong></td><td>Commercial (Firms)</td><td>Subcontractor net margins are approximately 5–8%; charging a software fee could trigger defection to rival operators.</td><td class="font-bold text-rose-700">Critical</td><td>P&amp;L interviews with five firm owners and contract-rate analysis.</td></tr>
-          <tr><td><strong>A5</strong></td><td>Policy (Operator)</td><td>Operator leadership will commit vendor managers to a four-hour decision turnaround on paused jobs.</td><td class="font-bold text-rose-700">Critical</td><td>Alignment workshop with VP Field Operations and COO.</td></tr>
+          <tr><td><strong>Regional Manager</strong></td><td>Predictable capacity, job completion and first-time-fix performance.</td><td>Regional dashboard, firm-level performance and exception visibility.</td></tr>
+          <tr><td><strong>Vendor Manager</strong></td><td>Resolve variation claims quickly with reliable evidence.</td><td>Central review queue, job context, photos and rate-card comparison.</td></tr>
+          <tr><td><strong>Subcontractor Owner</strong></td><td>Protect thin margins, secure work and receive timely payment.</td><td>Free app, transparent decisions and faster payment for verified work.</td></tr>
+          <tr><td><strong>Dispatcher</strong></td><td>Coordinate teams and avoid duplicate administration.</td><td>Dispatcher portal, job status and simple exception tracking.</td></tr>
+          <tr><td><strong>Field Technician</strong></td><td>Complete updates quickly in poor signal and difficult working conditions.</td><td>Offline-first mobile workflow, large controls and minimal typing.</td></tr>
         </tbody>
       </table></div>
+      <div class="card text-sm">
+        <strong>Discovery insights to validate</strong>
+        <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li>Vendor managers report unverified variation claims—sometimes around £95—arriving long after the job.</li>
+          <li>Subcontractor firms may operate on 5–8% net margins; software fees and arbitrary invoice holds could damage adoption.</li>
+          <li>Technicians need one-tap exception reporting, offline reliability and less than two minutes of app interaction per job.</li>
+          <li>Regional managers need consolidated capacity and first-time-fix data without manual double entry.</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="mobile-app">
-      <h1>2. Presentation</h1>
-      <h2>2.1 Design the Field Technician Mobile App and Onboarding Flow</h2>
-      <p><strong>Question:</strong> How will a technician complete a job and submit evidence quickly, including when there is no cellular signal?</p>
-      <div class="card-blue"><strong>Answer:</strong> Build an offline-first mobile app with a guided, low-friction workflow. The target is under two minutes per job, with minimal typing and large touch targets.</div>
-      <h3>Core experience</h3>
+    <section id="experience">
+      <h1>3. Product Experience</h1>
+      <h2>3.1 Technician mobile app</h2>
       <ol class="list-decimal pl-5 text-sm space-y-2">
-        <li><strong>Job queue:</strong> Show assigned jobs, status and a clear offline indicator.</li>
-        <li><strong>Job detail:</strong> Display the address, work scope, SLA countdown and required evidence.</li>
-        <li><strong>Guided evidence capture:</strong> Capture the optical power meter reading, splice tray and external customer wall box. Attach job ID, timestamp and relevant location context.</li>
-        <li><strong>Exception reporting:</strong> One-tap reporting for blocked access, damaged ducts, customer no-shows or other site issues.</li>
-        <li><strong>Submit and sync:</strong> Save securely on-device when offline and synchronize automatically when connectivity returns.</li>
+        <li><strong>Sign in:</strong> Join through an SMS invitation and OTP verification.</li>
+        <li><strong>View jobs:</strong> See assigned jobs, address, scope, status and SLA information.</li>
+        <li><strong>Capture evidence:</strong> Follow prompts to photograph the optical power meter reading, splice tray and external wall box.</li>
+        <li><strong>Report an exception:</strong> Record blocked access, damaged ducts, customer no-shows or additional work.</li>
+        <li><strong>Submit:</strong> Save securely offline and sync automatically when connectivity returns.</li>
       </ol>
-      <h3>Onboarding flow</h3>
-      <div class="card text-sm">SMS invitation → OTP verification → Plain-language permissions → Download offline job pack → Short optional guided tour → Open first job.</div>
-      <p class="text-sm">The proposed onboarding target is less than three minutes to first job. The app should use an encrypted local store, queue actions safely and compress photos for unreliable networks.</p>
+      <h2>3.2 Operator web console</h2>
+      <ul class="list-disc pl-5 text-sm space-y-1">
+        <li>Monitor job volume, SLA performance, first-time-fix rate and repeat visits by firm and region.</li>
+        <li>Review variation requests with original scope, submitted evidence and contract rate-card details side by side.</li>
+        <li>Approve, modify or reject requests with a recorded reason and decision history.</li>
+        <li>Track pending decisions against a proposed four-hour turnaround target.</li>
+      </ul>
     </section>
 
-    <section id="operator-console">
-      <h2>2.2 Define the Operator Console</h2>
-      <p><strong>Question:</strong> How will the operator manage subcontractor performance and respond to requests?</p>
-      <div class="card-blue"><strong>Answer:</strong> Provide a web console with two core areas: a performance scorecard across subcontractors and a time-bound request review queue.</div>
-      <h3>Performance scorecard</h3>
-      <ul class="list-disc pl-5 text-sm space-y-1">
-        <li>SLA hit rate and job completion status.</li>
-        <li>First-time-fix rate and repeat visit trends.</li>
-        <li>Variation and dispute frequency.</li>
-        <li>Job-to-settlement cycle time.</li>
-        <li>Capacity and performance by firm and region.</li>
-      </ul>
-      <h3>Variation and exception review</h3>
-      <ul class="list-disc pl-5 text-sm space-y-1">
-        <li>Show dispatched scope next to claimed scope.</li>
-        <li>Display field photos, timestamps, location context and applicable rate-card lines.</li>
-        <li>Provide approve, modify/counter or reject actions; require a reason for rejection.</li>
-        <li>Show a four-hour decision timer and escalation when a request is not reviewed.</li>
-      </ul>
-      <div class="card-amber text-sm"><strong>Policy decision to resolve:</strong> The concept proposes that requests may default in the subcontractor's favor if the operator misses the four-hour window. This needs explicit approval from Operations, Finance and Legal, plus a defined exception and audit process.</div>
-    </section>
-
-    <section id="apis">
-      <h2>2.3 Describe the APIs and Integration Behavior</h2>
-      <p><strong>Question:</strong> What is pushed and pulled between third-party services and operator systems, and what happens when an integration is unavailable?</p>
-      <div class="card-blue"><strong>Answer:</strong> Use asynchronous integrations with retries, queues and cached data. Start with scheduled SFTP/CSV exchange where legacy systems cannot support APIs on Day 1; move to REST/webhooks as systems become ready.</div>
+    <section id="requirements">
+      <h1>4. Functional Requirements</h1>
       <div class="overflow-x-auto"><table class="data-table">
-        <thead><tr><th>System</th><th>Data flow</th><th>Purpose</th><th>Degraded mode</th></tr></thead>
+        <thead><tr><th>ID</th><th>Requirement</th><th>Priority</th><th>Acceptance criteria</th></tr></thead>
         <tbody>
-          <tr><td><strong>Work orders</strong><br>WFM / Siebel / Netcracker</td><td>Pull / webhook</td><td>Ingest job dispatch and status.</td><td>Serve cached job snapshots; queue updates for retry.</td></tr>
-          <tr><td><strong>Network inventory / GIS</strong><br>ESRI / Smallworld</td><td>Pull</td><td>Retrieve distribution point and fiber-drop location data.</td><td>Use the latest work-order snapshot.</td></tr>
-          <tr><td><strong>Billing / ERP</strong><br>SAP S/4HANA / Oracle</td><td>Push</td><td>Send approved self-billing milestones and rate-card outcomes.</td><td>Use an idempotent outbox queue and reconcile on recovery.</td></tr>
-          <tr><td><strong>Weather</strong><br>Third-party provider</td><td>Pull</td><td>Weather conditions relevant to field work and SLA exceptions.</td><td>Allow a documented manual weather-pause request.</td></tr>
-          <tr><td><strong>Traffic and routing</strong><br>Mapping provider</td><td>Pull</td><td>Driving ETAs and route planning.</td><td>Use cached routes or basic distance estimates.</td></tr>
-          <tr><td><strong>Certifications</strong><br>External provider</td><td>Pull</td><td>Validate technician credentials.</td><td>Use cached status for a defined grace period and flag for revalidation.</td></tr>
-          <tr><td><strong>Parts distributors</strong></td><td>Pull / optional order push</td><td>Check parts availability and support replenishment.</td><td>Show last known stock and allow manual confirmation.</td></tr>
+          <tr><td>FR-01</td><td>Offline job access and updates</td><td><strong>Must</strong></td><td>Technician can view assigned jobs and save updates without signal; queued changes sync when online.</td></tr>
+          <tr><td>FR-02</td><td>Guided photo evidence capture</td><td><strong>Must</strong></td><td>Required images are linked to the job with capture time and available location context.</td></tr>
+          <tr><td>FR-03</td><td>Exception and variation submission</td><td><strong>Must</strong></td><td>Technician can report a blocker or request additional work with reason and evidence.</td></tr>
+          <tr><td>FR-04</td><td>Operator review queue</td><td><strong>Must</strong></td><td>Vendor manager can inspect evidence, compare rate-card values and record a decision.</td></tr>
+          <tr><td>FR-05</td><td>Performance dashboard</td><td><strong>Must</strong></td><td>Authorized users can view job, SLA, repeat-visit and dispute metrics by firm and region.</td></tr>
+          <tr><td>FR-06</td><td>Decision timer and escalation</td><td><strong>Should</strong></td><td>Requests show elapsed time and alert the responsible team as the four-hour target approaches.</td></tr>
+          <tr><td>FR-07</td><td>AI evidence assistance</td><td><strong>Should</strong></td><td>AI highlights potential evidence or pricing mismatches; uncertain cases are routed to human review.</td></tr>
+          <tr><td>FR-08</td><td>Auditable job record</td><td><strong>Must</strong></td><td>Submission, evidence, review actions and final decision are recorded against the job.</td></tr>
         </tbody>
       </table></div>
-      <p class="text-sm">For resilience, use stale-while-revalidate caching, circuit breakers, retry policies, idempotency keys and monitoring. Field work should not stop because a non-critical external service is unavailable.</p>
     </section>
 
-    <section id="ai-workflow">
-      <h2>2.4 Choose One Workflow Where AI Adds Value</h2>
-      <p><strong>Question:</strong> What does the model decide versus a human? What happens when it is wrong, how is success measured, and where should AI not be used?</p>
-      <div class="card-blue"><strong>Answer:</strong> Use AI to assist with evidence verification and rate-card matching for additional-work requests. AI prepares a review; it does not make the final financial decision.</div>
-      <h3>Workflow</h3>
-      <ol class="list-decimal pl-5 text-sm space-y-2">
-        <li><strong>Capture:</strong> Technician submits photos, EXIF metadata, GPS context and work-order ID.</li>
-        <li><strong>Device pre-check:</strong> Detect blur and glare; prompt for a retake when evidence is unusable.</li>
-        <li><strong>Parallel AI checks:</strong> Computer vision/OCR checks trench depth, duct blockage and optical power readings; anti-fraud checks flag possible reused photos or inconsistent location context; contract matching maps the request to the rate card.</li>
-        <li><strong>Confidence routing:</strong> The proposed design uses a confidence threshold of at least 85% and a rate-card delta below £100 to pre-populate a quick-review card. Lower confidence or mismatches go to assisted review.</li>
-        <li><strong>Human decision:</strong> A vendor manager approves, modifies or rejects the request and records the reason.</li>
-        <li><strong>Record update:</strong> The approved rate-card delta is written to the job record with an audit trail.</li>
-      </ol>
-      <div class="grid sm:grid-cols-2 gap-3">
-        <div class="card-green"><strong>AI can</strong><ul class="list-disc pl-5 mt-2 text-sm"><li>Extract readings and identify visual evidence.</li><li>Flag possible duplicate images.</li><li>Suggest a matching rate-card code.</li><li>Prioritize cases for human review.</li></ul></div>
-        <div class="card-rose"><strong>AI must not</strong><ul class="list-disc pl-5 mt-2 text-sm"><li>Deduct money or apply penalties.</li><li>Automatically suspend or de-rank a subcontractor.</li><li>Make a binding payment decision.</li><li>Auto-reject low-confidence or ambiguous cases.</li></ul></div>
-      </div>
-      <h3>When AI is wrong and how to measure it</h3>
-      <p class="text-sm">Route uncertain results to a human, retain original evidence, explain the reason for each flag, allow the subcontractor to challenge an outcome and audit model performance. Track review time, human override rate, false-positive rate, dispute recurrence and evidence re-submission rate. Proposed targets include reducing triage time by 80%, keeping overrides below 15% and dispute recurrence below 2%; validate these during the pilot.</p>
-    </section>
-
-    <section id="challenges">
-      <h2>2.5 Describe Implementation Challenges</h2>
-      <p><strong>Question:</strong> What are the technical, adoption and commercial challenges?</p>
-      <div class="card">
-        <h3>Technical: poor connectivity and high photo volume</h3>
-        <p class="mb-0 text-sm"><strong>Challenge:</strong> Thousands of photos may need to upload over weak or congested mobile networks.<br><strong>Response:</strong> Compress images on-device, sync metadata first, queue photo uploads in chunks and retry safely. Keep the core workflow available offline.</p>
-      </div>
-      <div class="card">
-        <h3>Adoption: existing WhatsApp-based habits</h3>
-        <p class="mb-0 text-sm"><strong>Challenge:</strong> Dispatchers and technicians may resist another app or duplicate administration.<br><strong>Response:</strong> Use SMS deep-link invitations, short training, dispatcher workshops and an immediate benefit: faster evidence-backed decisions and payment.</p>
-      </div>
-      <div class="card">
-        <h3>Commercial: thin subcontractor margins and competing operators</h3>
-        <p class="mb-0 text-sm"><strong>Challenge:</strong> A subscription fee or fear of data sharing could lead firms to move technicians to competing operators.<br><strong>Response:</strong> Keep the core app free to subcontractors, enforce strict tenant-level data separation and show each operator only its own work data.</p>
-      </div>
-      <div class="card">
-        <h3>Trust and privacy: location evidence</h3>
-        <p class="mb-0 text-sm"><strong>Challenge:</strong> Technicians may interpret location collection as continuous surveillance.<br><strong>Response:</strong> Collect location only when needed for a job event, explain the purpose, limit access and retention, and provide a review path for inaccurate signals.</p>
-      </div>
-    </section>
-
-    <section id="business-model">
-      <h2>2.6 Describe Potential Business Models</h2>
-      <p><strong>Question:</strong> Who pays, on what basis, and how does the model work with subcontractor margins?</p>
-      <div class="card-blue"><strong>Answer:</strong> The broadband operator pays for the core platform on a per-completed-job basis. Subcontractors and technicians use the app for free.</div>
-      <h3>Proposed pricing and business case</h3>
+    <section id="integrations">
+      <h1>5. Integrations and Reliability</h1>
       <div class="overflow-x-auto"><table class="data-table">
-        <thead><tr><th>Value driver</th><th>Expected annual benefit</th></tr></thead>
+        <thead><tr><th>System</th><th>Data exchanged</th><th>Integration approach</th></tr></thead>
         <tbody>
-          <tr><td>Reduced disputed additional-work claims</td><td class="font-bold text-green-700">£450,000</td></tr>
-          <tr><td>Fewer repeat visits</td><td class="font-bold text-green-700">£795,600</td></tr>
-          <tr><td>Reduced administrative effort</td><td class="font-bold text-green-700">£200,000</td></tr>
-          <tr><td><strong>Total estimated gross benefit</strong></td><td><strong>£1,445,600</strong></td></tr>
-          <tr><td>Platform cost: £1.20 × 312,000 jobs</td><td class="text-rose-700">(£374,400)</td></tr>
-          <tr class="bg-emerald-50"><td><strong>Projected annual net savings</strong></td><td class="font-bold text-emerald-800">£1,071,200</td></tr>
+          <tr><td>Operator work management</td><td>Work orders, job status and SLA terms</td><td>Pull or webhook; scheduled SFTP/CSV as Day-1 fallback.</td></tr>
+          <tr><td>Network inventory / GIS</td><td>Network assets and service location context</td><td>API pull or cached work-order snapshot.</td></tr>
+          <tr><td>Billing / ERP</td><td>Approved variations and payment milestones</td><td>Secure API or batch push with reconciliation.</td></tr>
+          <tr><td>Weather and routing</td><td>Weather conditions, route and ETA</td><td>Third-party API; cache last-known data.</td></tr>
+          <tr><td>Certification providers</td><td>Technician credentials and validity</td><td>API pull with controlled cache and revalidation.</td></tr>
+          <tr><td>Parts distributors</td><td>Parts availability and replenishment</td><td>API pull; manual confirmation if unavailable.</td></tr>
         </tbody>
       </table></div>
-      <p class="text-sm">The estimate implies approximately £2.86 in gross benefit per £1 of platform cost. These are model assumptions and must be tested against a measured baseline during the pilot.</p>
-      <div class="card-amber text-sm"><strong>Margin protection:</strong> Subcontractors are estimated to operate on 5–8% net margins. Charging them a software fee could undermine adoption and partner economics. An optional early-payment or factoring service could be explored separately, with transparent terms and no requirement to use it.</div>
+      <div class="card-amber text-sm"><strong>Reliability principles:</strong> The field workflow must not depend on continuous connectivity. Use local storage, background sync, retry queues, idempotency, monitoring and reconciliation. Non-critical third-party outages should not block job completion.</div>
     </section>
 
-    <section id="gtm">
-      <h2>2.7 Describe the Go-to-Market Strategy</h2>
-      <p><strong>Question:</strong> How do we move from the operator's signature to 200 subcontractor firms actively using the product?</p>
-      <p><strong>Answer:</strong> Roll out in four phases, starting with a small group of anchor firms, expanding to the highest-volume partners, then onboarding the long tail before standardizing billing policy.</p>
+    <section id="ai">
+      <h1>6. AI-Assisted Evidence Review</h1>
+      <p>AI reduces repetitive checks and helps prioritize requests. It does not make final payment, penalty or subcontractor-performance decisions.</p>
+      <div class="space-y-2 text-sm">
+        <div class="card"><strong>1. Capture and quality check</strong><p class="mb-0 mt-1">Collect job photos and metadata; detect blur or glare before upload and request a retake when needed.</p></div>
+        <div class="card"><strong>2. Run evidence checks</strong><p class="mb-0 mt-1">Use computer vision and OCR for meter readings and site evidence; flag possible duplicate images or inconsistent location context.</p></div>
+        <div class="card"><strong>3. Match the contract</strong><p class="mb-0 mt-1">Compare the requested work and price with the relevant rate-card code.</p></div>
+        <div class="card"><strong>4. Route for review</strong><p class="mb-0 mt-1">The proposed design uses confidence of at least 85% and a rate-card delta below £100 to pre-populate a quick-review card. Lower-confidence or mismatched cases go to assisted review.</p></div>
+        <div class="card-blue"><strong>5. Human decision</strong><p class="mb-0 mt-1">A vendor manager approves, modifies or rejects the request. The decision and approved value are saved to the job record.</p></div>
+      </div>
+      <p class="text-sm">Provide explainable flags, human override, an appeal path and an audit trail. Never use AI alone to deduct payment, apply penalties or suspend a subcontractor. The proposed 85% and £100 thresholds require pilot validation.</p>
+    </section>
+
+    <section id="metrics">
+      <h1>7. Success Metrics</h1>
+      <div class="overflow-x-auto"><table class="data-table">
+        <thead><tr><th>Area</th><th>Metric</th><th>Initial target / measure</th></tr></thead>
+        <tbody>
+          <tr><td>Adoption</td><td>Weekly active technicians and digital job completion</td><td>Track adoption by firm; establish pilot baseline and scale gate.</td></tr>
+          <tr><td>Usability</td><td>Time to submit a job update</td><td>Less than 2 minutes.</td></tr>
+          <tr><td>Reliability</td><td>Offline sync success and failed submissions</td><td>Measure sync success, data loss and retry rates.</td></tr>
+          <tr><td>Operations</td><td>First-time-fix and repeat-visit rate</td><td>Baseline during pilot; validate proposed 3% repeat-visit reduction.</td></tr>
+          <tr><td>Disputes</td><td>Variation decision time and dispute recurrence</td><td>Four-hour decision target; measure recurrence and manual effort.</td></tr>
+          <tr><td>Payments</td><td>Time from verified completion to payment</td><td>Seven-day target for eligible verified jobs.</td></tr>
+          <tr><td>AI quality</td><td>Human override and false-positive rates</td><td>Track by model check and evidence type; review before expanding automation.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="business">
+      <h1>8. Business Model and Financial Case</h1>
+      <p>The broadband operator funds the platform on a per-completed-job basis. The core app remains free for subcontractors, protecting adoption and thin partner margins.</p>
+      <div class="overflow-x-auto"><table class="data-table">
+        <thead><tr><th>Estimated annual value driver</th><th class="text-right">Benefit</th></tr></thead>
+        <tbody>
+          <tr><td>Reduced disputed additional-work claims</td><td class="text-right">£450,000</td></tr>
+          <tr><td>Fewer repeat visits</td><td class="text-right">£795,600</td></tr>
+          <tr><td>Reduced administrative effort</td><td class="text-right">£200,000</td></tr>
+          <tr class="bg-slate-50"><td><strong>Gross annual benefit</strong></td><td class="text-right"><strong>£1,445,600</strong></td></tr>
+          <tr><td>Platform cost (£1.20 × 312,000 jobs)</td><td class="text-right text-rose-700">(£374,400)</td></tr>
+          <tr class="bg-emerald-50"><td><strong>Projected annual net savings</strong></td><td class="text-right font-bold text-emerald-800">£1,071,200</td></tr>
+        </tbody>
+      </table></div>
+      <p class="text-xs text-slate-500">These are proposal estimates, not guaranteed savings. Validate assumptions against actual pilot data before committing to the full business case.</p>
+    </section>
+
+    <section id="rollout">
+      <h1>9. Rollout Plan</h1>
       <div class="space-y-3 text-sm">
-        <div class="card"><strong class="text-blue-700">Phase 1 · Weeks 1–6: Anchor pilot</strong><p class="mt-1 mb-0">Three friendly Tier-1 firms, approximately 150 technicians and around 1,000 jobs/week in the Northern region. Validate offline reliability, evidence quality and the payment incentive. Offer guaranteed Net-7 payment for eligible verified jobs.</p></div>
-        <div class="card"><strong class="text-blue-700">Phase 2 · Weeks 7–16: Top 25 firms</strong><p class="mt-1 mb-0">Onboard the largest 25 firms, representing approximately 60% of volume. Run train-the-dispatcher workshops and launch the dispatcher web portal.</p></div>
-        <div class="card"><strong class="text-blue-700">Phase 3 · Weeks 17–26: Remaining 175 firms</strong><p class="mt-1 mb-0">Use self-serve SMS deep links, short video guides and low-touch support for smaller firms with 3–15 technicians.</p></div>
-        <div class="card"><strong class="text-emerald-700">Phase 4 · Week 27 onward: Billing policy</strong><p class="mt-1 mb-0">Make digital evidence the standard route for invoice settlement. The proposal suggests a 60-day audit queue for unverified paper invoices and a seven-day payment target for platform-verified invoices. Communicate and approve this policy before enforcement.</p></div>
-      </div>
-      <p class="text-sm"><strong>Adoption principle:</strong> Lead with value—faster payment, less admin and fairer dispute resolution. Do not rely on penalties as the primary adoption mechanism.</p>
-    </section>
-
-    <section id="expansion">
-      <h2>2.8 Optional: Other Improvements and Expansions</h2>
-      <p><strong>Question:</strong> What could the platform support after the core workflow is proven?</p>
-      <div class="grid sm:grid-cols-2 gap-3">
-        <div class="card"><strong>Horizon 2 · Smart operations</strong><ul class="list-disc pl-5 mt-2 text-sm space-y-1"><li>Predictive van-stock replenishment using job mix, neighborhood demand and distributor availability.</li><li>Weather-based operational alerts and assisted SLA pause workflows.</li><li>Capacity forecasting and smarter job allocation across subcontractors.</li></ul></div>
-        <div class="card"><strong>Horizon 3 · Partner ecosystem</strong><ul class="list-disc pl-5 mt-2 text-sm space-y-1"><li>Peer-to-peer exchange of spare parts between nearby, non-competing crews.</li><li>Collective purchasing opportunities for vans, fuel, tools and equipment financing.</li><li>Partner insights and benchmarking with clear tenant-level data boundaries.</li></ul></div>
-      </div>
-      <p class="text-sm">These are later opportunities, not part of the initial release. Prioritize them only after the core evidence, exception and payment workflow demonstrates adoption and measurable value.</p>
-    </section>
-
-    <section id="coo-pitch">
-      <h1>3. Roleplay — Pitch to the Operator COO</h1>
-      <p><strong>Assignment task:</strong> Pitch the platform to the interviewer, playing the operator's COO.</p>
-      <div class="card-blue text-sm leading-relaxed">
-        You manage around 6,000 field jobs every week, with 70% delivered through 200 independent subcontractor firms. Today, job exceptions and supporting evidence are fragmented across messages, calls and delayed invoices. That creates avoidable repeat visits, payment disputes and administrative effort—and puts pressure on relationships with the firms you depend on.<br><br>
-        The proposed platform connects a simple, offline-first technician app with an operator console. Technicians can record job progress and evidence in under two minutes. Vendor managers see the original scope, field evidence and rate-card variation together, with a clear four-hour decision target. AI helps organize and check evidence, while people retain control of financial decisions.<br><br>
-        The business case estimates £1.45 million in annual gross benefits against £374,400 in annual platform cost, or approximately £1.07 million in net savings. I recommend starting with a six-week pilot involving three subcontractors and approximately 150 technicians. We will measure adoption, repeat visits, dispute resolution time and payment cycle before expanding.
+        <div class="card"><strong class="text-blue-700">Phase 1 · Weeks 1–6: Anchor pilot</strong><p class="mb-0 mt-1">Three Tier-1 firms, approximately 150 technicians and around 1,000 jobs per week in the Northern region. Validate app usability, offline sync, evidence quality and Net-7 payment for eligible verified jobs.</p></div>
+        <div class="card"><strong class="text-blue-700">Phase 2 · Weeks 7–16: Largest partners</strong><p class="mb-0 mt-1">Onboard the top 25 firms, representing approximately 60% of job volume. Run dispatcher training and launch the web portal.</p></div>
+        <div class="card"><strong class="text-blue-700">Phase 3 · Weeks 17–26: Network expansion</strong><p class="mb-0 mt-1">Onboard the remaining 175 firms using SMS links, short videos and lightweight support.</p></div>
+        <div class="card"><strong class="text-emerald-700">Phase 4 · Week 27 onward: Standardize billing</strong><p class="mb-0 mt-1">Make digital evidence the standard billing route. The proposal suggests a 60-day audit queue for unverified paper invoices and a seven-day payment target for verified invoices, subject to policy approval and clear exceptions.</p></div>
       </div>
     </section>
 
-    <section id="critique">
-      <h1>4. Roleplay — Critique the Product</h1>
-      <p><strong>Assignment task:</strong> Present a candid critique of the proposed product, including where it could fail and what must be tested.</p>
-      <div class="space-y-3 text-sm">
-        <div class="card"><strong>1. Evidence fraud and false confidence</strong><p class="mb-0 mt-1">A technician could submit misleading or reused photos, while GPS may be inaccurate indoors. Location and image signals are not proof on their own. Use multiple signals, human review, audit trails and a challenge process.</p></div>
-        <div class="card"><strong>2. Legacy integration risk</strong><p class="mb-0 mt-1">Enterprise IT may not deliver APIs on the proposed timeline. Validate SFTP/CSV integration with the operator early, agree data ownership and reconciliation, and avoid making field workflows dependent on real-time enterprise availability.</p></div>
-        <div class="card"><strong>3. Four-hour approval promise may not scale</strong><p class="mb-0 mt-1">A high volume of variation requests could overwhelm vendor managers. Pilot the workload, measure arrival patterns, define staffing and escalation, and use AI to prioritize—not silently approve or reject—requests.</p></div>
-        <div class="card"><strong>4. Adoption may fail if payment benefits are not real</strong><p class="mb-0 mt-1">Subcontractors will not change established behavior for a promise that is not honored. Confirm Finance can support the faster payment process and track actual payment performance during the pilot.</p></div>
-        <div class="card"><strong>5. The financial model may overstate benefits</strong><p class="mb-0 mt-1">Savings from fewer repeat visits, lower dispute costs and staff redeployment need evidence. Establish a baseline, define attribution and report realized savings separately from forecast savings.</p></div>
-      </div>
-      <div class="card-amber text-sm"><strong>Closing position:</strong> The opportunity is meaningful, but the product should scale only after the pilot validates technician adoption, integration feasibility, the four-hour operating commitment and the financial assumptions.</div>
+    <section id="risks">
+      <h1>10. Key Assumptions and Risks</h1>
+      <div class="overflow-x-auto"><table class="data-table">
+        <thead><tr><th>Assumption / risk</th><th>Validation or mitigation</th><th>Risk</th></tr></thead>
+        <tbody>
+          <tr><td>More than 85% of technicians use Android devices; signal may be unreliable.</td><td>Survey 20 firms; test low-end devices and offline scenarios.</td><td class="font-bold text-amber-600">High</td></tr>
+          <tr><td>Operator systems can support SFTP batch exchange on Day 1.</td><td>Confirm with Enterprise IT before committing to delivery dates.</td><td class="font-bold text-rose-700">Critical</td></tr>
+          <tr><td>Technicians will reject workflows that take over two minutes.</td><td>Shadow 15 shifts and run time-and-motion tests.</td><td class="font-bold text-amber-600">High</td></tr>
+          <tr><td>Subcontractor margins are too thin to absorb a software fee.</td><td>Interview five firm owners and validate contract economics; keep core app free.</td><td class="font-bold text-rose-700">Critical</td></tr>
+          <tr><td>Four-hour approval turnaround needs operational commitment.</td><td>Agree staffing, escalation and service policy with VP Field Ops and COO.</td><td class="font-bold text-rose-700">Critical</td></tr>
+          <tr><td>Location and image signals can be inaccurate or misleading.</td><td>Use multiple signals, human review, privacy controls and an appeal process.</td><td class="font-bold text-amber-600">High</td></tr>
+        </tbody>
+      </table></div>
+      <div class="card-amber text-sm"><strong>Open policy decisions:</strong> Confirm whether an unreviewed request can ever be auto-approved after four hours; define the paper-invoice audit policy; approve location-data retention; and confirm Finance can support the proposed faster payment cycle.</div>
     </section>
 
     <footer class="mt-10 pt-5 border-t border-slate-200 text-center text-xs text-slate-500">
-      Subcontractor Operations Platform · B2B Product Manager Home Assignment · Komal Agarwal · November 2026
+      Subcontractor Operations Platform · Product Requirements Document · Komal Agarwal · November 2026
     </footer>
   </main>
 </body>
