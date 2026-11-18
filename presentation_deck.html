@@ -28,7 +28,14 @@ p,li{line-height:1.55;color:#cbd5e1}
 <main class="max-w-6xl mx-auto py-8">
 <section class="slide active" id="s1"><div class="label">01 · Overview</div><h2>One shared workflow for every field job</h2><p class="text-xl max-w-3xl">Connect technicians, subcontractors and operator teams—from job dispatch to evidence review and payment.</p><div class="grid md:grid-cols-4 gap-3 mt-3"><div class="card"><div class="kpi">6,000</div><p>Jobs per week</p></div><div class="card"><div class="kpi">200</div><p>Subcontractor firms</p></div><div class="card"><div class="kpi">&lt;2 min</div><p>Target job update time</p></div><div class="card"><div class="kpi">£1.07M</div><p>Projected annual net savings</p></div></div></section>
 <section class="slide" id="s2"><div class="label">02 · Problem and opportunity</div><h2>Fragmented evidence creates avoidable cost</h2><div class="grid md:grid-cols-2 gap-4"><div class="card"><h3>Today</h3><ul class="list-disc pl-5 mt-3 space-y-2"><li>Job exceptions shared across calls and messages.</li><li>Evidence arrives late or is incomplete.</li><li>Variation claims are difficult to verify.</li><li>Disputes delay payment and consume operations time.</li></ul></div><div class="card"><h3>Opportunity</h3><ul class="list-disc pl-5 mt-3 space-y-2"><li>Capture evidence at the point of work.</li><li>Give both parties visibility into job status.</li><li>Route exceptions through a consistent review process.</li><li>Make payment decisions faster and auditable.</li></ul></div></div></section>
-<section class="slide" id="s3"><div class="label">03 · Users and needs</div><h2>Design for both sides of the network</h2><div class="grid md:grid-cols-2 gap-4"><div class="card"><h3>Operator teams</h3><p class="mt-2">Regional managers need capacity and quality visibility. Vendor managers need evidence-backed decisions and a manageable review queue.</p><div class="mt-4 text-sky-300 font-semibold">Console: performance + request review</div></div><div class="card"><h3>Subcontractors and technicians</h3><p class="mt-2">Owners need fair, predictable payment. Dispatchers need simple coordination. Technicians need fast, reliable workflows in poor-signal conditions.</p><div class="mt-4 text-emerald-300 font-semibold">Mobile: jobs + evidence + exceptions</div></div></div></section>
+<section class="slide" id="s3"><div class="label">03 · Personas</div><h2>Five people. One connected workflow.</h2>
+<div class="grid md:grid-cols-3 gap-3">
+<div class="card"><div class="label">Operator · Regional manager</div><h3 class="mt-2">Owns regional performance</h3><p class="mt-2">Needs visibility into capacity, job completion, SLA and first-time-fix across firms.</p><p class="text-sky-300 text-sm mt-2"><strong>Needs:</strong> Regional dashboard and firm scorecards.</p></div>
+<div class="card"><div class="label">Operator · Vendor manager</div><h3 class="mt-2">Resolves claims</h3><p class="mt-2">Needs complete evidence and quick, consistent variation decisions.</p><p class="text-sky-300 text-sm mt-2"><strong>Needs:</strong> Review queue, rate-card comparison and audit trail.</p></div>
+<div class="card"><div class="label">Partner · Subcontractor owner</div><h3 class="mt-2">Runs the business</h3><p class="mt-2">Needs predictable work, fair decisions and timely payment to protect margins.</p><p class="text-sky-300 text-sm mt-2"><strong>Needs:</strong> Transparent job status, feedback and payment visibility.</p></div>
+<div class="card"><div class="label">Partner · Dispatcher</div><h3 class="mt-2">Coordinates crews</h3><p class="mt-2">Needs to allocate and track work without duplicate administration.</p><p class="text-sky-300 text-sm mt-2"><strong>Needs:</strong> Job status and simple exception tracking.</p></div>
+<div class="card md:col-span-2"><div class="label">Field · Technician</div><h3 class="mt-2">Completes the job on site</h3><p class="mt-2">Needs a fast, reliable workflow that works in poor-signal conditions, with minimal typing and clear evidence prompts.</p><p class="text-emerald-300 text-sm mt-2"><strong>Needs:</strong> Mobile job list, guided evidence capture, offline updates and clear job/payment feedback.</p></div>
+</div></section>
 <section class="slide" id="s4"><div class="label">04 · Product experience</div><h2>Two simple product surfaces</h2><div class="grid md:grid-cols-2 gap-4"><div class="card"><div class="label">Technician mobile app</div><h3 class="mt-2">A job in five steps</h3><ol class="list-decimal pl-5 mt-3 space-y-2"><li>Sign in with SMS and OTP.</li><li>View assigned jobs and SLA details.</li><li>Capture required photos.</li><li>Raise a site exception or variation.</li><li>Submit now or save offline and sync later.</li></ol></div><div class="card"><div class="label">Operator web console</div><h3 class="mt-2">See work and resolve exceptions</h3><ol class="list-decimal pl-5 mt-3 space-y-2"><li>Monitor job, SLA and first-time-fix metrics.</li><li>Review requests by urgency.</li><li>Compare dispatched scope, claim and evidence.</li><li>Approve, modify or reject with a reason.</li><li>Track decisions and audit history.</li></ol></div></div></section>
 <section class="slide" id="s5"><div class="label">05 · Core requirements</div><h2>Build the reliable core first</h2><div class="grid md:grid-cols-2 gap-3"><div class="card"><h3>Must have</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Offline job access and queued updates.</li><li>Guided photo evidence linked to a job.</li><li>Exception and variation submission.</li><li>Operator review queue and recorded decisions.</li><li>Performance dashboard and audit history.</li></ul></div><div class="card"><h3>Should have</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Four-hour decision timer and escalation.</li><li>AI-assisted evidence and rate-card checks.</li><li>Advanced capacity insights.</li><li>Predictive parts replenishment (later phase).</li></ul></div></div></section>
 <section class="slide" id="s6"><div class="label">06 · Integrations and AI</div><h2>AI speeds up evidence review—not the final decision</h2>
@@ -51,58 +58,33 @@ p,li{line-height:1.55;color:#cbd5e1}
 <div class="text-sm text-amber-200"><strong>Guardrail:</strong> AI assists and prioritizes; it never makes the final payment or claim decision.</div>
 </div></section>
 <section class="slide" id="s7">
-<div class="label">07 · Feedback & success measures</div>
-<h2>Track completed jobs and feedback from both sides</h2>
+<div class="label">07 · Two-way feedback</div>
+<h2>Both sides rate the working experience</h2>
 <div class="grid md:grid-cols-2 gap-4">
-  <div class="card">
-    <div class="label">Operator rates the firm</div>
-    <h3 class="mt-2">How well was the job done?</h3>
-    <p class="mt-2">Work quality · First-time fix · Evidence · Safety · SLA</p>
-  </div>
-  <div class="card">
-    <div class="label">Firm rates the operator</div>
-    <h3 class="mt-2">How well did the operator support the job?</h3>
-    <p class="mt-2">Clear scope · Site access · Communication · Fair decisions · Payment</p>
-  </div>
+<div class="card"><div class="label">Operator → Firm</div><h3 class="mt-2">How well did the firm do?</h3><ul class="list-disc pl-5 mt-3 space-y-2 text-sm"><li>Work quality and first-time fix</li><li>Evidence completeness and safety</li><li>SLA adherence</li></ul></div>
+<div class="card"><div class="label">Firm → Operator</div><h3 class="mt-2">How well did the operator support the job?</h3><ul class="list-disc pl-5 mt-3 space-y-2 text-sm"><li>Clear job scope and site access</li><li>Dispatcher communication</li><li>Fair decisions and timely payment</li></ul></div>
+</div>
+<div class="card"><h3>Simple feedback loop</h3><div class="grid md:grid-cols-3 gap-3 mt-3 text-sm"><p><strong class="text-sky-300">1. Rate</strong><br>Both sides submit a 1–5 rating after job completion. Comments are optional.</p><p><strong class="text-sky-300">2. Review</strong><br>Keep each direction separate; look for repeated low scores and themes.</p><p><strong class="text-sky-300">3. Improve</strong><br>Agree an owner and action, then track whether scores improve.</p></div></div>
+</section>
+<section class="slide" id="s8">
+<div class="label">08 · Success metrics</div>
+<h2>Track performance with a few clear measures</h2>
+<div class="grid md:grid-cols-3 gap-3">
+<div class="card"><div class="label">Job outcomes</div><div class="kpi">5,420</div><h3 class="mt-2">Jobs completed</h3><p class="mt-2">Track completed jobs, first-time-fix and repeat visits.</p></div>
+<div class="card"><div class="label">Job satisfaction · sample</div><div class="kpi">4.6 / 5</div><h3 class="mt-2">Job CSAT</h3><p class="mt-2">1,248 ratings received. Show rating count and response rate.</p></div>
+<div class="card"><div class="label">Firm satisfaction · sample</div><div class="kpi">4.4 / 5</div><h3 class="mt-2">Firm CSAT</h3><p class="mt-2">Apex Fiber: 326 jobs completed and 82 ratings.</p></div>
 </div>
 <div class="grid md:grid-cols-3 gap-3">
-  <div class="card"><div class="label">Jobs completed · sample</div><div class="kpi">5,420</div><p>This month</p></div>
-  <div class="card"><div class="label">Job CSAT · sample</div><div class="kpi">4.6 / 5</div><p>1,248 ratings received</p></div>
-  <div class="card"><div class="label">Firm CSAT · sample</div><div class="kpi">4.4 / 5</div><p>Apex Fiber · 326 jobs · 82 ratings</p></div>
+<div class="card"><h3>Adoption</h3><p class="mt-2">Active technicians, digital job completion and time to submit (target: under 2 minutes).</p></div>
+<div class="card"><h3>Operations & payment</h3><p class="mt-2">SLA, first-time-fix, repeat visits, decision time and time to payment.</p></div>
+<div class="card"><h3>Reliability & AI</h3><p class="mt-2">Offline sync success, failed submissions, human overrides and false positives.</p></div>
 </div>
-<div class="card">
-  <h3>How the scores work</h3>
-  <div class="grid md:grid-cols-3 gap-3 mt-3 text-sm">
-    <p><strong class="text-sky-300">1. Rate each job</strong><br>Both sides give a 1–5 rating after job completion. Comments are optional.</p>
-    <p><strong class="text-sky-300">2. Roll up by firm</strong><br>Average job ratings monthly to calculate each firm's CSAT.</p>
-    <p><strong class="text-sky-300">3. Act on feedback</strong><br>Review low scores, agree actions and track improvement.</p>
-  </div>
-</div>
-<p class="text-xs text-slate-400">Sample figures are illustrative. Show rating count and response rate with every CSAT score. Keep operator and firm ratings separate.</p>
+<p class="text-xs text-slate-400">CSAT figures are illustrative. Establish baselines during the pilot; display rating counts and response rates with every score.</p>
 </section>
-<section class="slide" id="s8"><div class="label">08 · Business model & financial case</div><h2>£1.07M projected annual net savings</h2><p class="max-w-3xl">The broadband operator funds the platform per completed job. The core app remains free for subcontractors, protecting adoption and partner margins.</p>
-<div class="grid md:grid-cols-2 gap-4">
-<div class="card"><h3>Estimated annual value drivers</h3><div class="mt-3 space-y-3 text-sm">
-<div class="flex justify-between gap-3 border-b border-slate-700 pb-2"><span>Reduced disputed additional-work claims</span><strong>£450,000</strong></div>
-<div class="flex justify-between gap-3 border-b border-slate-700 pb-2"><span>Fewer repeat visits</span><strong>£795,600</strong></div>
-<div class="flex justify-between gap-3 border-b border-slate-700 pb-2"><span>Reduced administrative effort</span><strong>£200,000</strong></div>
-<div class="flex justify-between gap-3 pt-1"><strong>Gross annual benefit</strong><strong>£1,445,600</strong></div>
-</div></div>
-<div class="card"><h3>Platform cost & net savings</h3><div class="text-sm mt-3 space-y-3">
-<p><span class="text-slate-400">Annual completed jobs</span><br><strong>6,000 jobs/week × 52 weeks = 312,000</strong></p>
-<p><span class="text-slate-400">Annual platform cost</span><br><strong>312,000 × £1.20/job = £374,400</strong></p>
-<div class="border-t border-slate-700 pt-3"><span class="text-slate-400">Projected annual net savings</span><div class="kpi text-emerald-300">£1,071,200</div><strong>£1,445,600 − £374,400</strong></div>
-</div></div></div>
-<div class="card mt-1"><h3>How each benefit estimate should be calculated</h3><div class="grid md:grid-cols-3 gap-3 mt-3 text-sm">
-<div><strong class="text-sky-300">Dispute reduction · £450K</strong><p class="mt-1">Annual disputed additional-work value × expected reduction rate (or avoided claim count × average claim value).</p></div>
-<div><strong class="text-sky-300">Repeat visits · £795.6K</strong><p class="mt-1">Avoided repeat visits × fully loaded cost per visit (technician time, travel and materials).</p></div>
-<div><strong class="text-sky-300">Admin effort · £200K</strong><p class="mt-1">Hours saved on evidence chasing, reconciliation and review × loaded hourly labour cost.</p></div>
-</div><p class="text-xs text-amber-200 mt-3">The supplied business case gives the three annual benefit totals, but not their underlying volumes, unit costs or reduction assumptions. Treat these as proposal estimates until Finance validates the inputs against pilot baselines.</p></div>
-</section>
-<section class="slide" id="s9"><div class="label">09 · Rollout and decisions</div><h2>Prove value, then scale by partner volume</h2><div class="grid md:grid-cols-4 gap-3"><div class="card"><div class="label">Weeks 1–6</div><h3 class="mt-2">Pilot</h3><p>3 firms · ~150 technicians · ~1,000 jobs/week.</p></div><div class="card"><div class="label">Weeks 7–16</div><h3 class="mt-2">Top partners</h3><p>25 firms · ~60% of job volume.</p></div><div class="card"><div class="label">Weeks 17–26</div><h3 class="mt-2">Expand</h3><p>Remaining 175 firms with self-serve onboarding.</p></div><div class="card"><div class="label">Week 27+</div><h3 class="mt-2">Standardize</h3><p>Digital evidence becomes standard billing path, subject to policy approval.</p></div></div><div class="card"><h3>Decisions before scale</h3><p class="mt-2">Confirm Day-1 SFTP readiness, four-hour review capacity, payment funding, invoice exceptions and privacy/retention policy.</p></div></section>
+<section class="slide" id="s10"><div class="label">10 · Rollout and decisions</div><h2>Prove value, then scale by partner volume</h2><div class="grid md:grid-cols-4 gap-3"><div class="card"><div class="label">Weeks 1–6</div><h3 class="mt-2">Pilot</h3><p>3 firms · ~150 technicians · ~1,000 jobs/week.</p></div><div class="card"><div class="label">Weeks 7–16</div><h3 class="mt-2">Top partners</h3><p>25 firms · ~60% of job volume.</p></div><div class="card"><div class="label">Weeks 17–26</div><h3 class="mt-2">Expand</h3><p>Remaining 175 firms with self-serve onboarding.</p></div><div class="card"><div class="label">Week 27+</div><h3 class="mt-2">Standardize</h3><p>Digital evidence becomes standard billing path, subject to policy approval.</p></div></div><div class="card"><h3>Decisions before scale</h3><p class="mt-2">Confirm Day-1 SFTP readiness, four-hour review capacity, payment funding, invoice exceptions and privacy/retention policy.</p></div></section>
 </main>
 <footer class="max-w-6xl mx-auto border-t border-slate-800 pt-4 text-xs text-slate-500 flex justify-between"><span>Subcontractor Operations Platform · Product overview</span><span>Use ← / → keys to navigate</span></footer>
 <script>
-let current=1,total=9;function show(n){current=Math.max(1,Math.min(total,n));document.querySelectorAll('.slide').forEach((e,i)=>e.classList.toggle('active',i===current-1));document.getElementById('count').textContent=current+' / '+total}
+let current=1,total=10;function show(n){current=Math.max(1,Math.min(total,n));document.querySelectorAll('.slide').forEach((e,i)=>e.classList.toggle('active',i===current-1));document.getElementById('count').textContent=current+' / '+total}
 function next(){show(current+1)}function prev(){show(current-1)}document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
 </script></body></html>
