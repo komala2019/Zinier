@@ -23,7 +23,7 @@ p,li{line-height:1.55;color:#cbd5e1}
 <body class="min-h-screen px-4 py-5 md:px-10">
 <header class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4 border-b border-slate-700 pb-4">
 <div><div class="label">Product overview</div><div class="font-bold text-white">Subcontractor Operations Platform</div><div class="text-sm text-slate-400">B2B · Fiber broadband field operations</div></div>
-<div class="flex items-center gap-2"><button onclick="prev()" class="px-4 py-2 rounded-lg bg-slate-800">←</button><span id="count" class="text-sm text-slate-300 px-2">1 / 9</span><button onclick="next()" class="px-4 py-2 rounded-lg bg-blue-600">→</button></div>
+<div class="flex items-center gap-2"><button onclick="prev()" class="px-4 py-2 rounded-lg bg-slate-800">←</button><span id="count" class="text-sm text-slate-300 px-2">1 / 11</span><button onclick="next()" class="px-4 py-2 rounded-lg bg-blue-600">→</button></div>
 </header>
 <main class="max-w-6xl mx-auto py-8">
 <section class="slide active" id="s1"><div class="label">01 · Overview</div><h2>One shared workflow for every field job</h2><p class="text-xl max-w-3xl">Connect technicians, subcontractors and operator teams—from job dispatch to evidence review and payment.</p><div class="grid md:grid-cols-4 gap-3 mt-3"><div class="card"><div class="kpi">6,000</div><p>Jobs per week</p></div><div class="card"><div class="kpi">200</div><p>Subcontractor firms</p></div><div class="card"><div class="kpi">&lt;2 min</div><p>Target job update time</p></div><div class="card"><div class="kpi">£1.07M</div><p>Projected annual net savings</p></div></div></section>
@@ -36,9 +36,34 @@ p,li{line-height:1.55;color:#cbd5e1}
 <div class="card"><div class="label">Partner · Dispatcher</div><h3 class="mt-2">Coordinates crews</h3><p class="mt-2">Needs to allocate and track work without duplicate administration.</p><p class="text-sky-300 text-sm mt-2"><strong>Needs:</strong> Job status and simple exception tracking.</p></div>
 <div class="card md:col-span-2"><div class="label">Field · Technician</div><h3 class="mt-2">Completes the job on site</h3><p class="mt-2">Needs a fast, reliable workflow that works in poor-signal conditions, with minimal typing and clear evidence prompts.</p><p class="text-emerald-300 text-sm mt-2"><strong>Needs:</strong> Mobile job list, guided evidence capture, offline updates and clear job/payment feedback.</p></div>
 </div></section>
-<section class="slide" id="s4"><div class="label">04 · Product experience</div><h2>Two simple product surfaces</h2><div class="grid md:grid-cols-2 gap-4"><div class="card"><div class="label">Technician mobile app</div><h3 class="mt-2">A job in five steps</h3><ol class="list-decimal pl-5 mt-3 space-y-2"><li>Sign in with SMS and OTP.</li><li>View assigned jobs and SLA details.</li><li>Capture required photos.</li><li>Raise a site exception or variation.</li><li>Submit now or save offline and sync later.</li></ol></div><div class="card"><div class="label">Operator web console</div><h3 class="mt-2">See work and resolve exceptions</h3><ol class="list-decimal pl-5 mt-3 space-y-2"><li>Monitor job, SLA and first-time-fix metrics.</li><li>Review requests by urgency.</li><li>Compare dispatched scope, claim and evidence.</li><li>Approve, modify or reject with a reason.</li><li>Track decisions and audit history.</li></ol></div></div></section>
-<section class="slide" id="s5"><div class="label">05 · Core requirements</div><h2>Build the reliable core first</h2><div class="grid md:grid-cols-2 gap-3"><div class="card"><h3>Must have</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Offline job access and queued updates.</li><li>Guided photo evidence linked to a job.</li><li>Exception and variation submission.</li><li>Operator review queue and recorded decisions.</li><li>Performance dashboard and audit history.</li></ul></div><div class="card"><h3>Should have</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Four-hour decision timer and escalation.</li><li>AI-assisted evidence and rate-card checks.</li><li>Advanced capacity insights.</li><li>Predictive parts replenishment (later phase).</li></ul></div></div></section>
-<section class="slide" id="s6"><div class="label">06 · Integrations and AI</div><h2>AI speeds up evidence review—not the final decision</h2>
+<section class="slide" id="s4"><div class="label">04 · Product experience</div><h2>Two simple product surfaces</h2><div class="grid md:grid-cols-2 gap-4"><div class="card"><div class="label">Technician mobile app</div><h3 class="mt-2">A job in five steps</h3><ol class="list-decimal pl-5 mt-3 space-y-2"><li>Sign in with SMS and OTP.</li><li>View assigned jobs and SLA details.</li><li>Capture required photos.</li><li>Raise a site exception or variation.</li><li>Submit now or save offline and sync later.</li></ol></div><div class="card"><div class="label">Operator web console</div><h3 class="mt-2">See work and resolve exceptions</h3><ol class="list-decimal pl-5 mt-3 space-y-2"><li>Monitor job, SLA and first-time-fix metrics.</li><li>Review requests by urgency.</li><li>Compare dispatched scope, claim and evidence.</li><li>Approve, modify or reject with a reason.</li><li>Track decisions and audit history.</li></ol></div></div></section><section class="slide" id="s6">
+<div class="label">06 · Solution architecture</div>
+<h2>Two apps. Five role-based experiences. One shared platform.</h2>
+<div class="card text-center"><div class="label">User access layer</div><div class="grid md:grid-cols-5 gap-2 mt-3 text-sm">
+<div class="ai-step"><strong>Technician</strong><span>Jobs · evidence · payment</span></div>
+<div class="ai-step"><strong>Dispatcher</strong><span>Assign · track · exceptions</span></div>
+<div class="ai-step"><strong>Subcontractor owner</strong><span>Firm performance · earnings</span></div>
+<div class="ai-step"><strong>Regional manager</strong><span>Regional KPIs · firm scorecards</span></div>
+<div class="ai-step"><strong>Vendor manager</strong><span>Review · approve · resolve</span></div>
+</div></div>
+<div class="text-center text-sky-300 text-2xl font-bold">↓ role-based access ↓</div>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="card text-center"><div class="label">Application 1 · Mobile</div><h3 class="mt-2 text-xl">Technician & subcontractor app</h3><p class="mt-2">One mobile app with role-specific screens for technicians, dispatchers and subcontractor owners.</p></div>
+<div class="card text-center"><div class="label">Application 2 · Web</div><h3 class="mt-2 text-xl">Operator console</h3><p class="mt-2">One web console with role-specific dashboards and workflows for regional and vendor managers.</p></div>
+</div>
+<div class="text-center text-sky-300 text-2xl font-bold">↓ shared services & APIs ↓</div>
+<div class="grid md:grid-cols-4 gap-3">
+<div class="ai-step"><strong>Identity & permissions</strong><span>Authentication · role access</span></div>
+<div class="ai-step"><strong>Job & workflow services</strong><span>Dispatch · status · SLA · exceptions</span></div>
+<div class="ai-step"><strong>Evidence & AI services</strong><span>Capture · validation · recommendations</span></div>
+<div class="ai-step"><strong>Payments & feedback</strong><span>Payment status · CSAT · audit trail</span></div>
+</div>
+<div class="text-center text-sky-300 text-2xl font-bold">↓ integrations ↓</div>
+<div class="card text-center"><strong>Operator systems & external services</strong><p class="mt-2 text-sm">Work management · ERP/payment · GIS · routing/weather · certifications · parts</p></div>
+<p class="text-xs text-slate-400">Conceptual logical architecture. Both apps use the same backend and data model; permissions control which capabilities each persona can access.</p>
+</section>
+<section class="slide" id="s6"><div class="label">05 · Core requirements</div><h2>Build the reliable core first</h2><div class="grid md:grid-cols-2 gap-3"><div class="card"><h3>Must have</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Offline job access and queued updates.</li><li>Guided photo evidence linked to a job.</li><li>Exception and variation submission.</li><li>Operator review queue and recorded decisions.</li><li>Performance dashboard and audit history.</li></ul></div><div class="card"><h3>Should have</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Four-hour decision timer and escalation.</li><li>AI-assisted evidence and rate-card checks.</li><li>Advanced capacity insights.</li><li>Predictive parts replenishment (later phase).</li></ul></div></div></section>
+<section class="slide" id="s7"><div class="label">07 · Integrations and AI</div><h2>AI speeds up evidence review—not the final decision</h2>
 <div class="ai-flow">
   <div class="ai-step"><strong>1. Capture</strong><span>Technician submits job photos, readings and variation details.</span></div><div class="ai-arrow">→</div>
   <div class="ai-step"><strong>2. Validate</strong><span>Check image quality, extract readings and flag duplicates.</span></div><div class="ai-arrow">→</div>
@@ -57,8 +82,8 @@ p,li{line-height:1.55;color:#cbd5e1}
 <div class="text-sm text-slate-300"><strong class="text-white">Connected systems:</strong> Work management (jobs/SLA), GIS (network/location), ERP (approved variations/payment), plus weather, routing, certifications and parts.</div>
 <div class="text-sm text-amber-200"><strong>Guardrail:</strong> AI assists and prioritizes; it never makes the final payment or claim decision.</div>
 </div></section>
-<section class="slide" id="s7">
-<div class="label">07 · Two-way feedback</div>
+<section class="slide" id="s8">
+<div class="label">08 · Two-way feedback</div>
 <h2>Both sides rate the working experience</h2>
 <div class="grid md:grid-cols-2 gap-4">
 <div class="card"><div class="label">Operator → Firm</div><h3 class="mt-2">How well did the firm do?</h3><ul class="list-disc pl-5 mt-3 space-y-2 text-sm"><li>Work quality and first-time fix</li><li>Evidence completeness and safety</li><li>SLA adherence</li></ul></div>
@@ -66,8 +91,8 @@ p,li{line-height:1.55;color:#cbd5e1}
 </div>
 <div class="card"><h3>Simple feedback loop</h3><div class="grid md:grid-cols-3 gap-3 mt-3 text-sm"><p><strong class="text-sky-300">1. Rate</strong><br>Both sides submit a 1–5 rating after job completion. Comments are optional.</p><p><strong class="text-sky-300">2. Review</strong><br>Keep each direction separate; look for repeated low scores and themes.</p><p><strong class="text-sky-300">3. Improve</strong><br>Agree an owner and action, then track whether scores improve.</p></div></div>
 </section>
-<section class="slide" id="s8">
-<div class="label">08 · Success metrics</div>
+<section class="slide" id="s9">
+<div class="label">09 · Success metrics</div>
 <h2>Track performance with a few clear measures</h2>
 <div class="grid md:grid-cols-3 gap-3">
 <div class="card"><div class="label">Job outcomes</div><div class="kpi">5,420</div><h3 class="mt-2">Jobs completed</h3><p class="mt-2">Track completed jobs, first-time-fix and repeat visits.</p></div>
@@ -81,7 +106,7 @@ p,li{line-height:1.55;color:#cbd5e1}
 </div>
 <p class="text-xs text-slate-400">CSAT figures are illustrative. Establish baselines during the pilot; display rating counts and response rates with every score.</p>
 </section>
-<section class="slide" id="s9"><div class="label">09 · Business model & financial case</div><h2>£1.07M projected annual net savings</h2><p class="max-w-3xl">The broadband operator funds the platform per completed job. The core app remains free for subcontractors, protecting adoption and partner margins.</p>
+<section class="slide" id="s10"><div class="label">10 · Business model & financial case</div><h2>£1.07M projected annual net savings</h2><p class="max-w-3xl">The broadband operator funds the platform per completed job. The core app remains free for subcontractors, protecting adoption and partner margins.</p>
 <div class="grid md:grid-cols-2 gap-4">
 <div class="card"><h3>Estimated annual value drivers</h3><div class="mt-3 space-y-3 text-sm">
 <div class="flex justify-between gap-3 border-b border-slate-700 pb-2"><span>Reduced disputed additional-work claims</span><strong>£450,000</strong></div>
@@ -98,10 +123,10 @@ p,li{line-height:1.55;color:#cbd5e1}
 <div><strong class="text-sky-300">Dispute reduction · £450K</strong><p class="mt-1">Avoided disputed claims × average claim value (or disputed value × expected reduction rate).</p></div>
 <div><strong class="text-sky-300">Repeat visits · £795.6K</strong><p class="mt-1">Avoided repeat visits × fully loaded cost per visit.</p></div>
 <div><strong class="text-sky-300">Admin effort · £200K</strong><p class="mt-1">Hours saved × loaded hourly labour cost.</p></div>
-</div><p class="text-xs text-amber-200 mt-3">Benefit inputs are proposal estimates. Validate volumes, unit costs and reduction assumptions against pilot data before committing.</p></div></section><section class="slide" id="s10"><div class="label">10 · Rollout and decisions</div><h2>Prove value, then scale by partner volume</h2><div class="grid md:grid-cols-4 gap-3"><div class="card"><div class="label">Weeks 1–6</div><h3 class="mt-2">Pilot</h3><p>3 firms · ~150 technicians · ~1,000 jobs/week.</p></div><div class="card"><div class="label">Weeks 7–16</div><h3 class="mt-2">Top partners</h3><p>25 firms · ~60% of job volume.</p></div><div class="card"><div class="label">Weeks 17–26</div><h3 class="mt-2">Expand</h3><p>Remaining 175 firms with self-serve onboarding.</p></div><div class="card"><div class="label">Week 27+</div><h3 class="mt-2">Standardize</h3><p>Digital evidence becomes standard billing path, subject to policy approval.</p></div></div><div class="card"><h3>Decisions before scale</h3><p class="mt-2">Confirm Day-1 SFTP readiness, four-hour review capacity, payment funding, invoice exceptions and privacy/retention policy.</p></div></section>
+</div><p class="text-xs text-amber-200 mt-3">Benefit inputs are proposal estimates. Validate volumes, unit costs and reduction assumptions against pilot data before committing.</p></div></section><section class="slide" id="s11"><div class="label">11 · Rollout and decisions</div><h2>Prove value, then scale by partner volume</h2><div class="grid md:grid-cols-4 gap-3"><div class="card"><div class="label">Weeks 1–6</div><h3 class="mt-2">Pilot</h3><p>3 firms · ~150 technicians · ~1,000 jobs/week.</p></div><div class="card"><div class="label">Weeks 7–16</div><h3 class="mt-2">Top partners</h3><p>25 firms · ~60% of job volume.</p></div><div class="card"><div class="label">Weeks 17–26</div><h3 class="mt-2">Expand</h3><p>Remaining 175 firms with self-serve onboarding.</p></div><div class="card"><div class="label">Week 27+</div><h3 class="mt-2">Standardize</h3><p>Digital evidence becomes standard billing path, subject to policy approval.</p></div></div><div class="card"><h3>Decisions before scale</h3><p class="mt-2">Confirm Day-1 SFTP readiness, four-hour review capacity, payment funding, invoice exceptions and privacy/retention policy.</p></div></section>
 </main>
 <footer class="max-w-6xl mx-auto border-t border-slate-800 pt-4 text-xs text-slate-500 flex justify-between"><span>Subcontractor Operations Platform · Product overview</span><span>Use ← / → keys to navigate</span></footer>
 <script>
-let current=1,total=10;function show(n){current=Math.max(1,Math.min(total,n));document.querySelectorAll('.slide').forEach((e,i)=>e.classList.toggle('active',i===current-1));document.getElementById('count').textContent=current+' / '+total}
+let current=1,total=11;function show(n){current=Math.max(1,Math.min(total,n));document.querySelectorAll('.slide').forEach((e,i)=>e.classList.toggle('active',i===current-1));document.getElementById('count').textContent=current+' / '+total}
 function next(){show(current+1)}function prev(){show(current-1)}document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
 </script></body></html>
