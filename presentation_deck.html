@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Subcontractor Operations Platform | Product Overview</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
@@ -11,6 +11,14 @@ h3{font-size:1.05rem;font-weight:700;color:#fff}
 p,li{line-height:1.55;color:#cbd5e1}
 .kpi{font-size:2.2rem;font-weight:800;color:#7dd3fc}
 .label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#7dd3fc;font-weight:800}
+.ai-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px}
+.ai-step{background:#151f31;border:1px solid #38506d;border-radius:12px;padding:14px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:92px}
+.ai-step strong{color:#fff;font-size:.9rem}.ai-step span{font-size:.76rem;color:#b8c6d8;line-height:1.35;margin-top:5px}
+.ai-arrow{display:flex;align-items:center;justify-content:center;color:#7dd3fc;font-size:1.5rem;font-weight:800}
+.ai-branch{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:760px;margin:0 auto}
+.ai-branch .ai-step{min-height:76px}
+.ai-final{max-width:760px;margin:0 auto}
+@media(max-width:700px){.ai-flow{grid-template-columns:1fr;gap:6px}.ai-arrow{transform:rotate(90deg);height:20px}.ai-branch{grid-template-columns:1fr}}
 </style></head>
 <body class="min-h-screen px-4 py-5 md:px-10">
 <header class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4 border-b border-slate-700 pb-4">
@@ -23,7 +31,25 @@ p,li{line-height:1.55;color:#cbd5e1}
 <section class="slide" id="s3"><div class="label">03 · Users and needs</div><h2>Design for both sides of the network</h2><div class="grid md:grid-cols-2 gap-4"><div class="card"><h3>Operator teams</h3><p class="mt-2">Regional managers need capacity and quality visibility. Vendor managers need evidence-backed decisions and a manageable review queue.</p><div class="mt-4 text-sky-300 font-semibold">Console: performance + request review</div></div><div class="card"><h3>Subcontractors and technicians</h3><p class="mt-2">Owners need fair, predictable payment. Dispatchers need simple coordination. Technicians need fast, reliable workflows in poor-signal conditions.</p><div class="mt-4 text-emerald-300 font-semibold">Mobile: jobs + evidence + exceptions</div></div></div></section>
 <section class="slide" id="s4"><div class="label">04 · Product experience</div><h2>Two simple product surfaces</h2><div class="grid md:grid-cols-2 gap-4"><div class="card"><div class="label">Technician mobile app</div><h3 class="mt-2">A job in five steps</h3><ol class="list-decimal pl-5 mt-3 space-y-2"><li>Sign in with SMS and OTP.</li><li>View assigned jobs and SLA details.</li><li>Capture required photos.</li><li>Raise a site exception or variation.</li><li>Submit now or save offline and sync later.</li></ol></div><div class="card"><div class="label">Operator web console</div><h3 class="mt-2">See work and resolve exceptions</h3><ol class="list-decimal pl-5 mt-3 space-y-2"><li>Monitor job, SLA and first-time-fix metrics.</li><li>Review requests by urgency.</li><li>Compare dispatched scope, claim and evidence.</li><li>Approve, modify or reject with a reason.</li><li>Track decisions and audit history.</li></ol></div></div></section>
 <section class="slide" id="s5"><div class="label">05 · Core requirements</div><h2>Build the reliable core first</h2><div class="grid md:grid-cols-2 gap-3"><div class="card"><h3>Must have</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Offline job access and queued updates.</li><li>Guided photo evidence linked to a job.</li><li>Exception and variation submission.</li><li>Operator review queue and recorded decisions.</li><li>Performance dashboard and audit history.</li></ul></div><div class="card"><h3>Should have</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Four-hour decision timer and escalation.</li><li>AI-assisted evidence and rate-card checks.</li><li>Advanced capacity insights.</li><li>Predictive parts replenishment (later phase).</li></ul></div></div></section>
-<section class="slide" id="s6"><div class="label">06 · Integrations and AI</div><h2>Resilient integrations, human-led decisions</h2><div class="grid md:grid-cols-2 gap-4"><div class="card"><h3>Integrations</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Work management: jobs, status and SLA.</li><li>GIS: network and location context.</li><li>ERP: approved variations and payment milestones.</li><li>Weather, routing, certifications and parts.</li><li>Start with SFTP/CSV where APIs are unavailable.</li></ul></div><div class="card"><h3>AI-assisted evidence review</h3><ul class="list-disc pl-5 mt-2 space-y-2"><li>Check image quality and extract readings.</li><li>Flag possible duplicate evidence.</li><li>Suggest rate-card matches.</li><li>Route uncertain cases to a person.</li><li>Vendor manager retains final authority.</li></ul></div></div></section>
+<section class="slide" id="s6"><div class="label">06 · Integrations and AI</div><h2>AI speeds up evidence review—not the final decision</h2>
+<div class="ai-flow">
+  <div class="ai-step"><strong>1. Capture</strong><span>Technician submits job photos, readings and variation details.</span></div><div class="ai-arrow">→</div>
+  <div class="ai-step"><strong>2. Validate</strong><span>Check image quality, extract readings and flag duplicates.</span></div><div class="ai-arrow">→</div>
+  <div class="ai-step"><strong>3. Match</strong><span>Compare the claim with job scope and contract rate card.</span></div>
+</div>
+<div class="text-center text-sky-300 text-xl font-bold leading-none">↓</div>
+<div class="ai-branch">
+  <div class="ai-step border-emerald-700"><strong class="text-emerald-300">Higher confidence</strong><span>AI prepares a recommendation with supporting evidence.</span></div>
+  <div class="ai-step border-amber-700"><strong class="text-amber-300">Low confidence / mismatch</strong><span>Flag the case for closer human review.</span></div>
+</div>
+<div class="text-center text-sky-300 text-xl font-bold leading-none">↓</div>
+<div class="ai-final ai-step"><strong>4. Human decision</strong><span>Vendor manager reviews the evidence and approves, modifies or rejects—with a reason.</span></div>
+<div class="text-center text-sky-300 text-xl font-bold leading-none">↓</div>
+<div class="ai-final ai-step"><strong>5. Record &amp; sync</strong><span>Store the decision and audit trail; send approved variation/payment updates to ERP.</span></div>
+<div class="grid md:grid-cols-2 gap-3 mt-1">
+<div class="text-sm text-slate-300"><strong class="text-white">Connected systems:</strong> Work management (jobs/SLA), GIS (network/location), ERP (approved variations/payment), plus weather, routing, certifications and parts.</div>
+<div class="text-sm text-amber-200"><strong>Guardrail:</strong> AI assists and prioritizes; it never makes the final payment or claim decision.</div>
+</div></section>
 <section class="slide" id="s7"><div class="label">07 · Success metrics</div><h2>Measure adoption, operational impact and trust</h2><div class="grid md:grid-cols-3 gap-3"><div class="card"><h3>Adoption & usability</h3><p class="mt-2">Weekly active technicians, digital job completion, time to submit (&lt;2 minutes).</p></div><div class="card"><h3>Operations & payment</h3><p class="mt-2">First-time-fix, repeat visits, variation decision time, dispute recurrence and time to payment.</p></div><div class="card"><h3>Reliability & AI quality</h3><p class="mt-2">Offline sync success, failed submissions, human override and false-positive rates.</p></div></div><p class="text-sm text-slate-400">Set baselines in the pilot. Treat targets as hypotheses until validated.</p></section>
 <section class="slide" id="s8"><div class="label">08 · Business case</div><h2>Operator-funded model protects partner adoption</h2><p class="max-w-3xl">The operator pays per completed job. The core app remains free to subcontractors, whose margins are already thin.</p><div class="grid md:grid-cols-2 gap-4"><div class="card"><h3>Estimated annual gross benefit</h3><div class="kpi">£1.446M</div><p>Disputes £450K · Repeat visits £795.6K · Admin effort £200K</p></div><div class="card"><h3>Estimated annual platform cost</h3><div class="kpi">£374.4K</div><p>£1.20 × 312,000 jobs</p><div class="mt-3 border-t border-slate-700 pt-3"><span class="text-emerald-300 font-bold text-xl">£1.071M projected net savings</span></div></div></div><p class="text-sm text-slate-400">Forecast only. Validate each benefit against pilot baselines.</p></section>
 <section class="slide" id="s9"><div class="label">09 · Rollout and decisions</div><h2>Prove value, then scale by partner volume</h2><div class="grid md:grid-cols-4 gap-3"><div class="card"><div class="label">Weeks 1–6</div><h3 class="mt-2">Pilot</h3><p>3 firms · ~150 technicians · ~1,000 jobs/week.</p></div><div class="card"><div class="label">Weeks 7–16</div><h3 class="mt-2">Top partners</h3><p>25 firms · ~60% of job volume.</p></div><div class="card"><div class="label">Weeks 17–26</div><h3 class="mt-2">Expand</h3><p>Remaining 175 firms with self-serve onboarding.</p></div><div class="card"><div class="label">Week 27+</div><h3 class="mt-2">Standardize</h3><p>Digital evidence becomes standard billing path, subject to policy approval.</p></div></div><div class="card"><h3>Decisions before scale</h3><p class="mt-2">Confirm Day-1 SFTP readiness, four-hour review capacity, payment funding, invoice exceptions and privacy/retention policy.</p></div></section>
